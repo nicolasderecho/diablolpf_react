@@ -38,3 +38,28 @@ body {
 .diablo-filter-box label {
   color: white;
 }
+
+.cube-recipe {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.diablo-table-item figure.image {
+  margin: 0 auto 0.5em;
+}
+
+.cube-recipe .cube-item figure.image:first-child, .cube-recipe .cube-item figure.image:last-child {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.cube-recipe .cube-item.gem {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.cube-recipe .cube-item.gem .gem-figure.image {
+  align-self: center;
+}
