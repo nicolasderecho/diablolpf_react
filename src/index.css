@@ -28,6 +28,16 @@ body {
   text-align: center;
 }
 
+.diablo-table tbody td.diablo-table-item.formula {
+  width: 20%;
+}
+
+.diablo-table tbody td.diablo-table-item.formula .formula-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
 .diablo-filter-box {
   background-color: green;
   border: 1px solid white;
@@ -63,3 +73,33 @@ body {
 .cube-recipe .cube-item.gem .gem-figure.image {
   align-self: center;
 }
+
+.diablo-table tbody td.diablo-table-item.runeword-specs {
+  text-align: left;
+}
+
+.runeword-name {
+  display: flex;
+}
+
+.runeword-name .runeword-stats {
+  text-align: left;
+  flex: 3;
+}
+
+.runeword-runes {
+  justify-content: space-evenly;
+  flex: 2;
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+
+  .runeword-name .runeword-stats {
+    order: 2;
+  }
+  
+  .runeword-name .runeword-runes {
+    order: 1;
+  }
+};

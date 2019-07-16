@@ -3,6 +3,9 @@ import Home from './pages/Home';
 import Runes from './pages/Runes';
 import Header from './layout/Header'
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Gems from './pages/Gems';
+import Runewords from './pages/Runewords';
+import CubeFormulas from './pages/CubeFormulas';
 
 function App() {
   return (
@@ -11,6 +14,9 @@ function App() {
         <Header/>
         <Route exact path={'/'} render={() => <Home/> } />
         <Route exact path={'/runas'} render={() => <Runes /> } />
+        <Route exact path={'/gemas'} render={() => <Gems /> } />
+        <Route exact path={'/palabras_runicas'} render={() => <Runewords /> } />
+        <Route exact path={'/cubo'} render={() => <CubeFormulas /> } />
       </Router>
     </div>
   );

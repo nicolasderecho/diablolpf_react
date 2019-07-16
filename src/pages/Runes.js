@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Box, Columns, Field, Label, Control, Input, Button, Column, Table } from 'tenpines-bulma-react';
 import {isBlank} from '../shared/util';
-import {RunesData, Gems} from '../shared/data'; 
+import {RunesData} from '../shared/data'; 
 import DiabloTable from '../shared/DiabloTable.js';
 import Rune from '../shared/Rune';
 import CubeRecipe from '../shared/CubeRecipe';
@@ -13,9 +13,6 @@ const matchesArrayFilter = (filter, array) => {
 const TABLE_HEADERS = ['Número', 'Nombre', 'A través del cubo', 'Nível', 'Armas', 'Armaduras/Yelmos/Escudos'];
 
 const Runes = (props) => {
-    window.gems = Gems;
-    window.runes = RunesData;
-    console.log(Gems);
     const [name, setname] = useState('');
     const [level, setlevel] = useState('');
     const [runes, setrunes] = useState(RunesData);

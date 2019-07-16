@@ -1,21 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Navbar, Container} from 'tenpines-bulma-react';
 import {NavLink} from 'react-router-dom';
 
 const Header = (props) => {
+    const [menuOpened, setMenuOpened] = useState(false);
+    const toggleMenuOpened = () => setMenuOpened((currentMenuOpened) => !currentMenuOpened);
+
     return <div className={'navbar-container'}>
         <Container>
             <Navbar>
                 <Navbar.Brand>
-                    <NavLink to={'/'} activeClassName={'is-active'} className={'navbar-item'}>L.P.F</NavLink>
-                    <Navbar.Burguer className={'navbar-burger burger'}></Navbar.Burguer>
+                    <Navbar.Item to={'/'} activeClassName={'is-active'} component={NavLink}>L.P.F</Navbar.Item>
+                    <Navbar.Burger onClick={toggleMenuOpened}/>
                 </Navbar.Brand>
-                <Navbar.Menu>
+                <Navbar.Menu active={menuOpened}>
                     <Navbar.Start>
-                        <NavLink to={'/runas'} activeClassName={'is-active'} className={'navbar-item'}>Runas</NavLink>
-                        <NavLink to={'/gemas'} activeClassName={'is-active'} className={'navbar-item'}>Gemas</NavLink>
-                        <NavLink to={'/palabras_runicas'} activeClassName={'is-active'} className={'navbar-item'}>Palabras Rúnicas</NavLink>
-                        <NavLink to={'/cubo'} activeClassName={'is-active'} className={'navbar-item'}>Cubo Horádrico</NavLink>
+                        <Navbar.Item to={'/runas'} activeClassName={'is-active'} component={NavLink}>Runas</Navbar.Item>
+                        <Navbar.Item to={'/gemas'} activeClassName={'is-active'} component={NavLink}>Gemas</Navbar.Item>
+                        <Navbar.Item to={'/palabras_runicas'} activeClassName={'is-active'} component={NavLink}>Palabras Rúnicas</Navbar.Item>
+                        <Navbar.Item to={'/cubo'} activeClassName={'is-active'} component={NavLink}>Cubo Horádrico</Navbar.Item>
                     </Navbar.Start>
                 </Navbar.Menu>
             </Navbar>
