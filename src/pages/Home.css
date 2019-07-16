@@ -12,3 +12,7 @@
     flex-direction: row;
     justify-content: space-between;    
 }
+
+.home-container .images.logo {
+    justify-content: center;
+}
