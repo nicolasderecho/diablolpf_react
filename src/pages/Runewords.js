@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Column, Box, Columns, Field, Label, Control, Button, Table} from 'tenpines-bulma-react';
 import {Runewords as RunewordsList, RunesData} from '../shared/data';
 import Rune from '../shared/Rune';
@@ -8,6 +8,7 @@ import flatten from 'lodash/flatten';
 import uniq from 'lodash/uniq';
 import capitalize from 'lodash/capitalize';
 import Select from 'react-select';
+import Spinner from '../shared/Spinner';
 
 const TABLE_HEADERS = ['Palabra Rúnica', 'Especificaciones'];
 
@@ -42,6 +43,7 @@ const Runewords = () => {
     const [holes,setHoles] = useState('');
     const [applicableIn,setApplicableIn] = useState([]);
     const [runes,setRunes] = useState([]);
+    const [displayTable, setDisplayTable] = useState(false);
 
     const matchesName = (runeword) => isBlank(name) || new RegExp(`${runeword.name}`, 'i').test(name);
     const matchesOriginalName = (runeword) => isBlank(originalName) || new RegExp(`${runeword.code}`, 'i').test(originalName);
@@ -60,6 +62,8 @@ const Runewords = () => {
         event.preventDefault();
         filterRunewords();
     }
+
+    useEffect(() => { window.setTimeout( () => setDisplayTable(true), 0) }, []);
 
     const renderRow = (runeword) => <Table.Row key={runeword.code}>
         <Table.Cell className={'diablo-table-item'} >
@@ -142,7 +146,10 @@ const Runewords = () => {
             </Columns>
         </form> 
     </Box>
-    <DiabloTable headers={TABLE_HEADERS} items={runewords} renderRow={renderRow}/>
+    { displayTable  
+        ? <DiabloTable headers={TABLE_HEADERS} items={runewords} renderRow={renderRow}/>
+        : <div className={'spinner-container'}><Spinner /></div>
+    }
 </div>
 }
 
