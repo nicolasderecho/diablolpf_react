@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.css';
+import './Home.scss';
 import {Container, Image} from 'tenpines-bulma-react';
 import necromancer from '../assets/necro.gif';
 import sorceress from '../assets/sorceress.gif';
