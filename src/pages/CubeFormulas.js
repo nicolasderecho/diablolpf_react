@@ -2,15 +2,9 @@ import React, {useState} from 'react';
 import {Column, Box, Columns, Field, Label, Control, Input, Button, Table} from 'tenpines-bulma-react';
 import {CubeRecipes} from '../shared/data';
 import DiabloTable from '../shared/DiabloTable.js';
-import {isBlank} from '../shared/util';
+import {isBlank, matchesArrayFilter} from '../shared/util';
 
 const TABLE_HEADERS = ['Formula', 'Resultado', 'Detalles'];
-
-const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const matchesArrayFilter = (filter, array) => {
-    const regExp = new RegExp(escapeRegExp(filter), 'i');
-    return isBlank(filter) || array.some((prop) => regExp.test(prop));
-}
 
 const CubeFormulas = () => {
     const [cubeFormulas, setCubeFormulas] = useState(CubeRecipes);

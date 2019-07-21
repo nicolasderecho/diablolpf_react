@@ -1,15 +1,11 @@
 import React, {useState} from 'react';
 import { Box, Columns, Field, Label, Control, Input, Button, Column, Table } from 'tenpines-bulma-react';
-import {isBlank} from '../shared/util';
+import {isBlank, matchesArrayFilter} from '../shared/util';
 import {RunesData} from '../shared/data'; 
 import DiabloTable from '../shared/DiabloTable.js';
 import Rune from '../shared/Rune';
 import CubeRecipe from '../shared/CubeRecipe';
 
-const matchesArrayFilter = (filter, array) => {
-    const regExp = new RegExp(filter, 'i');
-    return isBlank(filter) || array.some((prop) => regExp.test(prop));
-}
 const TABLE_HEADERS = ['Número', 'Nombre', 'A través del cubo', 'Nível', 'Armas', 'Armaduras/Yelmos/Escudos'];
 
 const Runes = (props) => {
@@ -25,12 +21,10 @@ const Runes = (props) => {
     const matchesFilters = (rune) => {
         return matchesNameFilter(rune) && matchesLevelFilter(rune) && matchesWeaponFilter(rune) && matchesShieldFilter(rune);
     };
-    const filterRunes = () => {
-        setrunes(RunesData.filter( (rune) => matchesFilters(rune)));
-    }
+    const filterRunes = () => setrunes(RunesData.filter( (rune) => matchesFilters(rune)));
     const onSubmit = (event) => {
         event.preventDefault();
-        filterRunes()
+        filterRunes();
     }
     const renderRow = (rune) => <Table.Row key={rune.code}>
         <Table.Cell className={'diablo-table-item'} >{rune.position}</Table.Cell>

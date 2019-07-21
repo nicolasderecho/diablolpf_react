@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Gems from './pages/Gems';
 import Runewords from './pages/Runewords';
 import CubeFormulas from './pages/CubeFormulas';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path={'/gemas'} render={() => <Gems /> } />
         <Route exact path={'/palabras_runicas'} render={() => <Runewords /> } />
         <Route exact path={'/cubo'} render={() => <CubeFormulas /> } />
+        <Route render={() => <NotFoundPage />} />
       </Router>
     </div>
   );

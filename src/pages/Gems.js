@@ -1,16 +1,9 @@
 import React, {useState} from 'react';
 import {Box, Columns, Column, Field, Label, Control, Input, Table, Button} from 'tenpines-bulma-react';
-import {isBlank} from '../shared/util';
+import {matchesArrayFilter} from '../shared/util';
 import {Gems as GemList} from '../shared/data';
 import DiabloTable from '../shared/DiabloTable.js';
 import Gem from '../shared/Gem';
-
-const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-const matchesArrayFilter = (filter, array) => {
-    const regExp = new RegExp(escapeRegExp(filter), 'i');
-    return isBlank(filter) || array.some((prop) => regExp.test(prop));
-}
 
 const TABLE_HEADERS = ['Nombre', 'Nivel', 'Armas', 'Armaduras/Yelmos', 'Escudos'];
 
