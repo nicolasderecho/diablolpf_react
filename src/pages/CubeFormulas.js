@@ -31,7 +31,6 @@ const CubeFormulas = () => {
     const matchesDescription = (formula) => isBlank(description) || !!formula.description.toLowerCase().match(description.toLowerCase());
     
     const matchesFilters = (formula) => {
-        debugger
         return matchesItem(formula) && matchesResult(formula) && matchesDescription(formula);
     }
     const filterFormulas = () => setCubeFormulas(CubeRecipes.filter( (formula) => matchesFilters(formula)));

@@ -2,9 +2,12 @@ import React, {useState} from 'react';
 import {Navbar, Container} from 'tenpines-bulma-react';
 import {NavLink} from 'react-router-dom';
 
+const Link = ({to, children, onClick}) => <Navbar.Item to={to} activeClassName={'is-active'} component={NavLink} onClick={onClick}>{children}</Navbar.Item>;
+
 const Header = (props) => {
     const [menuOpened, setMenuOpened] = useState(false);
     const toggleMenuOpened = () => setMenuOpened((currentMenuOpened) => !currentMenuOpened);
+    const closeMenu = () => setMenuOpened(false);
 
     return <div className={'navbar-container'}>
         <Container>
@@ -15,10 +18,10 @@ const Header = (props) => {
                 </Navbar.Brand>
                 <Navbar.Menu active={menuOpened}>
                     <Navbar.Start>
-                        <Navbar.Item to={'/runas'} activeClassName={'is-active'} component={NavLink}>Runas</Navbar.Item>
-                        <Navbar.Item to={'/gemas'} activeClassName={'is-active'} component={NavLink}>Gemas</Navbar.Item>
-                        <Navbar.Item to={'/palabras_runicas'} activeClassName={'is-active'} component={NavLink}>Palabras Rúnicas</Navbar.Item>
-                        <Navbar.Item to={'/cubo'} activeClassName={'is-active'} component={NavLink}>Cubo Horádrico</Navbar.Item>
+                        <Link to={'/runas'} onClick={closeMenu}>Runas</Link>
+                        <Link to={'/gemas'} onClick={closeMenu}>Gemas</Link>
+                        <Link to={'/palabras_runicas'} onClick={closeMenu}>Palabras Rúnicas</Link>
+                        <Link to={'/cubo'} onClick={closeMenu}>Cubo Horádrico</Link>
                     </Navbar.Start>
                 </Navbar.Menu>
             </Navbar>

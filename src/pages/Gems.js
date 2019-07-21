@@ -25,13 +25,7 @@ const Gems = () => {
     const matchesFilters = (gem) => {
         return matchesWeaponFilter(gem) && matchesShieldFilter(gem) && matchesHelmFilter(gem);
     };
-    const filterGems = () => {
-        window.GemList = GemList;
-        console.log(GemList);
-        console.log(matchesFilters);
-        debugger
-        setgems(GemList.filter( (gem) => matchesFilters(gem)));
-    }
+    const filterGems = () => setgems(GemList.filter( (gem) => matchesFilters(gem)));
     const onSubmit = (event) => {
         event.preventDefault();
         filterGems()

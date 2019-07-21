@@ -40,7 +40,7 @@ const Runes = (props) => {
         <Table.Cell className={'diablo-table-item'} >{rune.weapons.map( (property, i) => <div key={i}>{property}</div>)}</Table.Cell>
         <Table.Cell className={'diablo-table-item'} >{rune.shields.map( (property, i) => <div key={i}>{property}</div>)}</Table.Cell>
     </Table.Row>
-    debugger
+
     return <div className={'page-container'}>
         <Box className={'diablo-filter-box'}>
             <form onSubmit={onSubmit}>
