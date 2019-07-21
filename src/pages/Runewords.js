@@ -128,7 +128,7 @@ const Runewords = () => {
                         <Field>
                             <Label>Aplicable En</Label>
                             <Control>
-                                <Select isMulti theme={selectTheme} styles={selectStyles} placeholder='Ej: Cualquiera' onChange={(selectedOption) => {setApplicableIn(selectedOption.map((option) => option.value))}} options={applicableInOptions} />
+                                <Select isMulti theme={selectTheme} styles={selectStyles} placeholder='Ej: Cualquiera' onChange={(selectedOption) => { setApplicableIn((selectedOption || []).map((option) => option.value))}} options={applicableInOptions} />
                             </Control>
                         </Field>
                     </Column>          
@@ -136,7 +136,7 @@ const Runewords = () => {
                         <Field>
                             <Label>Runas que contiene</Label>
                             <Control>
-                                <Select isMulti theme={selectTheme} styles={selectStyles} placeholder='Ej: Cualquiera' onChange={(selectedOption) => {setRunes(selectedOption.map((option) => option.value))}} options={runesOptions} />
+                                <Select isMulti theme={selectTheme} styles={selectStyles} placeholder='Ej: Cualquiera' onChange={(selectedOption) => {setRunes( (selectedOption || []).map((option) => option.value))}} options={runesOptions} />
                             </Control>
                         </Field>
                     </Column>            
