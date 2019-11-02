@@ -13,7 +13,7 @@ const CubeRecipes = JsonCubeRecipes;
 const Gems = JsonGems;
 
 const UnorderedRunewords = JsonRunewords.map( (runeword) => Object.assign({}, 
-    { holes: runeword.holes, level: runeword.level, name: runeword.name, type: runeword.type, code: runeword.code, specs: runeword.specs, applicableIn: runeword.applicable_in }, 
+    { holes: runeword.holes, level: runeword.level, name: runeword.name, type: runeword.type, code: runeword.code, specs: runeword.specs, applicableIn: runeword.applicable_in, unlockable: !!runeword.unlockable }, 
     { runes: runeword.rune_codes.map( (runeCode) => findRuneByCode(runeCode) ), runeCodes: runeword.rune_codes } ) ); 
 
 const Runewords = sortBy(UnorderedRunewords, ['level', 'name']);

@@ -84,6 +84,11 @@ body {
   display: flex;
 }
 
+.runeword-name-label {
+  display: flex;
+  justify-content: space-between;
+}
+
 .runeword-name .runeword-stats {
   text-align: left;
   flex: 3;
