@@ -71,7 +71,7 @@ const Runewords = () => {
                 <Column className={'runeword-stats'} mobileColumnSize={'full'} tabletColumnSize={'half'} touchColumnSize={'full'} desktopColumnSize={'half'} >
                     <div className={'runeword-name-label'}>
                         <div><b>Nombre: </b>{runeword.name}</div>
-                        { runeword.unlockable ? <Tag color={'link'} size={'normal'}>Desbloqueable</Tag> : null }
+                        { runeword.unlockable ? <Tag color={'link'} size={'normal'} rounded>Desbloqueable</Tag> : null }
                     </div>
                     <div><b>Nombre original: </b>{runeword.code}</div>
                     <div><b>Nivel: </b>{runeword.level}</div>
