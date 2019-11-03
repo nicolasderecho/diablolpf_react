@@ -93,3 +93,14 @@ var extractBoots = (itemsContainer, itemClass) => {
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: 'Boot', itemLabel: 'Bota' });
 }
+
+var extractBelts = (itemsContainer, itemClass, itemType = 'Belt', itemLabel = 'Belts') => {
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const defense = findAndParseAttribute(base[2].split(':'));
+        const requiredStrong = findAndParseAttribute(base[4].split(':'));
+        const beltHoles = findAndParseAttribute(base[6].split(':')).split(' ')[0];
+        return { defense, requiredStrong, beltHoles, extraAttributes: ["defense", "requiredStrong", "beltHoles"] }
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
