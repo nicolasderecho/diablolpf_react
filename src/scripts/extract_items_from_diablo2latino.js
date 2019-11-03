@@ -212,3 +212,6 @@ var extractRods = (itemsContainer, itemClass, itemType = 'Rod', itemLabel = 'Var
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
+
+//Ejemplo para extraer joyas y hechizos
+extractItems($0, { itemClass: 'exceptional', itemType: 'Jewel', itemLabel: 'Joya', levelSubposition: 2 })
