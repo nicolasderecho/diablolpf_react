@@ -47,16 +47,18 @@ var extractBows = (itemsContainer, itemClass) => {
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: 'Bow', itemLabel: 'Arco' });
 }
 
-
-var extractArmors = (itemsContainer, itemClass) => {
+//funciona con cascos
+var extractArmors = (itemsContainer, itemClass, itemType = 'Armor', itemLabel = 'Arma de Guerra') => {
     const searcher = (itemDataList) => {
-        const defense = cleanSymbols(lastElement(itemDataList[4].innerHTML.split('<br>')[2].split('Defensa:'))).trim();
-        const requiredStrong = cleanSymbols(lastElement(itemDataList[4].innerHTML.split('<br>')[4].split('Fuerza requerida:'))).trim();
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const defense = findAndParseAttribute(base[2].split(':'));
+        const requiredStrong = findAndParseAttribute(base[4].split(':'));
         return { defense, requiredStrong, extraAttributes: ["defense", "requiredStrong"] }
     };
-    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: 'Armor', itemLabel: 'Armadura' });
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
 
+//funciona con bastones
 var extractWarWeapons = (itemsContainer, itemClass, itemType = 'War-Weapon', itemLabel = 'Arma de Guerra') => {
     const searcher = (itemDataList) => {
         const base = itemDataList[4].innerHTML.split('<br>');
@@ -79,4 +81,15 @@ var extractCrossBows = (itemsContainer, itemClass, itemType = 'CrossBow', itemLa
         return { speed, damage, requiredStrong, requiredDexterity, extraAttributes: ["damage", "requiredStrong", "requiredDexterity", "speed"] }
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
+
+var extractBoots = (itemsContainer, itemClass) => {
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const defense = findAndParseAttribute(base[2].split(':'));
+        const requiredStrong = findAndParseAttribute(base[4].split(':'));
+        const assassinDamage = findAndParseAttribute(base[6].split(':'));
+        return { defense, requiredStrong, assassinDamage, extraAttributes: ["defense", "requiredStrong", "assassinDamage"] }
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: 'Boot', itemLabel: 'Bota' });
 }
