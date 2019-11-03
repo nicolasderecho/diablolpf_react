@@ -177,3 +177,26 @@ var extractJavelins = (itemsContainer, itemClass, itemType = 'Javelin', itemLabe
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
+
+var extractMaces = (itemsContainer, itemClass, itemType = 'Mace', itemLabel = 'Maza') => {
+    const commonStats = (base, itemDataList) => {
+        const requiredStrong = findAndParseAttribute(base[4].split(':'));
+        const speed = findAndParseAttribute((base[7] || base[5]).split(':'));
+        return { speed, requiredStrong }; 
+    }    
+    const dexterityStats = (base, itemDataList) => {
+        const requiredStrong = findAndParseAttribute(base[4].split(':'))
+        const requiredDexterity = findAndParseAttribute(base[5].split(':'));
+        const speed = findAndParseAttribute(base[7].split(':'));
+        return { speed, requiredDexterity, requiredStrong };         
+    }
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const damageKey = !!itemDataList[4].innerText.match('dos manos') ? 'twoHandedamage' : 'oneHandedamage';
+        const damageValue = findAndParseAttribute(base[2].split(':'));
+        const extractMethod = !!itemDataList[4].innerText.match('Destreza requerida') ? dexterityStats : commonStats ;
+        const extraKeys = Object.assign({}, { [damageKey]: damageValue}, extractMethod(base, itemDataList)); 
+        return Object.assign({}, extraKeys, { extraAttributes: Object.keys(extraKeys) });
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
