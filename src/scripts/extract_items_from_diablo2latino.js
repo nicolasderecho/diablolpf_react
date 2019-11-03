@@ -58,7 +58,7 @@ var extractArmors = (itemsContainer, itemClass, itemType = 'Armor', itemLabel = 
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
 
-//funciona con bastones
+//funciona con bastones y cetros
 var extractWarWeapons = (itemsContainer, itemClass, itemType = 'War-Weapon', itemLabel = 'Arma de Guerra') => {
     const searcher = (itemDataList) => {
         const base = itemDataList[4].innerHTML.split('<br>');
