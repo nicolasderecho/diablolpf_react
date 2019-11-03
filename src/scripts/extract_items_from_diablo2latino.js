@@ -161,3 +161,19 @@ var extractAxes = (itemsContainer, itemClass, itemType = 'Axe', itemLabel = 'Hac
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
+
+var extractJavelins = (itemsContainer, itemClass, itemType = 'Javelin', itemLabel = 'Jabalina') => {
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const throwingDamage = findAndParseAttribute(base[2].split(':'));
+        const damage = findAndParseAttribute(base[3].split(':'))
+        const requiredLevel = findAndParseAttribute(base[4].split(':'));
+        const requiredStrong = findAndParseAttribute(base[5].split(':'));
+        const requiredDexterity = findAndParseAttribute(base[6].split(':'));
+        const speed = findAndParseAttribute(base[7].split(':'));
+        const maximumCapacity = findAndParseAttribute(base[8].split('(')).replace(')', '');
+        const extraKeys = { damage, throwingDamage, requiredStrong, requiredDexterity, speed, maximumCapacity, requiredLevel };
+        return Object.assign({}, extraKeys, { extraAttributes: Object.keys(extraKeys) });
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
