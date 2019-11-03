@@ -51,14 +51,14 @@ var extractBows = (itemsContainer, itemClass) => {
 var extractArmors = (itemsContainer, itemClass, itemType = 'Armor', itemLabel = 'Arma de Guerra') => {
     const searcher = (itemDataList) => {
         const base = itemDataList[4].innerHTML.split('<br>');
-        const defense = findAndParseAttribute(base[2].split(':'));
+        const defense = findAndParseAttribute(base[2].split('Defensa:'));
         const requiredStrong = findAndParseAttribute(base[4].split(':'));
         return { defense, requiredStrong, extraAttributes: ["defense", "requiredStrong"] }
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
 
-//funciona con bastones, cetros y dagas
+//funciona con bastones, cetros, dagas
 var extractWarWeapons = (itemsContainer, itemClass, itemType = 'War-Weapon', itemLabel = 'Arma de Guerra') => {
     const searcher = (itemDataList) => {
         const base = itemDataList[4].innerHTML.split('<br>');
@@ -101,6 +101,49 @@ var extractBelts = (itemsContainer, itemClass, itemType = 'Belt', itemLabel = 'B
         const requiredStrong = findAndParseAttribute(base[4].split(':'));
         const beltHoles = findAndParseAttribute(base[6].split(':')).split(' ')[0];
         return { defense, requiredStrong, beltHoles, extraAttributes: ["defense", "requiredStrong", "beltHoles"] }
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
+
+var extractShields = (itemsContainer, itemClass, itemType = 'Shield', itemLabel = 'Escudo') => {
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const defense = findAndParseAttribute(base[2].split('Defensa:'));
+        const requiredStrong = findAndParseAttribute(base[4].split(':'))
+        const blockBase = findAndParseAttribute(base[5].split('bloqueo:'));
+        const blockByPj = blockBase.split(',');
+        const paladinBlock = lastElement(blockByPj[0].split(' '));
+        const amaAssaBarBlock = lastElement(blockByPj[1].split(' '));
+        const druNecSorBlock = lastElement(blockByPj[2].split(' '));
+        const paladinDamage = findAndParseAttribute(base[6].split(':'));
+        const extraKeys = { paladinDamage, defense, requiredStrong, paladinBlock, druNecSorBlock, amaAssaBarBlock };
+        return Object.assign({}, extraKeys, { extraAttributes: Object.keys(extraKeys) });
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
+
+var extractSwords = (itemsContainer, itemClass, itemType = 'Sword', itemLabel = 'Espada') => {
+    const oneHandedSwords = (base, itemDataList) => {
+        const oneHandedamage = findAndParseAttribute(base[2].split(':'));
+        const requiredStrong = findAndParseAttribute(base[4].split(':'))
+        const requiredDexterity = findAndParseAttribute(base[5].split(':'));
+        const speed = findAndParseAttribute(base[7].split(':'));
+        return { speed, oneHandedamage, requiredStrong, requiredDexterity }; 
+    }    
+    const twoHandedSwords = (base, itemDataList) => {
+        const oneHandedamage = findAndParseAttribute(base[2].split(':'));
+        const twoHandedamage = findAndParseAttribute(base[3].split(':'));
+        const requiredLevel = findAndParseAttribute(base[4].split(':'))
+        const requiredStrong = findAndParseAttribute(base[5].split(':'))
+        const requiredDexterity = findAndParseAttribute(base[6].split(':'));
+        const speed = findAndParseAttribute(base[7].split(':'));
+        return { speed, oneHandedamage, twoHandedamage, requiredLevel, requiredDexterity, requiredStrong };         
+    }
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const extractMethod = !!itemDataList[4].innerText.match('dos manos') ? twoHandedSwords : oneHandedSwords ;
+        const extraKeys = extractMethod(base, itemDataList);
+        return Object.assign({}, extraKeys, { extraAttributes: Object.keys(extraKeys) });
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
