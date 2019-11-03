@@ -68,3 +68,15 @@ var extractWarWeapons = (itemsContainer, itemClass) => {
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: 'War-Weapon', itemLabel: 'Arma de Guerra' });
 }
+
+var extractCrossBows = (itemsContainer, itemClass) => {
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const damage = findAndParseAttribute(base[2].split(':'));
+        const requiredStrong = findAndParseAttribute(base[4].split(':'))
+        const requiredDexterity = findAndParseAttribute(base[5].split(':'));
+        const speed = findAndParseAttribute(base[6].split(':'));
+        return { speed, damage, requiredStrong, requiredDexterity, extraAttributes: ["damage", "requiredStrong", "requiredDexterity", "speed"] }
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: 'Bow', itemLabel: 'Arco' });
+}
