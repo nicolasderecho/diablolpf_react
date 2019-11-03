@@ -1,3 +1,4 @@
+//https://www.diablo2latino.com/Objetos-unicoslista.html
 //Shared methods
 const lastElement  = (list) => list.slice(-1)[0];
 const cleanEmpty   = (list) => list.filter( item => item !== null && item !== undefined && item !== "" );
