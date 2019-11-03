@@ -147,3 +147,17 @@ var extractSwords = (itemsContainer, itemClass, itemType = 'Sword', itemLabel = 
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
+
+var extractAxes = (itemsContainer, itemClass, itemType = 'Axe', itemLabel = 'Hacha') => {
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const damageKey = !!itemDataList[4].innerText.match('dos manos') ? 'twoHandedamage' : 'oneHandedamage';
+        const damageValue = findAndParseAttribute(base[2].split(':'));
+        const requiredStrong = findAndParseAttribute(base[4].split(':'))
+        const requiredDexterity = findAndParseAttribute(base[5].split(':'));
+        const speed = findAndParseAttribute(base[7].split(':'));
+        const extraKeys = { speed, [damageKey]: damageValue, requiredStrong, requiredDexterity }; 
+        return Object.assign({}, extraKeys, { extraAttributes: Object.keys(extraKeys) });
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
