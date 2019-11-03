@@ -47,7 +47,7 @@ var extractBows = (itemsContainer, itemClass) => {
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: 'Bow', itemLabel: 'Arco' });
 }
 
-//funciona con cascos
+//funciona con cascos y guantes
 var extractArmors = (itemsContainer, itemClass, itemType = 'Armor', itemLabel = 'Arma de Guerra') => {
     const searcher = (itemDataList) => {
         const base = itemDataList[4].innerHTML.split('<br>');
