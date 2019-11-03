@@ -57,7 +57,7 @@ var extractArmors = (itemsContainer, itemClass) => {
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: 'Armor', itemLabel: 'Armadura' });
 }
 
-var extractWarWeapons = (itemsContainer, itemClass) => {
+var extractWarWeapons = (itemsContainer, itemClass, itemType = 'War-Weapon', itemLabel = 'Arma de Guerra') => {
     const searcher = (itemDataList) => {
         const base = itemDataList[4].innerHTML.split('<br>');
         const damage = findAndParseAttribute(base[2].split(':'));
@@ -66,10 +66,10 @@ var extractWarWeapons = (itemsContainer, itemClass) => {
         const speed = findAndParseAttribute(base[7].split(':'));
         return { speed, damage, requiredStrong, requiredDexterity, extraAttributes: ["damage", "requiredStrong", "requiredDexterity", "speed"] }
     };
-    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: 'War-Weapon', itemLabel: 'Arma de Guerra' });
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
 
-var extractCrossBows = (itemsContainer, itemClass) => {
+var extractCrossBows = (itemsContainer, itemClass, itemType = 'CrossBow', itemLabel = 'Ballesta') => {
     const searcher = (itemDataList) => {
         const base = itemDataList[4].innerHTML.split('<br>');
         const damage = findAndParseAttribute(base[2].split(':'));
@@ -78,5 +78,5 @@ var extractCrossBows = (itemsContainer, itemClass) => {
         const speed = findAndParseAttribute(base[6].split(':'));
         return { speed, damage, requiredStrong, requiredDexterity, extraAttributes: ["damage", "requiredStrong", "requiredDexterity", "speed"] }
     };
-    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: 'Bow', itemLabel: 'Arco' });
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
