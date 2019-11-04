@@ -156,7 +156,7 @@ var extractAxes = (itemsContainer, itemClass, itemType = 'Axe', itemLabel = 'Hac
         const damageValue = findAndParseAttribute(base[2].split(':'));
         const requiredStrong = findAndParseAttribute(base[4].split(':'))
         const requiredDexterity = findAndParseAttribute(base[5].split(':'));
-        const speed = findAndParseAttribute(base[7].split(':'));
+        const speed = findAndParseAttribute((base[7] || base[5]).split(':'));
         const extraKeys = { speed, [damageKey]: damageValue, requiredStrong, requiredDexterity }; 
         return Object.assign({}, extraKeys, { extraAttributes: Object.keys(extraKeys) });
     };
