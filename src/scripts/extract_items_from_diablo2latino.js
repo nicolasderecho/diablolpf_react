@@ -215,3 +215,12 @@ var extractRods = (itemsContainer, itemClass, itemType = 'Rod', itemLabel = 'Var
 
 //Ejemplo para extraer joyas y hechizos
 extractItems($0, { itemClass: 'exceptional', itemType: 'Jewel', itemLabel: 'Joya', levelSubposition: 2 })
+
+var extractRings = (itemsContainer, itemClass, itemType = 'Ring', itemLabel = 'Aro') => {
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const defense = findAndParseAttribute(base[2].split('Defensa:'));
+        return { defense, extraAttributes: ["defense"] }
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
