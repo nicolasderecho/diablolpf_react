@@ -163,6 +163,7 @@ var extractAxes = (itemsContainer, itemClass, itemType = 'Axe', itemLabel = 'Hac
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
 
+//funciona con objetos de lanzamientos
 var extractJavelins = (itemsContainer, itemClass, itemType = 'Javelin', itemLabel = 'Jabalina') => {
     const searcher = (itemDataList) => {
         const base = itemDataList[4].innerHTML.split('<br>');
