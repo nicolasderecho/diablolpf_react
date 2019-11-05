@@ -225,3 +225,32 @@ var extractRings = (itemsContainer, itemClass, itemType = 'Ring', itemLabel = 'A
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
+
+var extractAmazonItems = (itemsContainer, itemClass, itemType = 'Javelin', itemLabel = 'Jabalina') => {
+    const otherParser = (base, itemDataList) => {
+        const twoHandedamage = findAndParseAttribute(base[2].split(':'));
+        const requiredLevel = findAndParseAttribute(base[3].split(':'));
+        const requiredStrong = findAndParseAttribute(base[4].split(':'));
+        const requiredDexterity = findAndParseAttribute(base[5].split(':'));
+        const extraKeys = { twoHandedamage, requiredStrong, requiredLevel, requiredDexterity, isCharacterItem: true, character: 'amazon' };
+        return Object.assign({}, extraKeys, { extraAttributes: ["twoHandedamage", "requiredStrong", "requiredDexterity"] });        
+    }
+
+    const javelinParser = (base, itemDataList) => {
+        const throwingDamage = findAndParseAttribute(base[2].split(':'));
+        const oneHandedamage = findAndParseAttribute(base[3].split(':'));
+        const requiredLevel = findAndParseAttribute(base[4].split(':'));
+        const requiredStrong = findAndParseAttribute(base[5].split(':'));
+        const requiredDexterity = findAndParseAttribute(base[6].split(':'));
+        const maximumCapacity = findAndParseAttribute(base[7].split(':'));
+        const extraKeys = { throwingDamage, oneHandedamage, requiredStrong, requiredLevel, requiredDexterity, maximumCapacity, isCharacterItem: true, character: 'amazon' };
+        return Object.assign({}, extraKeys, { extraAttributes: ["throwingDamage", "oneHandedamage", "requiredStrong", "requiredDexterity", "maximumCapacity"] });        
+    }
+
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const isJavelin = !!itemDataList[4].innerHTML.match(/lanzamiento/);
+        return isJavelin ? javelinParser(base, itemDataList) : otherParser(base, itemDataList);
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
