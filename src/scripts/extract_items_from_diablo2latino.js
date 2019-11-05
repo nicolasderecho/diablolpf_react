@@ -320,3 +320,18 @@ var extractNecromancerItems = (itemsContainer, itemClass, itemType = 'Shield', i
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
+
+var extractPalaItems = (itemsContainer, itemClass, itemType = 'Shield', itemLabel = 'Escudo') => {
+
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const defense = findAndParseAttribute(base[2].split('Defensa:'));
+        const requiredLevel = findAndParseAttribute(base[3].split(':'));
+        const requiredStrong = findAndParseAttribute(base[4].split(':'));
+        const blockChance = findAndParseAttribute(base[5].split(':'));
+        const hitDamage = findAndParseAttribute(base[6].split(':'));
+        const extraKeys = { defense, requiredStrong, hitDamage, blockChance, requiredLevel, isCharacterItem: true, character: 'paladin' };
+        return Object.assign({}, extraKeys, { extraAttributes: ["defense", "requiredStrong", "blockChance", "hitDamage"] });        
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
