@@ -294,3 +294,15 @@ var extractDruidItems = (itemsContainer, itemClass, itemType = 'Helm', itemLabel
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
+
+var extractSorcItems = (itemsContainer, itemClass, itemType = 'Orb', itemLabel = 'Orbe') => {
+
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const damage = findAndParseAttribute(base[2].split(':'));
+        const requiredLevel = findAndParseAttribute(base[3].split(':'));
+        const extraKeys = { damage, requiredLevel, isCharacterItem: true, character: 'sorcerer' };
+        return Object.assign({}, extraKeys, { extraAttributes: ["damage"] });        
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
