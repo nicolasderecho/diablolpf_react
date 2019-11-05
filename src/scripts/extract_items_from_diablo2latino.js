@@ -254,3 +254,17 @@ var extractAmazonItems = (itemsContainer, itemClass, itemType = 'Javelin', itemL
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
+
+var extractAssassinItems = (itemsContainer, itemClass, itemType = 'Claw', itemLabel = 'Garra') => {
+
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const damage = findAndParseAttribute(base[2].split(':'));
+        const requiredLevel = findAndParseAttribute(base[3].split(':'));
+        const requiredStrong = findAndParseAttribute(base[4].split(':'));
+        const requiredDexterity = findAndParseAttribute(base[5].split(':'));
+        const extraKeys = { damage, requiredStrong, requiredLevel, requiredDexterity, isCharacterItem: true, character: 'assasin' };
+        return Object.assign({}, extraKeys, { extraAttributes: ["damage", "requiredStrong", "requiredDexterity"] });        
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
