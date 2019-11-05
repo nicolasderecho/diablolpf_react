@@ -306,3 +306,17 @@ var extractSorcItems = (itemsContainer, itemClass, itemType = 'Orb', itemLabel =
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
+
+var extractNecromancerItems = (itemsContainer, itemClass, itemType = 'Shield', itemLabel = 'Escudo') => {
+
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const defense = findAndParseAttribute(base[2].split('Defensa:'));
+        const requiredLevel = findAndParseAttribute(base[3].split(':'));
+        const requiredStrong = findAndParseAttribute(base[4].split(':'));
+        const blockChance = findAndParseAttribute(base[6].split(':'));
+        const extraKeys = { defense, requiredStrong, blockChance, requiredLevel, isCharacterItem: true, character: 'necromancer' };
+        return Object.assign({}, extraKeys, { extraAttributes: ["defense", "requiredStrong", "blockChance"] });        
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
