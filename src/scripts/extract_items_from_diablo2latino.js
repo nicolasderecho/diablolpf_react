@@ -268,3 +268,16 @@ var extractAssassinItems = (itemsContainer, itemClass, itemType = 'Claw', itemLa
     };
     return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
 }
+
+var extractBabaItems = (itemsContainer, itemClass, itemType = 'Helm', itemLabel = 'Casco') => {
+
+    const searcher = (itemDataList) => {
+        const base = itemDataList[4].innerHTML.split('<br>');
+        const defense = findAndParseAttribute(base[2].split('Defensa:'));
+        const requiredLevel = findAndParseAttribute(base[3].split(':'));
+        const requiredStrong = findAndParseAttribute(base[4].split(':'));
+        const extraKeys = { defense, requiredStrong, requiredLevel, isCharacterItem: true, character: 'barbarian' };
+        return Object.assign({}, extraKeys, { extraAttributes: ["defense", "requiredStrong"] });        
+    };
+    return extractItems(itemsContainer, { extraAttributesSearcher: searcher, itemClass: itemClass, itemType: itemType, itemLabel: itemLabel });
+}
