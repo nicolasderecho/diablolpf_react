@@ -80,24 +80,26 @@ body {
   text-align: left;
 }
 
-.runeword-name {
-  display: flex;
-}
-
 .runeword-name-label {
   display: flex;
-  justify-content: space-between;
+  .unlockable {
+    margin-left: 0.5em;
+    max-width: 106px;
+  }
 }
 
-.runeword-name .runeword-stats {
+.runeword-name-container .runeword-stats {
   text-align: left;
   flex: 3;
 }
 
 .runeword-runes {
-  justify-content: space-evenly;
+  justify-content: center;
   flex: 2;
   display: flex;
+  .rune-object:not(:last-child) {
+    margin-right: 1em;
+  }
 }
 
 .content h1.not-found-message {
@@ -106,13 +108,31 @@ body {
   margin-top: 50px;
 }
 
+
+@media screen and (max-width: 1215px) {
+
+  .runeword-name-container  {
+    .runeword-stats {
+      order: 2;
+    }
+    .runeword-runes {
+      order: 1;
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
 
-  .runeword-name .runeword-stats {
-    order: 2;
-  }
-  
-  .runeword-name .runeword-runes {
-    order: 1;
+  .runeword-name-container .runeword-name-label {
+    flex-direction: column;
+    .runeword-name {
+      order: 2;
+    }
+    .unlockable {
+      margin-left: 0;
+      order: 1;
+      width: 65%;
+      margin-bottom: 5px;
+    }
   }
 };

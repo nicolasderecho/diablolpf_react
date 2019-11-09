@@ -67,18 +67,18 @@ const Runewords = () => {
 
     const renderRow = (runeword) => <Table.Row key={runeword.code}>
         <Table.Cell className={'diablo-table-item'} >
-            <Columns className={'runeword-name'} from={'mobile'} multiline>
-                <Column className={'runeword-stats'} mobileColumnSize={'full'} tabletColumnSize={'half'} touchColumnSize={'full'} desktopColumnSize={'half'} >
+            <Columns className={'runeword-name-container'} from={'mobile'} multiline>
+                <Column className={'runeword-stats'} touchColumnSize={'full'} desktopColumnSize={'full'} widescreenColumnSize={'half'} >
                     <div className={'runeword-name-label'}>
-                        <div><b>Nombre: </b>{runeword.name}</div>
-                        { runeword.unlockable ? <Tag color={'link'} size={'normal'} rounded>Desbloqueable</Tag> : null }
+                        <div className={'runeword-name'}><b>Nombre: </b>{runeword.name}</div>
+                        { runeword.unlockable ? <Tag className={'unlockable'} color={'link'} size={'normal'} rounded>Desbloqueable</Tag> : null }
                     </div>
                     <div><b>Nombre original: </b>{runeword.code}</div>
                     <div><b>Nivel: </b>{runeword.level}</div>
                     <div><b>Aplicable en: </b>{runeword.applicableIn.join(', ')}</div>                
                 </Column>
-                <Column className={'runeword-runes'} mobileColumnSize={'full'} tabletColumnSize={'half'} touchColumnSize={'full'} desktopColumnSize={'half'} >
-                    {runeword.runes.map((rune, index) => <div key={index} ><Rune code={rune.code} name={rune.name}/></div>)}
+                <Column className={'runeword-runes'} touchColumnSize={'full'} desktopColumnSize={'full'} widescreenColumnSize={'half'} >
+                    {runeword.runes.map((rune, index) => <div key={index} className={'rune-object'} ><Rune code={rune.code} name={rune.name}/></div>)}
                 </Column>
             </Columns>
         </Table.Cell>
