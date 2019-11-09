@@ -7,6 +7,7 @@ import Gems from './pages/Gems';
 import Runewords from './pages/Runewords';
 import CubeFormulas from './pages/CubeFormulas';
 import NotFoundPage from './pages/NotFoundPage';
+import UniqueItemsPage from './pages/UniqueItems';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path={'/gemas'} render={() => <Gems /> } />
           <Route exact path={'/palabras_runicas'} render={() => <Runewords /> } />
           <Route exact path={'/cubo'} render={() => <CubeFormulas /> } />
+          <Route exact path={'/items_unicos'} render={() => <UniqueItemsPage /> } />
           <Route render={() => <NotFoundPage />} />
         </Switch>
       </Router>
