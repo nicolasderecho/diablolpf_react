@@ -7,7 +7,7 @@ import Gems from './pages/Gems';
 import Runewords from './pages/Runewords';
 import CubeFormulas from './pages/CubeFormulas';
 import NotFoundPage from './pages/NotFoundPage';
-import UniqueItemsPage from './pages/UniqueItems';
+import UniqueItemsPage from './pages/UniqueItemsPage/UniqueItems';
 
 function App() {
   return (
