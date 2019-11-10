@@ -5,18 +5,19 @@ import Spinner from '../shared/Spinner';
 import { UniqueItems } from '../shared/data.js';
 import UniqueItem from '../shared/UniqueItem.js';
 import ItemRequirements from '../shared/ItemRequirements.js';
+import ItemSpecifications from '../shared/ItemSpecifications.js';
 
 const TABLE_HEADERS = ['Item', 'Especificaciones'];
 
 const UniqueItemsPage = (props) => {
     const items = [];
     const renderRow = (item) => <Table.Row key={item.id}>
-        <Table.Cell className={'diablo-table-item'} >
+        <Table.Cell className={'diablo-table-item no-border-padding'} >
             <UniqueItem name={item.itemLabelName} image={item.image} />
             <ItemRequirements item={item} />
         </Table.Cell>
         <Table.Cell>
-            { item.attributes.map( (attribute, index) => <div key={index}>{attribute}</div> ) }
+            <ItemSpecifications item={item} />
         </Table.Cell>
     </Table.Row>;
     const [displayTable, setDisplayTable] = useState(false);

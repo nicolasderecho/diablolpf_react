@@ -89,7 +89,7 @@ var extractCrossBows = (itemsContainer, itemClass, itemType = 'CrossBow', itemLa
 var extractBoots = (itemsContainer, itemClass) => {
     const searcher = (itemDataList) => {
         const base = itemDataList[4].innerHTML.split('<br>');
-        const defense = findAndParseAttribute(base[2].split(':'));
+        const defense = findAndParseAttribute(base[2].split('Defensa:'));
         const requiredStrong = findAndParseAttribute(base[4].split(':'));
         const assassinDamage = findAndParseAttribute(base[6].split(':'));
         return { defense, requiredStrong, assassinDamage, extraAttributes: ["defense", "requiredStrong", "assassinDamage"] }

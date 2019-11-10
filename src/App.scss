@@ -136,6 +136,11 @@ img.item-image, .item-image img {
   color: $diablo_orange;
 }
 
+.no-border-padding, .content table td.no-border-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .item-requirement {
   color: $diablo_blue;
 }
