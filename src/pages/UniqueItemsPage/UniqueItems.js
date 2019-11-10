@@ -7,6 +7,7 @@ import UniqueItem from '../../shared/UniqueItem.js';
 import ItemRequirements from '../../shared/ItemRequirements.js';
 import ItemSpecifications from '../../shared/ItemSpecifications.js';
 import UniqueItemsFilter from './UniqueItemsFilter';
+import { isBlank } from '../../shared/util.js';
 
 const TABLE_HEADERS = ['Item', 'Especificaciones'];
 
@@ -23,7 +24,9 @@ const renderRow = (item) => <Table.Row key={item.id}>
 const UniqueItemsPage = () => {
     const [items, setItems] = useState(UniqueItems);
     const [displayTable, setDisplayTable] = useState(false);
-    const matchesFilters = (item, filters) => (item.itemClass === filters.itemType) || filters.itemType === ''; 
+    
+    const matchesItemType = (item, selectedItemType) => isBlank(selectedItemType) || item.itemClass === selectedItemType;
+    const matchesFilters = (item, filters) => matchesItemType(item, filters.itemType); 
     const filterItems = (filters) => setItems(UniqueItems.filter(item => matchesFilters(item, filters)));
 
     const onSubmit = (event, filters) => {

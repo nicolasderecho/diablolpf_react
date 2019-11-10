@@ -22,6 +22,10 @@ body {
   padding-top: 20px;
 }
 
+table.diablo-table {
+  width: 100%;
+}
+
 .diablo-table, .table.is-striped.diablo-table tbody tr:not(.is-selected):nth-child(even) {
   background-color: $black;
   color: $white;
