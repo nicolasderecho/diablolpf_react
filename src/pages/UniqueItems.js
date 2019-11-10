@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Title, Content, Columns, Column, Table, Image} from 'tenpines-bulma-react';
+import {Table} from 'tenpines-bulma-react';
 import DiabloTable from '../shared/DiabloTable.js';
 import Spinner from '../shared/Spinner';
 import { UniqueItems } from '../shared/data.js';
@@ -10,7 +10,6 @@ import ItemSpecifications from '../shared/ItemSpecifications.js';
 const TABLE_HEADERS = ['Item', 'Especificaciones'];
 
 const UniqueItemsPage = (props) => {
-    const items = [];
     const renderRow = (item) => <Table.Row key={item.id}>
         <Table.Cell className={'diablo-table-item no-border-padding'} >
             <UniqueItem name={item.itemLabelName} image={item.image} />
@@ -22,7 +21,6 @@ const UniqueItemsPage = (props) => {
     </Table.Row>;
     const [displayTable, setDisplayTable] = useState(false);
     const availableItems = UniqueItems;
-    debugger    
     useEffect(() => { window.setTimeout( () => setDisplayTable(true), 0) }, []);
 
     return <div className={'page-container'}>
