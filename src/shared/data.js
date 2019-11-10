@@ -3,6 +3,7 @@ import JsonGems from '../data/gems.json';
 import JsonRunewords from '../data/runewords.json';
 import JsonCubeRecipes from '../data/cube_recipies.json';
 import sortBy from 'lodash/sortBy';
+import flattenDeep from 'lodash.flattendeep'; 
 import { JEWELRY, NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS } from '../data/uniqueItems'; 
 
 const findRuneByCode = (code) => JsonRunes.find((aRune) => aRune.code === code);
@@ -27,11 +28,18 @@ const Tips = {
     eliteUnique: 'Son los objetos que tienen como base un objeto élite (que se puede encontrar finalizando el nivel de dificultad pesadilla, y empieza a ser más común en el nivel infierno).'
 }
 
-const a = NORMAL_ITEMS;
-console.log(a);
-console.log(JEWELRY);
-console.log(ELITE_ITEMS)
-console.log(EXCEPTIONAL_ITEMS)
-console.log(PJ_ITEMS);
+const randomString = () =>  Math.random().toString(36).substr(2, 9);
+const buildId = () => `${randomString()}-${randomString()}-${randomString()}-${randomString()}`;
+const cleanAttributes = (attributes) => {
+    const rawAttributes = attributes || [];
+    return rawAttributes.filter( attribute => attribute !== 'speed' && attribute !== 'requiredLevel' );
+}
+const UniqueItems = flattenDeep([NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS])
+    .map(item => Object.assign({}, item, {
+        id: buildId(), 
+        itemLabelName: item.itemLabelName || item.itemLabel,
+        extraAttributes: cleanAttributes(item.extraAttributes)
+    }));
 
-export { RunesData, Gems, CubeRecipes, Runewords, Tips }
+console.log(UniqueItems);    
+export { RunesData, Gems, CubeRecipes, Runewords, Tips, UniqueItems }

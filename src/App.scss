@@ -1,5 +1,8 @@
 @import '~bulma/bulma.sass';
 
+$diablo_blue: #6699FF;
+$diablo_gold: #AA8A28;
+
 html {
   background: $black;
 }
@@ -108,6 +111,27 @@ body {
   margin-top: 50px;
 }
 
+img.item-image, .item-image img {
+  width: auto;
+}
+
+.unique-item {
+  display: flex;
+  flex-direction: column;
+  .item-name  { order: 1 }
+  .item-image { order: 2 }
+  &:hover {
+    color: $white;
+  }
+}
+.unique-name {
+  color: $diablo_gold;
+  font-weight: 500;
+}
+
+.item-requirement {
+  color: $diablo_blue;
+}
 
 @media screen and (max-width: 1215px) {
 
@@ -119,6 +143,12 @@ body {
       order: 1;
     }
   }
+
+  .unique-item {
+    .item-name  { order: 1 }
+    .item-image { order: 2 }
+  }
+
 }
 
 @media screen and (max-width: 768px) {

@@ -98,7 +98,7 @@ var extractBoots = (itemsContainer, itemClass) => {
 var extractBelts = (itemsContainer, itemClass, itemType = 'Belt', itemLabel = 'Belts') => {
     const searcher = (itemDataList) => {
         const base = itemDataList[4].innerHTML.split('<br>');
-        const defense = findAndParseAttribute(base[2].split(':'));
+        const defense = findAndParseAttribute(base[2].split('Defensa:'));
         const requiredStrong = findAndParseAttribute(base[4].split(':'));
         const beltHoles = findAndParseAttribute(base[6].split(':')).split(' ')[0];
         return { defense, requiredStrong, beltHoles, extraAttributes: ["defense", "requiredStrong", "beltHoles"] }
