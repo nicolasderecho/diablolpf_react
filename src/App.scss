@@ -174,6 +174,12 @@ img.item-image, .item-image img {
 
 @media screen and (max-width: 768px) {
 
+  .table td.unique-item-data {
+    width: 50%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .runeword-name-container .runeword-name-label {
     flex-direction: column;
     .runeword-name {

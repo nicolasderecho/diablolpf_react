@@ -73,7 +73,7 @@ const Runes = (props) => {
                     </Column>                                              
                 </Columns>
                 <Columns>
-                    <Column><Field><Control><Button color='link' type='submit'>Submit</Button></Control></Field></Column>
+                    <Column><Field><Control><Button color='link' type='submit'>Filtrar</Button></Control></Field></Column>
                 </Columns>
             </form>
         </Box>

@@ -11,7 +11,7 @@ import UniqueItemsFilter from './UniqueItemsFilter';
 const TABLE_HEADERS = ['Item', 'Especificaciones'];
 
 const renderRow = (item) => <Table.Row key={item.id}>
-  <Table.Cell className={'diablo-table-item no-border-padding'} >
+  <Table.Cell className={'diablo-table-item no-border-padding unique-item-data'} >
       <UniqueItem name={item.itemLabelName} image={item.image} />
       <ItemRequirements item={item} />
   </Table.Cell>
