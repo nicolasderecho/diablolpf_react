@@ -27,6 +27,11 @@ body {
   color: $white;
 }
 
+.diablo-table, .table.is-striped.diablo-table.unique-items-table tbody tr:not(.is-selected):nth-child(even) {
+  background-color: black;
+  color: $white;
+}
+
 .diablo-table tr:hover, .table.is-striped.diablo-table tbody tr:not(.is-selected):nth-child(even):hover {
   background-color: green;
 }
@@ -116,6 +121,10 @@ body {
 
 img.item-image, .item-image img {
   width: auto;
+}
+
+.unique-items-table {
+  background-color: black;
 }
 
 .unique-item {

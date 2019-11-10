@@ -25,7 +25,7 @@ const UniqueItemsPage = (props) => {
 
     return <div className={'page-container'}>
         { displayTable  
-            ? <DiabloTable headers={TABLE_HEADERS} items={availableItems} renderRow={renderRow}/>
+            ? <DiabloTable className={'unique-items-table'} headers={TABLE_HEADERS} items={availableItems} renderRow={renderRow}/>
             : <div className={'spinner-container'}><Spinner /></div>
         }
     </div>;
