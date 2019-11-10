@@ -38,8 +38,10 @@ const UniqueItems = flattenDeep([NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, P
     .map(item => Object.assign({}, item, {
         id: buildId(), 
         itemLabelName: item.itemLabelName || item.itemLabel,
-        extraAttributes: cleanAttributes(item.extraAttributes)
+        extraAttributes: cleanAttributes(item.extraAttributes),
+        isCharacterItem: !!(item.isCharacterItem)
     }));
 
-console.log(UniqueItems);    
+window.items = UniqueItems;
+console.log(UniqueItems);
 export { RunesData, Gems, CubeRecipes, Runewords, Tips, UniqueItems }

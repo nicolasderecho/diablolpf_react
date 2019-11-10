@@ -1,4 +1,6 @@
 //https://www.diablo2latino.com/Objetos-unicoslista.html
+//https://www.diablo2latino.com/Tablas-fcr.html
+//https://www.diablo2latino.com/Informacion-areas85.html
 //Shared methods
 const lastElement  = (list) => list.slice(-1)[0];
 const cleanEmpty   = (list) => list.filter( item => item !== null && item !== undefined && item !== "" );
