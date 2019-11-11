@@ -110,6 +110,44 @@ const TipsPage = (props) => {
                         - Camara del Mundo de Piedra
                     </p>
                 </Column>                                                    
+                <Column columnSize='full'>
+                    <Title className='white-text' spaced>Llaves del pandemonium</Title>
+                    <p>
+                        Una nueva aventura aguarda para el mundo de Diablo: el Pandemonium, el más peligroso de los infiernos y desde el cual los tres hermanos se están reorganizando para hacer sucumbir el mundo de los mortales bajo su demoníaca influencia.<br/>
+                        ¿Serán capaces nuestros cansados y hastiados héroes, de hacer regresar al Mal a las entrañas del Averno Oscuro del cual procedieron?
+                    </p>
+                    <p>
+                        Este evento consiste en enfrentarte a los Über-clones de todos los jefes finales, además de Izual, Lilith y Duriel para conseguir un jugoso premio.                        
+                    </p>
+                </Column>
+                <Column columnSize='full'>
+                    <Subtitle as={'h3'} className='orange-text'>Ubicación de las llaves</Subtitle>
+                    <p>
+                        Debemos encontrar las llaves necesarias para abrir los portales al pandemonium. Se pueden encontrar en:<br/><br/>
+                        <span style={{color: '#AA8A28'}}>Condesa</span>:&nbsp;Torre Olvidada, nivel 5 (Acto 1) => Llave del Terror<br/>
+                        <span style={{color: '#AA8A28'}}>Invocador</span>:&nbsp;Santuario Arcano (Acto 2) => Llave del Odio<br/>
+                        <span style={{color: '#AA8A28'}}>Nihlathak</span>:&nbsp;Salas de Vaugh (Acto 5) => Llave de la Destrucción
+                    </p>
+                    <br/>
+                    <p>
+                        Las 3 llaves (una de cada tipo) se podrán transmutar en dificultad Infierno, Acto 5, y así abrir un portal que nos llevará a alguno de los siguientes monstruos aleatoriamente:<br/><br/>
+                        <span style={{color: '#AA8A28'}}>Guarida de Matron</span>:&nbsp;Lilith (similar a Andariel) => Al matarlo tirará el Ojo de Baal<br/>
+                        <span style={{color: '#AA8A28'}}>Arenas Olvidadas</span>:&nbsp;Duriel Clone => Al matarlo tirará el Cuerno de Diablo<br/>
+                        <span style={{color: '#AA8A28'}}>Caldera del Dolor</span>:&nbsp;Izual Clone => Al matarlo tirará el Cerebro de Mefisto<br/>
+                    </p>
+                    <br/>
+                    <p>Como el portal que se obtiene al transmutar las 3 llaves es aleatorio, se recomienda abrir los tres en la misma partida, de lo contrario podría salir alguno repetido(por lo tanto se necesitarían 9 llaves en total).</p>
+                </Column>    
+                <Column columnSize='full'>
+                    <Subtitle as={'h3'} className='orange-text'>Entrar al Pandemonium</Subtitle>
+                    <p>
+                        Una vez tengamos el Ojo de Baal, el Cuerno de Diablo y el Cerebro de Mefisto deberemos ir de nuevo a Harrogath y transmutarlos, para abrir el último y más complicado portal: Tristam o Ultimate Pandemonium.<br/>
+                        <br/>Adviértase, dicho sea de paso, que no se podrá abrir ningún portal en el interior de Tristam.
+                        Dentro, nos encontraremos a tres difíciles oponentes (rodeados de sus esbirros):&nbsp;<span style={{color: '#AA8A28'}}>Diablo Clone</span>, <span style={{color: '#AA8A28'}}>Baal Clone</span>, y <span style={{color: '#AA8A28'}}>Mefisto Clone</span>.<br/>
+                        <br/>
+                        Luego de vencerlos en una batalla dura y despiadada, obtendremos una gran recompensa: el <span style={{color: '#AA8A28'}}>Torch</span>.
+                    </p>
+                </Column>                                           
             </Columns>
             <br/>
             <br/>
