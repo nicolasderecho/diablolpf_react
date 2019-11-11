@@ -130,6 +130,9 @@ h1, h2, h3, h4, h5, h6 {
   &.gold-text {
     color: $diablo_gold;
   }
+  &.orange-text {
+    color: $diablo_orange;
+  }  
 }
 
 .content h1.not-found-message {
