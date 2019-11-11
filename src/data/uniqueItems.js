@@ -63,24 +63,3 @@ export const NECROMANCER_ITEMS = [{"name":"Homúnculo","originalName":"Homunculu
 export const PALADIN_ITEMS = [{"name":"Alma Negra","originalName":"Alma Negra","itemClass":"exceptional","itemType":"Shield","itemLabel":"Escudo","itemLabelName":"El Escudo Pequeño Sagrado","image":"https://www.diablo2latino.com/images/objetos/unicos/nonivel/especificos/paladin/targe.gif","requiredLevel":"77","attributes":["+180-210% defensa mejorada (varía)","+1-2 a los niveles de habilidad del Paladín (varía)","20% posibilidad de bloqueo aumentada","30% velocidad de bloqueo mayor","+40-75% daño mejorado (varía)","40-75% bonificación a la puntuación de ataque (varía)","Daño de magia reducido en 5-9 (varía)"],"defense":"461-511 (varía)(Defensa base: 138-164)","requiredStrong":"109","hitDamage":"35 a 58","blockChance":"78%","isCharacterItem":true,"character":"paladin","extraAttributes":["defense","requiredStrong","blockChance","hitDamage"]},{"name":"Heraldo de Zakarum","originalName":"Herald of Zakarum","itemClass":"exceptional","itemType":"Shield","itemLabel":"Escudo","itemLabelName":"El Escudo Dorado","image":"https://www.diablo2latino.com/images/objetos/unicos/nonivel/especificos/paladin/aerinshield.gif","requiredLevel":"42","attributes":["+150-200% defensa mejorada (varía)","30% posibilidad de bloqueo aumentada","30% velocidad de bloqueo mayor","20% bonificación a la puntuación de ataque","+20 Fuerza","+20 Vitalidad","A todas las resistencias +50","+2 a los niveles de habilidad del Paladín","+2 a habilidades de Combate (Sólo para Paladín)"],"defense":"422-507 (varía)(Defensa base: 144-168)","requiredStrong":"89","hitDamage":"20 a 28","blockChance":"82%","isCharacterItem":true,"character":"paladin","extraAttributes":["defense","requiredStrong","blockChance","hitDamage"]},{"name":"Escama de Dragón","originalName":"Dragonscale","itemClass":"exceptional","itemType":"Shield","itemLabel":"Escudo","itemLabelName":"El Escudo de Zakarum","image":"https://www.diablo2latino.com/images/objetos/unicos/nonivel/especificos/paladin/aerinshield.gif","requiredLevel":"80","attributes":["+170-200% defensa mejorada (varía)","Añade 211-371 daño de Fuego","+15% al daño de las habilidades de Fuego","+10 a Hidra","+5% a la resistencia máxima al Fuego","+15-25 Fuerza (varía)","Absorción de Fuego 10-20% (varía)"],"defense":"523-582 (varía)(Defensa base: 169-193)","requiredStrong":"142","hitDamage":"46 a 46","blockChance":"52%","isCharacterItem":true,"character":"paladin","extraAttributes":["defense","requiredStrong","blockChance","hitDamage"]}];
 
 export const PJ_ITEMS = flattenDeep([AMAZON_ITEMS, ASSASSIN_ITEMS, BARBARIAN_ITEMS, DRUID_ITEMS, SORCERER_ITEMS, NECROMANCER_ITEMS, PALADIN_ITEMS]);
-
-export const REQUIREMENT_NAMES = {
-    damage: 'Daño',
-    defense: 'Defensa',
-    requiredDexterity: 'Destreza requerida',
-    requiredStrong: 'Fuerza requerida',
-    oneHandedamage: 'Daño a una mano',
-    twoHandedamage: 'Daño a dos manos',
-    assassinDamage: 'Daño de Patada de la Asesina',
-    beltHoles: 'Huecos',
-    paladinDamage: 'Daño de Golpe del Paladín',
-    paladinBlock: 'Posibilidad de bloqueo Paladín',
-    druNecSorBlock: 'Posibilidad de bloqueo Druida/Hechi/Nigro',
-    amaAssaBarBlock: 'Posibilidad de bloqueo Amazona/Asesina/Baba',
-    throwingDamage: 'Daño de lanzamiento',
-    maximumCapacity: 'Capacidad máxima',
-    blockChance: 'Posibilidad de bloqueo',
-    hitDamage: 'Daño de Golpe'
-};
-
-export const requirementName = (requirement) => REQUIREMENT_NAMES[requirement] || requirement;

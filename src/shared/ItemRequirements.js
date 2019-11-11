@@ -1,5 +1,5 @@
 import React from  'react';
-import { requirementName } from '../data/uniqueItems';
+import { requirementName } from '../shared/data';
 
 const CHARACTER_NAMES = {
     amazon: 'Amazona',

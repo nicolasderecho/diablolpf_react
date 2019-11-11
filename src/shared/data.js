@@ -34,14 +34,54 @@ const cleanAttributes = (attributes) => {
     const rawAttributes = attributes || [];
     return rawAttributes.filter( attribute => attribute !== 'speed' && attribute !== 'requiredLevel' );
 }
+const itemTypeFor = (itemType) => {
+    const translations = {
+        Glove: 'Gloves',
+        Ring: 'Helm',
+        Bastón: 'Staff',
+        Daga: 'Dagger',
+        Cetro: 'Scepter'
+    }
+    return translations[itemType] || itemType;
+}
+
+const itemLabelFor = (itemLabel, itemType) => {
+    return itemLabel;
+}
 const UniqueItems = flattenDeep([NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS])
     .map(item => Object.assign({}, item, {
         id: buildId(), 
         itemLabelName: item.itemLabelName || item.itemLabel,
         extraAttributes: cleanAttributes(item.extraAttributes),
-        isCharacterItem: !!(item.isCharacterItem)
+        isCharacterItem: !!(item.isCharacterItem),
+        itemType: itemTypeFor(item.itemType),
+        itemLabel: itemLabelFor(item.itemLabel, itemTypeFor(item.itemType))
     }));
 
+const ObjectTypes = UniqueItems.reduce( (objects, item) => Object.assign({}, objects, {[item.itemType]: item.itemLabel}), {});
+
 window.items = UniqueItems;
-console.log(UniqueItems);
-export { RunesData, Gems, CubeRecipes, Runewords, Tips, UniqueItems }
+window.objectTypes = ObjectTypes;
+
+export const REQUIREMENT_NAMES = {
+    damage: 'Daño',
+    defense: 'Defensa',
+    requiredDexterity: 'Destreza requerida',
+    requiredStrong: 'Fuerza requerida',
+    oneHandedamage: 'Daño a una mano',
+    twoHandedamage: 'Daño a dos manos',
+    assassinDamage: 'Daño de Patada de la Asesina',
+    beltHoles: 'Huecos',
+    paladinDamage: 'Daño de Golpe del Paladín',
+    paladinBlock: 'Posibilidad de bloqueo Paladín',
+    druNecSorBlock: 'Posibilidad de bloqueo Druida/Hechi/Nigro',
+    amaAssaBarBlock: 'Posibilidad de bloqueo Amazona/Asesina/Baba',
+    throwingDamage: 'Daño de lanzamiento',
+    maximumCapacity: 'Capacidad máxima',
+    blockChance: 'Posibilidad de bloqueo',
+    hitDamage: 'Daño de Golpe'
+};
+
+export const requirementName = (requirement) => REQUIREMENT_NAMES[requirement] || requirement;
+
+export { RunesData, Gems, CubeRecipes, Runewords, Tips, UniqueItems, ObjectTypes }
