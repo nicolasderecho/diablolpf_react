@@ -117,6 +117,21 @@ table.diablo-table {
   }
 }
 
+h1, h2, h3, h4, h5, h6 {
+  &.white-text {
+    color: $white;
+  }
+  &.red-text {
+    color: red;
+  }
+  &.blue-text {
+    color: $diablo_blue;
+  }
+  &.gold-text {
+    color: $diablo_gold;
+  }
+}
+
 .content h1.not-found-message {
   color: white;
   text-align: center;
@@ -177,6 +192,10 @@ img.item-image, .item-image img {
 }
 
 @media screen and (max-width: 768px) {
+
+.page-container.tips {
+  padding: 20px 1em 0;
+}
 
   .table td.unique-item-data {
     width: 50%;
