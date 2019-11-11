@@ -26,7 +26,8 @@ const UniqueItemsPage = () => {
     const [displayTable, setDisplayTable] = useState(false);
     
     const matchesItemType = (item, selectedItemType) => isBlank(selectedItemType) || item.itemClass === selectedItemType;
-    const matchesFilters = (item, filters) => matchesItemType(item, filters.itemType); 
+    const matchesCharacter = (item, selectedCharacter) => isBlank(selectedCharacter) || item.character === selectedCharacter;
+    const matchesFilters = (item, filters) => matchesItemType(item, filters.itemType) && matchesCharacter(item, filters.character); 
     const filterItems = (filters) => setItems(UniqueItems.filter(item => matchesFilters(item, filters)));
 
     const onSubmit = (event, filters) => {
