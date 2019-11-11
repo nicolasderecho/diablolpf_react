@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Column, Box, Columns, Field, Label, Control, Input, Button, Table} from 'tenpines-bulma-react';
+import {Column, Box, Columns, Field, Label, Control, Input, Button, Table, Help, Content} from 'tenpines-bulma-react';
 import {CubeRecipes} from '../shared/data';
 import DiabloTable from '../shared/DiabloTable.js';
 import {isBlank, matchesArrayFilter} from '../shared/util';
@@ -67,6 +67,9 @@ const CubeFormulas = () => {
             </Columns>
         </form> 
     </Box>
+    <Help style={{marginLeft: '1.5em'}}>
+        Para más fórmulas podés chusmear <a href="https://www.diablo2latino.com/Objetos-artesanales.html">en esta página.</a>
+    </Help>
     <DiabloTable headers={TABLE_HEADERS} items={cubeFormulas} renderRow={renderRow}/>
 </div>
 }
