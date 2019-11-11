@@ -27,7 +27,8 @@ const UniqueItemsPage = () => {
     
     const matchesItemType = (item, selectedItemType) => isBlank(selectedItemType) || item.itemClass === selectedItemType;
     const matchesCharacter = (item, selectedCharacter) => isBlank(selectedCharacter) || item.character === selectedCharacter;
-    const matchesFilters = (item, filters) => matchesItemType(item, filters.itemType) && matchesCharacter(item, filters.character); 
+    const matchesObjectType = (item, selectedObjectType) => isBlank(selectedObjectType) || item.itemType === selectedObjectType;
+    const matchesFilters = (item, filters) => matchesItemType(item, filters.itemType) && matchesCharacter(item, filters.character) && matchesObjectType(item, filters.objectType); 
     const filterItems = (filters) => setItems(UniqueItems.filter(item => matchesFilters(item, filters)));
 
     const onSubmit = (event, filters) => {

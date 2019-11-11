@@ -46,7 +46,15 @@ const itemTypeFor = (itemType) => {
 }
 
 const itemLabelFor = (itemLabel, itemType) => {
-    return itemLabel;
+    const translations = {
+        Dagger: 'Daga',
+        Armor: 'Armadura',
+        Belt: 'Cinturón',
+        Boot: 'Botas',
+        Scepter: 'Cetro',
+        Staff: 'Bastón',
+    }
+    return translations[itemType] || itemLabel;
 }
 const UniqueItems = flattenDeep([NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS])
     .map(item => Object.assign({}, item, {
