@@ -16,14 +16,15 @@ const extractBonus = (element) => {
 //array.map(a => a.substring(0, a.indexOf(':')).toLowerCase()).filter(a => a.length > 0)
 //["defensa", "nivel", "fuerza", "durabilidad"]
 
-const requirementNames = {
+var requirementNames = {
     defensa: 'defense',
     nivel: 'requiredLevel',
     fuerza: 'requiredStrong',
     durabilidad: 'durability',
     'daño 2 manos': 'twoHandedDamage',
     'daño de patada': 'kickDamage',
-    huecos: 'beltHoles'
+    huecos: 'beltHoles',
+    'posibilidad de bloqueardru/nig/hech': 'blockChance'
 };
 
 const cleanString = (string) => cleanSymbols(string).trim().replace(/\s+/g, ' ');
