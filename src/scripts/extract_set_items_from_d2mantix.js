@@ -82,8 +82,15 @@ var extractSetItems = (rootElement, name) => {
     });
     //bonus
     const bonuses = bonusRow.querySelectorAll('td')[1].querySelectorAll('.TituloUnico');
-    const partialBonuses = extractBonus(bonuses[0]);
-    const completeBonuses = extractBonus(bonuses[1]);
-     
+    let partialBonuses,completeBonuses;
+    if(bonuses.length == 2){
+        partialBonuses = extractBonus(bonuses[0]);
+        completeBonuses = extractBonus(bonuses[1]);
+    }
+    else {
+        partialBonuses = [];
+        completeBonuses = extractBonus(bonuses[0]);
+    }
+
     return {name, items: setItems, partialBonuses, completeBonuses, isCharacterSet: false };
 }
