@@ -18,11 +18,16 @@ var requirementNames = {
     nivel: 'requiredLevel',
     fuerza: 'requiredStrong',
     durabilidad: 'durability',
+    'destreza': 'requiredDexterity',
     'daño 2 manos': 'twoHandedDamage',
     'daño de patada': 'kickDamage',
     huecos: 'beltHoles',
     'posibilidad de bloqueardru/nig/hech': 'blockChance',
-    'daño 1 mano': 'oneHandedDamage'
+    'daño 1 mano': 'oneHandedDamage',
+    'daño de golpe': 'hitDamage',
+    'posibilidad de bloquear pal': 'blockPala',
+    'ama/asn/bar': 'blockAmaAsaBaba',
+    'dru/nig/hech': 'blockDruNecSorc'
 };
 
 const cleanString = (string) => cleanSymbols(string).trim().replace(/\s+/g, ' ');
