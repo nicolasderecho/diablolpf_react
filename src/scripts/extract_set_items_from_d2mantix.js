@@ -12,9 +12,6 @@ const tabsRegExp = /(\r\n|\n|\r)/gm;
 const extractBonus = (element) => {
     return element.innerText.split(tabsRegExp).splice(2).filter( attribute => !attribute.match(tabsRegExp)).map(cleanSymbols);
 }
-//td.innerHTML.split('<font')[0].split('<br>')
-//array.map(a => a.substring(0, a.indexOf(':')).toLowerCase()).filter(a => a.length > 0)
-//["defensa", "nivel", "fuerza", "durabilidad"]
 
 var requirementNames = {
     defensa: 'defense',
@@ -24,7 +21,8 @@ var requirementNames = {
     'daño 2 manos': 'twoHandedDamage',
     'daño de patada': 'kickDamage',
     huecos: 'beltHoles',
-    'posibilidad de bloqueardru/nig/hech': 'blockChance'
+    'posibilidad de bloqueardru/nig/hech': 'blockChance',
+    'daño 1 mano': 'oneHandedDamage'
 };
 
 const cleanString = (string) => cleanSymbols(string).trim().replace(/\s+/g, ' ');
@@ -75,8 +73,6 @@ var extractSetItems = (rootElement, name) => {
         //$0.querySelector('.requirements').innerHTML.split('<br>').filter(a => a.length > 0)
         //item.requirements = { requiredLevel: 30, defense: 'as', requiredStrong: 12 };
         const texto = tds[1].innerText;
-        console.log(texto);
-        debugger
         return item;
     });
     //bonus
@@ -84,5 +80,5 @@ var extractSetItems = (rootElement, name) => {
     const partialBonuses = extractBonus(bonuses[0]);
     const completeBonuses = extractBonus(bonuses[1]);
      
-    return {name, items: setItems, partialBonuses, completeBonuses };
+    return {name, items: setItems, partialBonuses, completeBonuses, isCharacterSet: false };
 }
