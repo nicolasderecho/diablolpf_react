@@ -1,0 +1,41 @@
+.unique-items-table {
+  background-color: black;
+}
+
+.unique-item {
+  display: flex;
+  flex-direction: column;
+  .item-name  { order: 1 }
+  .item-image { order: 2 }
+  &:hover {
+    color: $white;
+  }
+}
+
+.unique-name {
+  color: $diablo_gold;
+  font-weight: 500;
+}
+
+.character-item {
+  color: $diablo_orange;
+}
+
+@media screen and (max-width: 1215px) {
+
+  .unique-item {
+    .item-name  { order: 1 }
+    .item-image { order: 2 }
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .table td.unique-item-data {
+    width: 50%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+};
