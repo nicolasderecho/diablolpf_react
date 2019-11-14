@@ -1,5 +1,5 @@
 import React from  'react';
-import { GEM_IMAGES } from './gem_images';
+import { GEM_IMAGES } from './information/gem_images';
 import {Image} from 'tenpines-bulma-react';
 
 const titleFor = (code) => code;

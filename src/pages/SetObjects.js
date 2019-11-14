@@ -1,7 +1,7 @@
 import React, {useState, useEffect}  from 'react';
 import {Title, Table, Columns, Column, Box, Field, Control, Label, Subtitle} from 'tenpines-bulma-react';
 import Spinner from '../shared/Spinner';
-import { Sets } from '../shared/data';
+import { Sets } from '../shared/information/data';
 import Select from 'react-select';
 
 const selectTheme= (theme) => ({

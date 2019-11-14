@@ -2,12 +2,12 @@ import React, {useState, useEffect} from 'react';
 import {Table} from 'tenpines-bulma-react';
 import DiabloTable from '../../shared/DiabloTable.js';
 import Spinner from '../../shared/Spinner';
-import { UniqueItems } from '../../shared/data.js';
+import { UniqueItems } from '../../shared/information/data.js';
 import UniqueItem from '../../shared/UniqueItem.js';
 import ItemRequirements from '../../shared/ItemRequirements.js';
 import ItemSpecifications from '../../shared/ItemSpecifications.js';
 import UniqueItemsFilter from './UniqueItemsFilter';
-import { isBlank } from '../../shared/util.js';
+import { isBlank } from '../../shared/helpers/util.js';
 
 const TABLE_HEADERS = ['Item', 'Especificaciones'];
 

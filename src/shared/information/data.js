@@ -1,10 +1,10 @@
-import JsonRunes from '../data/runes.json';
-import JsonGems from '../data/gems.json';
-import JsonRunewords from '../data/runewords.json';
-import JsonCubeRecipes from '../data/cube_recipies.json';
+import JsonRunes from '../../data/runes.json';
+import JsonGems from '../../data/gems.json';
+import JsonRunewords from '../../data/runewords.json';
+import JsonCubeRecipes from '../../data/cube_recipies.json';
 import sortBy from 'lodash/sortBy';
 import flattenDeep from 'lodash.flattendeep'; 
-import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS } from '../data/uniqueItems'; 
+import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS } from '../../data/uniqueItems';
 
 const findRuneByCode = (code) => JsonRunes.find((aRune) => aRune.code === code);
 const findGemByCode  = (code) => JsonGems.find((aGem) => aGem.code === code);

@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {Column, Box, Columns, Field, Label, Control, Button, Table, Tag} from 'tenpines-bulma-react';
-import {Runewords as RunewordsList, RunesData} from '../shared/data';
+import {Runewords as RunewordsList, RunesData} from '../shared/information/data';
 import Rune from '../shared/Rune';
 import DiabloTable from '../shared/DiabloTable.js';
-import {isBlank} from '../shared/util';
+import {isBlank} from '../shared/helpers/util';
 import flatten from 'lodash/flatten';
 import uniq from 'lodash/uniq';
 import capitalize from 'lodash/capitalize';

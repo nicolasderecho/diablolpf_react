@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { ObjectTypes } from '../../shared/data';
+import { ObjectTypes } from '../../shared/information/data';
 import {Columns, Box, Button, Column, Label, Control, Field} from 'tenpines-bulma-react';
 
 import Select from 'react-select';

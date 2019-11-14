@@ -1,5 +1,5 @@
 import React from  'react';
-import { RUNE_IMAGES } from './rune_images';
+import { RUNE_IMAGES } from './information/rune_images';
 import {Image} from 'tenpines-bulma-react';
 
 const Rune = ({code, name}) => {
