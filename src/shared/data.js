@@ -4,7 +4,7 @@ import JsonRunewords from '../data/runewords.json';
 import JsonCubeRecipes from '../data/cube_recipies.json';
 import sortBy from 'lodash/sortBy';
 import flattenDeep from 'lodash.flattendeep'; 
-import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS } from '../data/uniqueItems'; 
+import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS } from '../data/uniqueItems'; 
 
 const findRuneByCode = (code) => JsonRunes.find((aRune) => aRune.code === code);
 const findGemByCode  = (code) => JsonGems.find((aGem) => aGem.code === code);
@@ -82,6 +82,8 @@ export const REQUIREMENT_NAMES = {
     hitDamage: 'Daño de Golpe'
 };
 
+const Sets = SETS.map( set => Object.assign({}, set, {id: buildId() }));
+
 export const requirementName = (requirement) => REQUIREMENT_NAMES[requirement] || requirement;
 
-export { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes }
+export { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes, Sets }

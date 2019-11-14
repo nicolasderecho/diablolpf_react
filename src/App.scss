@@ -6,6 +6,7 @@ $diablo_orange: #FF8000;
 $diablo_dark_blue: #008080;
 $diablo_yellow: #FFFF00;
 $diablo_green: #00ff00;
+$diablo_brown: #9d8e62;
 
 html {
   background: $black;
@@ -94,6 +95,15 @@ table.diablo-table {
 
 .diablo-table tbody td.diablo-table-item.runeword-specs {
   text-align: left;
+}
+
+table td.bonuses-container {
+  padding: 0.75em 1.5em;
+}
+
+.set-bonuses {
+  display: flex;
+  flex-direction: column;
 }
 
 .runeword-name-label {
