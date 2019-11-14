@@ -1,0 +1,24 @@
+.cube-recipe {
+  display: flex;
+  justify-content: space-evenly;
+
+  .cube-item {
+
+    figure.image:first-child, figure.image:last-child {
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+    }
+
+    &.gem {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      flex-direction: column;
+  
+      .gem-figure.image {
+        align-self: center;
+      }
+    }
+    
+  } 
+}
