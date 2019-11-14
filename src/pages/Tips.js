@@ -1,5 +1,5 @@
 import React from 'react';
-import {Title, Content, Columns, Column, Container, Subtitle} from 'tenpines-bulma-react';
+import {Title, Columns, Column, Container, Subtitle} from 'tenpines-bulma-react';
 
 const TipsPage = (props) => {
     return <div className={'page-container tips'}>

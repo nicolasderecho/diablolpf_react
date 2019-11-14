@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Column, Box, Columns, Field, Label, Control, Input, Button, Table, Help, Content} from 'tenpines-bulma-react';
+import {Column, Box, Columns, Field, Label, Control, Input, Button, Table, Help} from 'tenpines-bulma-react';
 import {CubeRecipes} from '../shared/data';
 import DiabloTable from '../shared/DiabloTable.js';
 import {isBlank, matchesArrayFilter} from '../shared/util';
