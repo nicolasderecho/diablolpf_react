@@ -25,6 +25,10 @@
   color: $diablo_blue;
 }
 
+img.item-image, .item-image img {
+  width: auto;
+}
+
 @media screen and (max-width: 1215px) {
 
   .unique-item {
