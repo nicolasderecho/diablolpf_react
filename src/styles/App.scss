@@ -49,12 +49,6 @@ h1, h2, h3, h4, h5, h6 {
   }  
 }
 
-.content h1.not-found-message {
-  color: white;
-  text-align: center;
-  margin-top: 50px;
-}
-
 img.item-image, .item-image img {
   width: auto;
 }
@@ -62,8 +56,4 @@ img.item-image, .item-image img {
 .no-border-padding, .content table td.no-border-padding {
   padding-left: 0;
   padding-right: 0;
-}
-
-.item-requirement {
-  color: $diablo_blue;
 }
