@@ -1,0 +1,230 @@
+html {
+  background: $black;
+}
+
+body {
+  color: $white;
+}
+
+.navbar-container {
+  background-color: $white;
+}
+
+.page-container {
+  padding-top: 20px;
+}
+
+table.diablo-table {
+  width: 100%;
+}
+
+.diablo-table, .table.is-striped.diablo-table tbody tr:not(.is-selected):nth-child(even) {
+  background-color: $black;
+  color: $white;
+}
+
+.diablo-table, .table.is-striped.diablo-table.unique-items-table tbody tr:not(.is-selected):nth-child(even) {
+  background-color: black;
+  color: $white;
+}
+
+.diablo-table tr:hover, .table.is-striped.diablo-table tbody tr:not(.is-selected):nth-child(even):hover {
+  background-color: green;
+}
+
+.diablo-table thead th.diablo-table-item, .diablo-table tbody td.diablo-table-item {
+  color: $white;
+  text-align: center;
+}
+
+.diablo-table tbody td.diablo-table-item.formula {
+  width: 20%;
+}
+
+.diablo-table tbody td.diablo-table-item.formula .formula-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.diablo-filter-box {
+  background-color: green;
+  border: 1px solid $white;
+  color: $white;
+  margin: 1em;
+}
+
+.diablo-filter-box label {
+  color: $white;
+}
+
+.cube-recipe {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.diablo-table-item figure.image {
+  margin: 0 auto 0.5em;
+}
+
+.cube-recipe .cube-item figure.image:first-child, .cube-recipe .cube-item figure.image:last-child {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.cube-recipe .cube-item.gem {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.cube-recipe .cube-item.gem .gem-figure.image {
+  align-self: center;
+}
+
+.diablo-table tbody td.diablo-table-item.runeword-specs {
+  text-align: left;
+}
+
+table td.bonuses-container {
+  padding: 0.75em 1.5em;
+}
+
+.set-select-label {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 3em;
+  color: white;
+}
+
+.set-bonuses {
+  display: flex;
+  flex-direction: column;
+}
+
+.runeword-name-label {
+  display: flex;
+  .unlockable {
+    margin-left: 0.5em;
+    max-width: 106px;
+  }
+}
+
+.runeword-name-container .runeword-stats {
+  text-align: left;
+  flex: 3;
+}
+
+.runeword-runes {
+  justify-content: center;
+  flex: 2;
+  display: flex;
+  .rune-object:not(:last-child) {
+    margin-right: 1em;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  &.white-text {
+    color: $white;
+  }
+  &.red-text {
+    color: red;
+  }
+  &.blue-text {
+    color: $diablo_blue;
+  }
+  &.gold-text {
+    color: $diablo_gold;
+  }
+  &.orange-text {
+    color: $diablo_orange;
+  }  
+}
+
+.content h1.not-found-message {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+}
+
+img.item-image, .item-image img {
+  width: auto;
+}
+
+.unique-items-table {
+  background-color: black;
+}
+
+.unique-item {
+  display: flex;
+  flex-direction: column;
+  .item-name  { order: 1 }
+  .item-image { order: 2 }
+  &:hover {
+    color: $white;
+  }
+}
+.unique-name {
+  color: $diablo_gold;
+  font-weight: 500;
+}
+
+.character-item {
+  color: $diablo_orange;
+}
+
+.no-border-padding, .content table td.no-border-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.item-requirement {
+  color: $diablo_blue;
+}
+
+@media screen and (max-width: 1215px) {
+
+  .runeword-name-container  {
+    .runeword-stats {
+      order: 2;
+    }
+    .runeword-runes {
+      order: 1;
+    }
+  }
+
+  .unique-item {
+    .item-name  { order: 1 }
+    .item-image { order: 2 }
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+.page-container.tips {
+  padding: 20px 1em 0;
+}
+
+  .table td.unique-item-data {
+    width: 50%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .runeword-name-container .runeword-name-label {
+    flex-direction: column;
+    .runeword-name {
+      order: 2;
+    }
+    .unlockable {
+      margin-left: 0;
+      order: 1;
+      width: 65%;
+      margin-bottom: 5px;
+    }
+  }
+};
