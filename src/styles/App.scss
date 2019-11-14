@@ -68,25 +68,10 @@ img.item-image, .item-image img {
   color: $diablo_blue;
 }
 
-@media screen and (max-width: 1215px) {
-
-  .unique-item {
-    .item-name  { order: 1 }
-    .item-image { order: 2 }
-  }
-
-}
-
 @media screen and (max-width: 768px) {
 
 .page-container.tips {
   padding: 20px 1em 0;
 }
-
-  .table td.unique-item-data {
-    width: 50%;
-    padding-left: 0;
-    padding-right: 0;
-  }
 
 };
