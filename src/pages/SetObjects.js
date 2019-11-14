@@ -18,7 +18,7 @@ const optionValue = (value, list) => list.find( element => element.value === val
 const SetTable = ({ setId }) => {
 		const set = Sets.find(aSet => aSet.id === setId);
 
-		if(!set) { return <Title>Elegí un Set</Title> }
+		if(!set) { return <div className='set-select-label'>Elegí un Set</div> }
 
     return <React.Fragment>
 			<Title as='span' style={{color: 'white', margin: '1em', marginLeft: '0.5em'}}>Aca iria el nombre</Title>

@@ -101,6 +101,14 @@ table td.bonuses-container {
   padding: 0.75em 1.5em;
 }
 
+.set-select-label {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 3em;
+  color: white;
+}
+
 .set-bonuses {
   display: flex;
   flex-direction: column;
