@@ -31,23 +31,21 @@ table td.bonuses-container {
   flex-direction: column;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  &.white-text {
-    color: $white;
-  }
-  &.red-text {
-    color: red;
-  }
-  &.blue-text {
-    color: $diablo_blue;
-  }
-  &.gold-text {
-    color: $diablo_gold;
-  }
-  &.orange-text {
-    color: $diablo_orange;
-  }  
+.white-text {
+  color: $white;
 }
+.red-text {
+  color: red;
+}
+.blue-text {
+  color: $diablo_blue;
+}
+.gold-text {
+  color: $diablo_gold;
+}
+.orange-text {
+  color: $diablo_orange;
+}  
 
 img.item-image, .item-image img {
   width: auto;
