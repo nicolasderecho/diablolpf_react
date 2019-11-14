@@ -1,5 +1,21 @@
 table.diablo-table {
   width: 100%;
+
+  tbody td.diablo-table-item.formula {
+    width: 20%;
+
+    .formula-container {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+  }
+
+  thead th.diablo-table-item, tbody td.diablo-table-item {
+    color: $white;
+    text-align: center;
+  }
+
 }
   
 .diablo-table, .table.is-striped.diablo-table tbody tr:not(.is-selected):nth-child(even) {
@@ -16,30 +32,15 @@ table.diablo-table {
   background-color: green;
 }
 
-.diablo-table thead th.diablo-table-item, .diablo-table tbody td.diablo-table-item {
-  color: $white;
-  text-align: center;
-}
-
-.diablo-table tbody td.diablo-table-item.formula {
-  width: 20%;
-}
-
-.diablo-table tbody td.diablo-table-item.formula .formula-container {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
 .diablo-filter-box {
   background-color: green;
   border: 1px solid $white;
   color: $white;
   margin: 1em;
-}
 
-.diablo-filter-box label {
-  color: $white;
+  label {
+    color: $white;
+  }
 }
 
 .diablo-table-item figure.image {
