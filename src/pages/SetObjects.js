@@ -1,5 +1,5 @@
 import React, {useState, useEffect}  from 'react';
-import {Title, Table, Columns, Column, Box, Field, Control, Label, Subtitle} from 'tenpines-bulma-react';
+import {Title, Table, Columns, Column, Box, Field, Control, Label, Subtitle, Image} from 'tenpines-bulma-react';
 import Spinner from '../shared/Spinner';
 import { Sets } from '../shared/information/data';
 import Select from 'react-select';
@@ -21,20 +21,27 @@ const SetTable = ({ setId }) => {
 		if(!set) { return <div className='set-select-label'>Elegí un Set</div> }
 
     return <React.Fragment>
-<Title as='span' style={{color: 'white', margin: '1em', marginLeft: '0.5em'}}>{set.name}</Title>
+			<Title as='span' style={{color: 'white', margin: '1em', marginLeft: '0.5em'}}>{set.name}</Title>
 			<div className={'table-container'} style={{padding: '1em'}}>
 				<Table bordered striped className={'diablo-table'}>
 					<Table.Head>
 						<Table.Row>
-							<Table.CellHeader className={'diablo-table-item'}>Item</Table.CellHeader>
+							<Table.CellHeader className={'diablo-table-item item-column'}>Item</Table.CellHeader>
 							<Table.CellHeader className={'diablo-table-item'}>Especificaciones</Table.CellHeader>
 						</Table.Row>
 					</Table.Head>
 					<Table.Body>
 						{ set.items.map( item => <Table.Row key={item.name}>
-							<Table.Cell className={'diablo-table-item'} >
+							<Table.Cell className={'diablo-table-item item-column'} >
 								<Columns from={'mobile'} multiline>
-									<Column>{item.name}</Column>
+									<Column>
+										<div className='flex-column'>
+											<Image src={item.image} />
+											<span className='green-text is-bold'>{item.name}</span>
+											<span className='green-text is-bold'>{item.originalName}</span>
+											<span className='orange-text'>{item.labelName}</span>
+										</div>
+									</Column>
 								</Columns>
 							</Table.Cell>
 							<Table.Cell className={'diablo-table-item'} >{item.attributes.join(',')}</Table.Cell>
@@ -42,17 +49,17 @@ const SetTable = ({ setId }) => {
 						<Table.Cell colspan='2' className='bonuses-container'>
 							<Columns multiline>
 								<Column className='set-bonuses'>
-									<Subtitle sizeNumber='6'>Bonificaciones Parciales</Subtitle>
+									<Subtitle sizeNumber='6' className='is-bold dark-brown-text' >Bonificaciones Parciales</Subtitle>
 									{ set.partialBonuses.length > 0 
-										? set.partialBonuses.map( bonus => <span>{bonus}</span> )
-										: <span>Ninguna</span> 
+										? set.partialBonuses.map( bonus => <span className='brown-text is-heavy'>{bonus}</span> )
+										: <span className='brown-text is-heavy'>Ninguna</span> 
 									}
 								</Column>
 								<Column className='set-bonuses'>
-									<Subtitle sizeNumber='6'>Bonificaciones Totales</Subtitle>
+									<Subtitle sizeNumber='6' className='is-bold dark-brown-text'>Bonificaciones Totales</Subtitle>
 										{ set.completeBonuses.length > 0 
-											? set.completeBonuses.map( bonus => <span>{bonus}</span> )
-											: <span>Ninguna</span> 
+											? set.completeBonuses.map( bonus => <span className='brown-text is-heavy'>{bonus}</span> )
+											: <span className='brown-text is-heavy'>Ninguna</span> 
 										}									
 								</Column>
 							</Columns>

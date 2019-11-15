@@ -30,7 +30,45 @@ body {
   color: $diablo_orange;
 }  
 
+.dark-blue-text {
+  color: $diablo_dark_blue;
+}
+
+.yellow-text {
+  color: $diablo_yellow;
+}
+
+.green-text {
+  color: $diablo_green;
+}
+
+.brown-text {
+  color: $diablo_brown;
+}
+
+.dark-brown-text {
+  color: $diablo_dark_brown;
+}
+
 .no-border-padding, .content table td.no-border-padding {
   padding-left: 0;
   padding-right: 0;
+}
+
+.is-bold {
+  font-weight: bold;
+}
+
+.is-heavy {
+  font-weight: 500;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-column {
+  width: 25%;
+  min-width: 200px;
 }
