@@ -47,6 +47,6 @@ table.diablo-table {
   }
 }
 
-.diablo-table-item figure.image {
+.diablo-table-item figure.image:not(.item-image) {
   margin: 0 auto 0.5em;
 }

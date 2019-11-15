@@ -92,6 +92,10 @@ export const REQUIREMENT_NAMES = {
 
 const Sets = SETS.map( set => Object.assign({}, set, {id: buildId() }));
 
+export const requirementKeys = () => [ "requiredLevel", "requiredStrong", "requiredDexterity", "damage", "oneHandedamage", "oneHandedDamage", "twoHandedamage", "twoHandedDamage", "defense", "assassinDamage", "kickDamage", "paladinDamage", "paladinBlock", "blockPala", "druNecSorBlock", "blockDruNecSorc", "amaAssaBarBlock", "blockAmaAsaBaba", "throwingDamage", "maximumCapacity", "blockChance", "hitDamage", "beltHoles"];
+
+export const requirementKeysFor = (itemKeys) => requirementKeys().filter( itemKey => itemKeys.indexOf(itemKey) !== -1 );
+
 export const requirementName = (requirement) => REQUIREMENT_NAMES[requirement] || requirement;
 
 export { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes, Sets }

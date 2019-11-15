@@ -76,3 +76,11 @@ body {
   width: 25%;
   min-width: 200px;
 }
+
+.item-image, figure.item-image {
+  margin: 5px auto;
+
+  img {
+    width: auto;
+  }
+}

@@ -2,7 +2,7 @@ import React, {useState, useEffect}  from 'react';
 import {Title, Table, Columns, Column, Box, Field, Control, Label, Subtitle, Image} from 'tenpines-bulma-react';
 import Spinner from '../shared/Spinner';
 import { Sets } from '../shared/information/data';
-import { requirementName } from '../shared/information/data';
+import { requirementName, requirementKeysFor } from '../shared/information/data';
 import Select from 'react-select';
 
 const selectTheme= (theme) => ({
@@ -37,17 +37,17 @@ const SetTable = ({ setId }) => {
 								<Columns from={'mobile'} multiline>
 									<Column>
 										<div className='flex-column'>
-											<Image src={item.image} />
+											<span className='orange-text'>{item.labelName}</span>
+											<Image src={item.image} className='item-image' />
 											<span className='green-text is-bold'>{item.name}</span>
 											<span className='green-text is-bold'>{item.originalName}</span>
-											<span className='orange-text'>{item.labelName}</span>
 										</div>
 									</Column>
 								</Columns>
 							</Table.Cell>
 							<Table.Cell className={'diablo-table-item'} >
 								<div className='flex-column flex-align-start'>
-									{ Object.keys(item.requirements).sort().map( (key, index) => <span key={index}>
+									{ requirementKeysFor(Object.keys(item.requirements)).map( (key, index) => <span key={index}>
 										{ requirementName(key) }: { item.requirements[key] }
 									</span> )}
 								</div>
