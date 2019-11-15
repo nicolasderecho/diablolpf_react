@@ -1,7 +1,7 @@
 import React from 'react';
 import {Title, Columns, Column, Table, Subtitle, Image} from 'tenpines-bulma-react';
 import { Sets } from '../../shared/information/data';
-import { requirementName, requirementKeysFor } from '../../shared/information/data';
+import { requirementName, requirementKeysFor, characterName } from '../../shared/information/data';
 
 const setBonifications = (bonifications) => <Column className='set-bonuses'>
   <Subtitle sizeNumber='6' className='is-bold dark-brown-text'>Bonificaciones Totales</Subtitle>
@@ -36,6 +36,10 @@ const SetTable = ({ setId }) => {
                     <Image src={item.image} className='item-image' />
                     <span className='green-text is-bold'>{item.name}</span>
                     <span className='green-text is-bold'>{item.originalName}</span>
+                    { item.isCharacterItem 
+                        ? <span className='gold-text is-heavy'>Solo para {characterName(set.character)}</span>
+                        : null
+                    }
                   </div>
                 </Column>
               </Columns>

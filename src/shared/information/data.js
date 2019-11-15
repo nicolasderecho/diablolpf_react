@@ -90,6 +90,17 @@ export const REQUIREMENT_NAMES = {
     durability: 'Durabilidad'
 };
 
+const CHARACTER_NAMES = {
+    amazon: 'Amazona',
+    necromancer: 'Nigromante',
+    sorcerer: 'Hechicera',
+    barbarian: 'Bárbaro',
+    druid: 'Druída',
+    assasin: 'Asesina',
+    paladin: 'Paladín'
+};
+export const characterName = (character) => CHARACTER_NAMES[character] || character;
+
 const Sets = SETS.map( set => Object.assign({}, set, {id: buildId() }));
 
 export const requirementKeys = () => [ "requiredLevel", "requiredStrong", "requiredDexterity", "damage", "oneHandedamage", "oneHandedDamage", "twoHandedamage", "twoHandedDamage", "defense", "assassinDamage", "kickDamage", "paladinDamage", "paladinBlock", "blockPala", "druNecSorBlock", "blockDruNecSorc", "amaAssaBarBlock", "blockAmaAsaBaba", "throwingDamage", "maximumCapacity", "blockChance", "hitDamage", "beltHoles"];

@@ -1,16 +1,6 @@
 import React from  'react';
-import { requirementName } from './information/data';
+import { requirementName, characterName } from './information/data';
 
-const CHARACTER_NAMES = {
-    amazon: 'Amazona',
-    necromancer: 'Nigromante',
-    sorcerer: 'Hechicera',
-    barbarian: 'Bárbaro',
-    druid: 'Druída',
-    assasin: 'Asesina',
-    paladin: 'Paladín'
-};
-const characterName = (character) => CHARACTER_NAMES[character] || character;
 const extraRequirements = (extraAttributes) => extraAttributes.filter(attribute => !!attribute.match(/required/));
 
 const ItemRequirements = ({item}) => {
