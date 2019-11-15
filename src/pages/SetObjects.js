@@ -44,7 +44,10 @@ const SetTable = ({ setId }) => {
 									</Column>
 								</Columns>
 							</Table.Cell>
-							<Table.Cell className={'diablo-table-item'} >{item.attributes.join(',')}</Table.Cell>
+							<Table.Cell className={'diablo-table-item'} >
+								<div className='blue-text flex-column flex-align-start'>{item.attributes.map(attribute => <span>{attribute}</span>)}</div>
+								<div className='green-text flex-column flex-align-start'>{(item.setAttributes || []).map(attribute => <span>{attribute}</span>)}</div>
+							</Table.Cell>
 						</Table.Row>)}
 						<Table.Cell colspan='2' className='bonuses-container'>
 							<Columns multiline>
