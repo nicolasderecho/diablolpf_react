@@ -3,6 +3,14 @@ import {Title, Columns, Column, Table, Subtitle, Image} from 'tenpines-bulma-rea
 import { Sets } from '../../shared/information/data';
 import { requirementName, requirementKeysFor } from '../../shared/information/data';
 
+const setBonifications = (bonifications) => <Column className='set-bonuses'>
+  <Subtitle sizeNumber='6' className='is-bold dark-brown-text'>Bonificaciones Totales</Subtitle>
+  { bonifications.length > 0 
+    ? bonifications.map( (bonification, index) => <span key={index} className='brown-text is-heavy'>{bonification}</span> )
+    : <span className='brown-text is-heavy'>Ninguna</span> 
+  }									
+</Column>
+
 const SetTable = ({ setId }) => {
   const set = Sets.find(aSet => aSet.id === setId);
 
@@ -42,24 +50,14 @@ const SetTable = ({ setId }) => {
               <div className='green-text flex-column flex-align-start'>{(item.setAttributes || []).map(attribute => <span>{attribute}</span>)}</div>
             </Table.Cell>
           </Table.Row>)}
-          <Table.Cell colspan='2' className='bonuses-container'>
-            <Columns multiline>
-              <Column className='set-bonuses'>
-                <Subtitle sizeNumber='6' className='is-bold dark-brown-text' >Bonificaciones Parciales</Subtitle>
-                { set.partialBonuses.length > 0 
-                  ? set.partialBonuses.map( bonus => <span className='brown-text is-heavy'>{bonus}</span> )
-                  : <span className='brown-text is-heavy'>Ninguna</span> 
-                }
-              </Column>
-              <Column className='set-bonuses'>
-                <Subtitle sizeNumber='6' className='is-bold dark-brown-text'>Bonificaciones Totales</Subtitle>
-                  { set.completeBonuses.length > 0 
-                    ? set.completeBonuses.map( bonus => <span className='brown-text is-heavy'>{bonus}</span> )
-                    : <span className='brown-text is-heavy'>Ninguna</span> 
-                  }									
-              </Column>
-            </Columns>
-          </Table.Cell>
+          <Table.Row>
+            <Table.Cell colSpan={2} className='bonuses-container'>
+              <Columns multiline>
+                { setBonifications(set.partialBonuses) }
+                { setBonifications(set.completeBonuses) }
+              </Columns>
+            </Table.Cell>
+          </Table.Row>
         </Table.Body>
       </Table>
     </div>
