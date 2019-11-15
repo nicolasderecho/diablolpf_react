@@ -9,7 +9,7 @@ import CubeFormulas from './pages/CubeFormulas';
 import NotFoundPage from './pages/NotFoundPage';
 import UniqueItemsPage from './pages/UniqueItemsPage/UniqueItems';
 import TipsPage from './pages/Tips';
-import SetObjects from './pages/SetObjects';
+import SetObjects from './pages/Sets/SetObjects';
 
 function App() {
   return (
