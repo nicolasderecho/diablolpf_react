@@ -2,6 +2,7 @@ import React, {useState, useEffect}  from 'react';
 import {Title, Table, Columns, Column, Box, Field, Control, Label, Subtitle, Image} from 'tenpines-bulma-react';
 import Spinner from '../shared/Spinner';
 import { Sets } from '../shared/information/data';
+import { requirementName } from '../shared/information/data';
 import Select from 'react-select';
 
 const selectTheme= (theme) => ({
@@ -45,6 +46,11 @@ const SetTable = ({ setId }) => {
 								</Columns>
 							</Table.Cell>
 							<Table.Cell className={'diablo-table-item'} >
+								<div className='flex-column flex-align-start'>
+									{ Object.keys(item.requirements).sort().map( (key, index) => <span key={index}>
+										{ requirementName(key) }: { item.requirements[key] }
+									</span> )}
+								</div>
 								<div className='blue-text flex-column flex-align-start'>{item.attributes.map(attribute => <span>{attribute}</span>)}</div>
 								<div className='green-text flex-column flex-align-start'>{(item.setAttributes || []).map(attribute => <span>{attribute}</span>)}</div>
 							</Table.Cell>

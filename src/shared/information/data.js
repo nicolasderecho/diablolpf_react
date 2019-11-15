@@ -69,17 +69,25 @@ export const REQUIREMENT_NAMES = {
     requiredDexterity: 'Destreza requerida',
     requiredStrong: 'Fuerza requerida',
     oneHandedamage: 'Daño a una mano',
+    oneHandedDamage: 'Daño a una mano',
     twoHandedamage: 'Daño a dos manos',
+    twoHandedDamage: 'Daño a dos manos',
     assassinDamage: 'Daño de Patada de la Asesina',
+    kickDamage: 'Daño de Patada de la Asesina',
     beltHoles: 'Huecos',
     paladinDamage: 'Daño de Golpe del Paladín',
     paladinBlock: 'Posibilidad de bloqueo Paladín',
+    blockPala: 'Posibilidad de bloqueo Paladín',
     druNecSorBlock: 'Posibilidad de bloqueo Druida/Hechi/Nigro',
+    blockDruNecSorc: 'Posibilidad de bloqueo Druida/Hechi/Nigro',
     amaAssaBarBlock: 'Posibilidad de bloqueo Amazona/Asesina/Baba',
+    blockAmaAsaBaba: 'Posibilidad de bloqueo Amazona/Asesina/Baba',
     throwingDamage: 'Daño de lanzamiento',
     maximumCapacity: 'Capacidad máxima',
     blockChance: 'Posibilidad de bloqueo',
-    hitDamage: 'Daño de Golpe'
+    hitDamage: 'Daño de Golpe',
+    requiredLevel: 'Nivel Requerido',
+    durability: 'Durabilidad'
 };
 
 const Sets = SETS.map( set => Object.assign({}, set, {id: buildId() }));
