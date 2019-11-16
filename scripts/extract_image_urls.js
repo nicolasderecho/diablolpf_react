@@ -7,6 +7,8 @@ const htmlStringToText = (string) => {
   return cleanString(htmlElement.innerText);
 };
 
+{"image": "https://gamepedia.cursecdn.com/diablo_gamepedia/d/d2/Kiras_Guardian.gif","name":"","originalName":"Kira's Guardian"}
+
 var extractImages = (rootElement) => {
 
   const rows = Array.from(rootElement.querySelectorAll('tbody > tr'));

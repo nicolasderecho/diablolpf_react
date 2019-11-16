@@ -3,9 +3,22 @@ import JsonGems from '../../data/gems.json';
 import JsonRunewords from '../../data/runewords.json';
 import JsonCubeRecipes from '../../data/cube_recipies.json';
 import sortBy from 'lodash/sortBy';
+import isNil from 'lodash/isNil';
 import flattenDeep from 'lodash.flattendeep'; 
 import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS, ITEM_IMAGES } from '../../data/items';
 import {buildId} from "../helpers/util";
+import {D2_MANTIX_IMAGES} from "../../data/images";
+
+const normalizedString = string => string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const isSameName = (firstName, secondName) => !isNil(firstName) && !isNil(secondName) && normalizedString(firstName) === normalizedString(secondName);
+const mantixImages = flattenDeep(Object.values(D2_MANTIX_IMAGES));
+
+const allImages = ITEM_IMAGES.map(image => {
+    const mantixImage = mantixImages.find(anImage => isSameName(anImage.name, image.name) || isSameName(anImage.originalName, image.originalName) ) || {};
+    return Object.assign({}, image, {
+        url: mantixImage.image
+    })
+});
 
 const findRuneByCode = (code) => JsonRunes.find((aRune) => aRune.code === code);
 const findGemByCode  = (code) => JsonGems.find((aGem) => aGem.code === code);
@@ -109,8 +122,8 @@ export const requirementKeysFor = (itemKeys) => requirementKeys().filter( itemKe
 export const requirementName = (requirement) => REQUIREMENT_NAMES[requirement] || requirement;
 
 export const imageUrl = (image) => {
-    const itemImage = ITEM_IMAGES.find( element => element.externalUrlImage === image ) || {};
-    return itemImage.url || itemImage.externalUrlImage || image;
+    const itemImage = allImages.find( element => element.image === image ) || {};
+    return itemImage.url || itemImage.image || image;
 };
 
 export { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes, Sets }
