@@ -1,7 +1,7 @@
 import React, {useState, useEffect}  from 'react';
-import {Columns, Column, Box, Field, Control, Label} from 'tenpines-bulma-react';
+import {Columns, Column, Box, Field, Control, Label, Tag} from 'tenpines-bulma-react';
 import Spinner from '../../shared/Spinner';
-import { Sets } from '../../shared/information/data';
+import { Sets, characterName } from '../../shared/information/data';
 import Select from 'react-select';
 import SetTable from './SetTable';
 
@@ -19,6 +19,18 @@ const optionValue = (value, list) => list.find( element => element.value === val
 
 const sortedSets = Sets.map(set => set.name).sort().map( setName => Sets.find( set => set.name === setName));
 const SetsOptions = [{value: '', label: 'Selecciona un set'}].concat( sortedSets.map( set => ({value: set.id, label: set.name})) );
+
+const formatOptionLabel = ({ value, label }, pepe, pepa) => {
+const set = Sets.find( aSet => aSet.id === value) || { isCharacterSet: false };
+return <div className={'flex-row set-option'}>
+	<div className='option-name'>{label}</div>
+	<div className='option-character'>{ 
+		set.isCharacterSet 
+			? <Tag className='option-character-tag' color={'link'} size={'normal'} rounded>Para {characterName(set.character)}</Tag>
+			: null
+	}
+	</div>
+</div>};
 
 const SetObjects = () => {
 	  const [selectableOptions, updateSelectableOptions] = useState(SetsOptions);
@@ -38,7 +50,7 @@ const SetObjects = () => {
 						<Field>
 							<Label>Nombre del Set</Label>
 							<Control>
-								<Select theme={selectTheme} searchable={false} styles={selectStyles} value={optionValue(selectedSet, SetsOptions)} onChange={updateSelectedOption} options={selectableOptions} />
+								<Select theme={selectTheme} formatOptionLabel={formatOptionLabel} searchable={false} styles={selectStyles} value={optionValue(selectedSet, SetsOptions)} onChange={updateSelectedOption} options={selectableOptions} />
 							</Control>
 						</Field>
 					</Column>                   

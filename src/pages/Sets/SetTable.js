@@ -50,8 +50,8 @@ const SetTable = ({ setId }) => {
                   { requirementName(key) }: { item.requirements[key] }
                 </span> )}
               </div>
-              <div className='blue-text flex-column flex-align-start'>{item.attributes.map(attribute => <span>{attribute}</span>)}</div>
-              <div className='green-text flex-column flex-align-start'>{(item.setAttributes || []).map(attribute => <span>{attribute}</span>)}</div>
+              <div className='blue-text flex-column flex-align-start'>{item.attributes.map( (attribute, index) => <span key={index}>{attribute}</span>)}</div>
+              <div className='green-text flex-column flex-align-start'>{(item.setAttributes || []).map( (attribute, index) => <span key={index}>{attribute}</span>)}</div>
             </Table.Cell>
           </Table.Row>)}
           <Table.Row>
