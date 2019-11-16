@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Table} from 'tenpines-bulma-react';
 import DiabloTable from '../../shared/DiabloTable.js';
 import Spinner from '../../shared/Spinner';
-import { UniqueItems } from '../../shared/information/data.js';
+import { UniqueItems, imageUrl } from '../../shared/information/data.js';
 import UniqueItem from '../../shared/UniqueItem.js';
 import ItemRequirements from '../../shared/ItemRequirements.js';
 import ItemSpecifications from '../../shared/ItemSpecifications.js';
@@ -14,7 +14,7 @@ const TABLE_HEADERS = ['Item', 'Especificaciones'];
 
 const renderRow = (item) => <Table.Row key={item.id}>
   <Table.Cell className={'diablo-table-item no-border-padding unique-item-data item-column'} >
-      <UniqueItem name={item.itemLabelName} image={item.image} />
+      <UniqueItem name={item.itemLabelName} image={imageUrl(item.image)} />
       <ItemRequirements item={item} />
   </Table.Cell>
   <Table.Cell className='specifications-column'>

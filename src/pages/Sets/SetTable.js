@@ -1,6 +1,6 @@
 import React from 'react';
 import {Title, Columns, Column, Table, Subtitle, Image} from 'tenpines-bulma-react';
-import { Sets } from '../../shared/information/data';
+import { Sets, imageUrl } from '../../shared/information/data';
 import { requirementName, requirementKeysFor, characterName } from '../../shared/information/data';
 
 const setBonifications = (bonifications) => <Column className='set-bonuses'>
@@ -35,7 +35,7 @@ const SetTable = ({ setId }) => {
                 <Column>
                   <div className='flex-column'>
                     <span className='orange-text'>{item.labelName}</span>
-                    <Image src={item.image} className='item-image' />
+                    <Image src={imageUrl(item.image)} className='item-image' />
                     <span className='green-text is-bold'>{item.name}</span>
                     <span className='green-text is-bold'>{item.originalName}</span>
                     { item.isCharacterItem 

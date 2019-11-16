@@ -4,7 +4,7 @@ import JsonRunewords from '../../data/runewords.json';
 import JsonCubeRecipes from '../../data/cube_recipies.json';
 import sortBy from 'lodash/sortBy';
 import flattenDeep from 'lodash.flattendeep'; 
-import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS } from '../../data/items';
+import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS, ITEM_IMAGES } from '../../data/items';
 import {buildId} from "../helpers/util";
 
 const findRuneByCode = (code) => JsonRunes.find((aRune) => aRune.code === code);
@@ -107,5 +107,10 @@ export const requirementKeys = () => [ "requiredLevel", "requiredStrong", "requi
 export const requirementKeysFor = (itemKeys) => requirementKeys().filter( itemKey => itemKeys.indexOf(itemKey) !== -1 );
 
 export const requirementName = (requirement) => REQUIREMENT_NAMES[requirement] || requirement;
+
+export const imageUrl = (image) => {
+    const itemImage = ITEM_IMAGES.find( element => element.externalUrlImage === image ) || {};
+    return itemImage.url || itemImage.externalUrlImage || image;
+};
 
 export { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes, Sets }
