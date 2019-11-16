@@ -109,4 +109,4 @@ export const requirementKeysFor = (itemKeys) => requirementKeys().filter( itemKe
 
 export const requirementName = (requirement) => REQUIREMENT_NAMES[requirement] || requirement;
 
-export { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes, Sets }
+export { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes, Sets, buildId }
