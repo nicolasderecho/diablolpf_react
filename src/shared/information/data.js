@@ -4,7 +4,7 @@ import JsonRunewords from '../../data/runewords.json';
 import JsonCubeRecipes from '../../data/cube_recipies.json';
 import sortBy from 'lodash/sortBy';
 import flattenDeep from 'lodash.flattendeep'; 
-import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS } from '../../data/rawItems';
+import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS } from '../../data/items';
 import {buildId} from "../helpers/util";
 
 const findRuneByCode = (code) => JsonRunes.find((aRune) => aRune.code === code);
@@ -49,7 +49,7 @@ const itemLabelFor = (itemLabel, itemType) => {
 }
 const UniqueItems = flattenDeep([NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS])
     .map(item => Object.assign({}, item, {
-        id: buildId(), 
+        id: item.id || buildId(),
         itemLabelName: item.itemLabelName || item.itemLabel,
         extraAttributes: cleanAttributes(item.extraAttributes),
         isCharacterItem: !!(item.isCharacterItem),
@@ -100,7 +100,7 @@ const CHARACTER_NAMES = {
 };
 export const characterName = (character) => CHARACTER_NAMES[character] || character;
 
-const Sets = SETS.map( set => Object.assign({}, set, {id: buildId() }));
+const Sets = SETS.map( set => Object.assign({}, set, {id: set.id || buildId() }));
 
 export const requirementKeys = () => [ "requiredLevel", "requiredStrong", "requiredDexterity", "damage", "oneHandedamage", "oneHandedDamage", "twoHandedamage", "twoHandedDamage", "defense", "assassinDamage", "kickDamage", "paladinDamage", "paladinBlock", "blockPala", "druNecSorBlock", "blockDruNecSorc", "amaAssaBarBlock", "blockAmaAsaBaba", "throwingDamage", "maximumCapacity", "blockChance", "hitDamage", "beltHoles"];
 
@@ -108,4 +108,4 @@ export const requirementKeysFor = (itemKeys) => requirementKeys().filter( itemKe
 
 export const requirementName = (requirement) => REQUIREMENT_NAMES[requirement] || requirement;
 
-export { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes, Sets, buildId }
+export { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes, Sets }
