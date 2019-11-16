@@ -4,7 +4,7 @@ import JsonRunewords from '../../data/runewords.json';
 import JsonCubeRecipes from '../../data/cube_recipies.json';
 import sortBy from 'lodash/sortBy';
 import flattenDeep from 'lodash.flattendeep'; 
-import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS } from '../../data/uniqueItems';
+import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS } from '../../data/rawItems';
 import {buildId} from "../helpers/util";
 
 const findRuneByCode = (code) => JsonRunes.find((aRune) => aRune.code === code);
