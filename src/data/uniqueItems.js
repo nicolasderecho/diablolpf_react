@@ -92,3 +92,8 @@ export const ITEM_IMAGES = uniq(ALL_ITEMS.map(item => item.image));
 
 window.itemImages = ITEM_IMAGES;
 window.allItems = ALL_ITEMS;
+window.sets = SETS;
+window.pjItems = PJ_ITEMS;
+window.exceptionalItems = EXCEPTIONAL_ITEMS;
+window.eliteItems = ELITE_ITEMS;
+window.normalItems = NORMAL_ITEMS;

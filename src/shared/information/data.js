@@ -5,6 +5,7 @@ import JsonCubeRecipes from '../../data/cube_recipies.json';
 import sortBy from 'lodash/sortBy';
 import flattenDeep from 'lodash.flattendeep'; 
 import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS } from '../../data/uniqueItems';
+import {buildId} from "../helpers/util";
 
 const findRuneByCode = (code) => JsonRunes.find((aRune) => aRune.code === code);
 const findGemByCode  = (code) => JsonGems.find((aGem) => aGem.code === code);
@@ -20,8 +21,6 @@ const UnorderedRunewords = JsonRunewords.map( (runeword) => Object.assign({},
 
 const Runewords = sortBy(UnorderedRunewords, ['level', 'name']);
 
-const randomString = () =>  Math.random().toString(36).substr(2, 9);
-const buildId = () => `${randomString()}-${randomString()}-${randomString()}-${randomString()}`;
 const cleanAttributes = (attributes) => {
     const rawAttributes = attributes || [];
     return rawAttributes.filter( attribute => attribute !== 'speed' && attribute !== 'requiredLevel' );

@@ -12,7 +12,7 @@ import TipsPage from './pages/Tips';
 import SetObjects from './pages/Sets/SetObjects';
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from "history";
-import { buildId } from './shared/information/data';
+import {buildId} from "./shared/helpers/util";
 
 ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_ID, {
   gaOptions: {
