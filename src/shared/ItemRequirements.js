@@ -4,7 +4,7 @@ import { requirementName, characterName } from './information/data';
 const extraRequirements = (extraAttributes) => extraAttributes.filter(attribute => !!attribute.match(/required/));
 
 const ItemRequirements = ({item}) => {
-    const characterLabel = item.isCharacterItem ? <div className={'character-item'}>Solo para {characterName(item.character)}</div> : null;
+    const characterLabel = item.isCharacterItem ? <div className={'green-text'}>Solo para {characterName(item.character)}</div> : null;
     return <React.Fragment>
         <div className={'unique-name'}>{item.name}</div>
         <div className={'unique-name'}>({item.originalName})</div>
