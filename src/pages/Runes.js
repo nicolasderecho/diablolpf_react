@@ -5,6 +5,7 @@ import {RunesData} from '../shared/information/data';
 import DiabloTable from '../shared/DiabloTable.js';
 import Rune from '../shared/Rune';
 import CubeRecipe from '../shared/CubeRecipe';
+import ReactGA from 'react-ga';
 
 const TABLE_HEADERS = ['Número', 'Nombre', 'A través del cubo', 'Nível', 'Armas', 'Armaduras/Yelmos/Escudos'];
 
@@ -24,6 +25,10 @@ const Runes = (props) => {
     const filterRunes = () => setrunes(RunesData.filter( (rune) => matchesFilters(rune)));
     const onSubmit = (event) => {
         event.preventDefault();
+        ReactGA.event({
+          category: 'Runes',
+          action: 'filtering-runes'
+        });        
         filterRunes();
     }
     const renderRow = (rune) => <Table.Row key={rune.code}>

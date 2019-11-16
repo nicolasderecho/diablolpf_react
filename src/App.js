@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Home from './pages/Home';
 import Runes from './pages/Runes';
 import Header from './layout/Header'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import Gems from './pages/Gems';
 import Runewords from './pages/Runewords';
 import CubeFormulas from './pages/CubeFormulas';
@@ -10,11 +10,30 @@ import NotFoundPage from './pages/NotFoundPage';
 import UniqueItemsPage from './pages/UniqueItemsPage/UniqueItems';
 import TipsPage from './pages/Tips';
 import SetObjects from './pages/Sets/SetObjects';
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from "history";
 
+ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_ID);
+
+const history = createBrowserHistory();
+
+history.listen(location => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.set({ example: 'test' });
+  ReactGA.pageview(location.pathname);
+});
+
+
+console.log(process.env.REACT_APP_GOOGLE_ANALYTICS_ID)
 function App() {
+
+  useEffect( () => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
+
   return (
     <div>
-      <Router>
+      <Router history={history} >
         <Header/>
         <Switch>
           <Route exact path={'/'} render={() => <Home/> } />

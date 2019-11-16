@@ -4,6 +4,7 @@ import Spinner from '../../shared/Spinner';
 import { Sets, characterName } from '../../shared/information/data';
 import Select from 'react-select';
 import SetTable from './SetTable';
+import ReactGA from 'react-ga';
 
 const selectTheme= (theme) => ({
   ...theme,
@@ -40,6 +41,10 @@ const SetObjects = () => {
 
 		const updateSelectedOption = (selectedOption) => {
 			if(selectableOptions[0].value === '') { updateSelectableOptions(selectableOptions.slice(1)); }
+      ReactGA.event({
+        category: 'Diablo Set',
+        action: 'selecting-diablo-set'
+      }); 			
 			updateSelectedSet(selectedOption.value);
 		}
 

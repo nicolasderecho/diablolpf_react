@@ -3,6 +3,7 @@ import {Column, Box, Columns, Field, Label, Control, Input, Button, Table, Help}
 import {CubeRecipes} from '../shared/information/data';
 import DiabloTable from '../shared/DiabloTable.js';
 import {isBlank, matchesArrayFilter} from '../shared/helpers/util';
+import ReactGA from 'react-ga';
 
 const TABLE_HEADERS = ['Formula', 'Resultado', 'Detalles'];
 
@@ -31,6 +32,10 @@ const CubeFormulas = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
+        ReactGA.event({
+          category: 'Cube',
+          action: 'filtering-formulas'
+        });         
         filterFormulas();
     };
     return <div className={'page-container'}>

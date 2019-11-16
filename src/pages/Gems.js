@@ -4,6 +4,7 @@ import {matchesArrayFilter} from '../shared/helpers/util';
 import {Gems as GemList} from '../shared/information/data';
 import DiabloTable from '../shared/DiabloTable.js';
 import Gem from '../shared/Gem';
+import ReactGA from 'react-ga';
 
 const TABLE_HEADERS = ['Nombre', 'Nivel', 'Armas', 'Armaduras/Yelmos', 'Escudos'];
 
@@ -21,6 +22,10 @@ const Gems = () => {
     const filterGems = () => setgems(GemList.filter( (gem) => matchesFilters(gem)));
     const onSubmit = (event) => {
         event.preventDefault();
+        ReactGA.event({
+          category: 'Gems',
+          action: 'filtering-gems'
+        });
         filterGems()
     }
     const renderRow = (gem) => <Table.Row key={gem.code}>

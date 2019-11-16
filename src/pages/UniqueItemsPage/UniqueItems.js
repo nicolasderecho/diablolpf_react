@@ -8,6 +8,7 @@ import ItemRequirements from '../../shared/ItemRequirements.js';
 import ItemSpecifications from '../../shared/ItemSpecifications.js';
 import UniqueItemsFilter from './UniqueItemsFilter';
 import { isBlank } from '../../shared/helpers/util.js';
+import ReactGA from 'react-ga';
 
 const TABLE_HEADERS = ['Item', 'Especificaciones'];
 
@@ -34,6 +35,10 @@ const UniqueItemsPage = () => {
     const onSubmit = (event, filters) => {
       event.preventDefault();
       setDisplayTable(false);
+      ReactGA.event({
+        category: 'Unique items',
+        action: 'filtering-unique-items'
+      });       
       window.setTimeout( () => {
         filterItems(filters);
         setDisplayTable(true);

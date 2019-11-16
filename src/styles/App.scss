@@ -98,3 +98,16 @@ body {
 .title-wrapper {
   margin: 1em;
 }
+
+@media screen and (max-width: 768px) {
+
+  .item-column-mobile {
+    width: 25%;
+    min-width: 200px;
+  }
+  
+  .specifications-column-mobile {
+    min-width: 300px;
+  }
+
+};
