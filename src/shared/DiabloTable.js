@@ -6,7 +6,9 @@ const DiabloTable = ({items, headers, renderRow, className}) => {
     if(items.length === 0 ) { return <EmptyResults /> }
     const classes = `diablo-table ${className}`.trim();
     return <React.Fragment>
-        <Title as='span' style={{color: 'white', margin: '1em', marginLeft: '0.5em'}}>{items.length} { items.length > 1 ? 'Resultados' : 'Resultado' } </Title>
+        <div className='title-wrapper'>
+            <Title as='span' className='white-text'>{items.length} { items.length > 1 ? 'Resultados' : 'Resultado' } </Title>
+        </div>
         <div className={'table-container'} style={{padding: '1em'}}>
             <Table bordered striped className={classes}>
                 <Table.Head>

@@ -17,7 +17,9 @@ const SetTable = ({ setId }) => {
   if(!set) { return <div className='set-select-label'>Elegí un Set</div> }
 
   return <React.Fragment>
-    <Title as='span' style={{color: 'white', margin: '1em', marginLeft: '0.5em'}}>{set.name}</Title>
+    <div className='title-wrapper'>
+      <Title as='span' className='white-text' >{set.name}</Title>
+    </div>
     <div className={'table-container'} style={{padding: '1em'}}>
       <Table bordered striped className={'diablo-table'}>
         <Table.Head>
