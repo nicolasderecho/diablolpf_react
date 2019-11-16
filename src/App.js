@@ -24,12 +24,9 @@ const history = createBrowserHistory();
 
 history.listen(location => {
   ReactGA.set({ page: location.pathname });
-  ReactGA.set({ example: 'test' });
   ReactGA.pageview(location.pathname);
 });
 
-
-console.log(process.env.REACT_APP_GOOGLE_ANALYTICS_ID)
 function App() {
 
   useEffect( () => {
