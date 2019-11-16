@@ -12,11 +12,11 @@ import { isBlank } from '../../shared/helpers/util.js';
 const TABLE_HEADERS = ['Item', 'Especificaciones'];
 
 const renderRow = (item) => <Table.Row key={item.id}>
-  <Table.Cell className={'diablo-table-item no-border-padding unique-item-data'} >
+  <Table.Cell className={'diablo-table-item no-border-padding unique-item-data item-column'} >
       <UniqueItem name={item.itemLabelName} image={item.image} />
       <ItemRequirements item={item} />
   </Table.Cell>
-  <Table.Cell>
+  <Table.Cell className='specifications-column'>
       <ItemSpecifications item={item} />
   </Table.Cell>
 </Table.Row>;

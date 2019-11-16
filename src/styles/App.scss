@@ -75,11 +75,16 @@ body {
 
 .flex-align-start {
   align-items: start;
+  text-align: left;
 }
 
 .item-column {
   width: 25%;
   min-width: 200px;
+}
+
+.specifications-column {
+  min-width: 300px;
 }
 
 .item-image, figure.item-image {

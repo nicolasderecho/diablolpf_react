@@ -66,7 +66,7 @@ const Runewords = () => {
     useEffect(() => { window.setTimeout( () => setDisplayTable(true), 0) }, []);
 
     const renderRow = (runeword) => <Table.Row key={runeword.code}>
-        <Table.Cell className={'diablo-table-item'} >
+        <Table.Cell className={'diablo-table-item item-column'} >
             <Columns className={'runeword-name-container'} from={'mobile'} multiline>
                 <Column className={'runeword-stats'} touchColumnSize={'full'} desktopColumnSize={'full'} widescreenColumnSize={'half'} >
                     <div className={'runeword-name-label'}>
@@ -82,7 +82,7 @@ const Runewords = () => {
                 </Column>
             </Columns>
         </Table.Cell>
-        <Table.Cell className={'diablo-table-item runeword-specs'} >
+        <Table.Cell className={'diablo-table-item runeword-specs specifications-column'} >
             {runeword.specs.map( (spec, index) => <div key={index}>
                 {spec}
             </div>)}

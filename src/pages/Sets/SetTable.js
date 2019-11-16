@@ -25,7 +25,7 @@ const SetTable = ({ setId }) => {
         <Table.Head>
           <Table.Row>
             <Table.CellHeader className={'diablo-table-item item-column'}>Item</Table.CellHeader>
-            <Table.CellHeader className={'diablo-table-item'}>Especificaciones</Table.CellHeader>
+            <Table.CellHeader className={'diablo-table-item specifications-column'}>Especificaciones</Table.CellHeader>
           </Table.Row>
         </Table.Head>
         <Table.Body>
@@ -46,7 +46,7 @@ const SetTable = ({ setId }) => {
                 </Column>
               </Columns>
             </Table.Cell>
-            <Table.Cell className={'diablo-table-item'} >
+            <Table.Cell className={'diablo-table-item specifications-column'} >
               <div className='flex-column flex-align-start'>
                 { requirementKeysFor(Object.keys(item.requirements)).map( (key, index) => <span key={index}>
                   { requirementName(key) }: { item.requirements[key] }
