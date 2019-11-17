@@ -1,6 +1,11 @@
 import React from 'react';
 import {Title, Columns, Column, Container, Subtitle} from 'tenpines-bulma-react';
 
+const externalLink = (url, title, options = {}) => {
+	const target = options.target || '_blank';
+  return <a href={url} className='external-link' target={target} rel='noopener noreferrer' >{title}</a>
+};
+
 const TipsPage = (props) => {
     return <div className={'page-container tips'}>
         <Container>
@@ -147,7 +152,20 @@ const TipsPage = (props) => {
                         <br/>
                         Luego de vencerlos en una batalla dura y despiadada, obtendremos una gran recompensa: el <span style={{color: '#AA8A28'}}>Torch</span>.
                     </p>
-                </Column>                                           
+                </Column>
+                <Column columnSize='full'>
+                    <Title className='white-text' spaced>Otras páginas de interés</Title>
+                    <div className='flex-column'>
+												<div className='vertical-bottom-padding'>{externalLink('https://diablo.fandom.com/wiki/Diablo_(Game)', 'Diablo I Wiki')}</div>
+												<div className='vertical-bottom-padding'>{externalLink('https://diablo2.diablowiki.net/Main_Page', 'Diablo II Wiki')}</div>
+												<div className='vertical-bottom-padding'>{externalLink('https://diablo.fandom.com/wiki/Diablo_II', 'Diablo II Fandom')}</div>
+												<div className='vertical-bottom-padding'>{externalLink('https://diablo.gamepedia.com/Diablo_II_Wiki', 'Diablo II Gamepedia')}</div>
+												<div className='vertical-bottom-padding'>{externalLink('https://www.diablo2latino.com/', 'Diablo II Latino')}</div>
+												<div className='vertical-bottom-padding'>{externalLink('http://www.d2mantix.com/', 'Diablo II Mantix')}</div>
+												
+												
+										</div>
+                </Column>                                                          
             </Columns>
             <br/>
             <br/>
