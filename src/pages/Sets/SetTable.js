@@ -35,7 +35,7 @@ const SetTable = ({ setId }) => {
                 <Column>
                   <div className='flex-column'>
                     <span className='orange-text'>{item.labelName}</span>
-                    <Image src={imageUrl(item.image)} className='item-image' />
+                    <Image src={imageUrl(item.image, item.originalName)} className='item-image' />
                     <span className='green-text is-bold'>{item.name}</span>
                     <span className='green-text is-bold'>{item.originalName}</span>
                     { item.isCharacterItem 

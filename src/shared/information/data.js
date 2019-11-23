@@ -8,6 +8,7 @@ import flattenDeep from 'lodash.flattendeep';
 import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS, ITEM_IMAGES } from '../../data/items';
 import {buildId} from "../helpers/util";
 import {D2_MANTIX_IMAGES} from "../../data/images";
+import {GAMEPEDIA_IMAGES} from "../../data/gamepediaImages";
 
 const normalizedString = string => string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 const isSameName = (firstName, secondName) => !isNil(firstName) && !isNil(secondName) && normalizedString(firstName) === normalizedString(secondName);
@@ -121,8 +122,10 @@ export const requirementKeysFor = (itemKeys) => requirementKeys().filter( itemKe
 
 export const requirementName = (requirement) => REQUIREMENT_NAMES[requirement] || requirement;
 
-export const imageUrl = (image) => {
-    const itemImage = allImages.find( element => element.image === image ) || {};
+const cleanString = (string) => string.replace(new RegExp('↵', 'g'), '').replace(new RegExp('`|’', 'g'), '\'').trim().toLowerCase();
+
+export const imageUrl = (image, imageName) => {
+    const itemImage = GAMEPEDIA_IMAGES.find(element => cleanString(element.name) === cleanString(imageName)) || allImages.find( element => element.image === image ) || {};
     return itemImage.url || itemImage.image || image;
 };
 

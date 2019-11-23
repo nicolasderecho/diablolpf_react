@@ -14,7 +14,7 @@ const TABLE_HEADERS = ['Item', 'Especificaciones'];
 
 const renderRow = (item) => <Table.Row key={item.id}>
   <Table.Cell className={'diablo-table-item no-border-padding unique-item-data item-column'} >
-      <UniqueItem name={item.itemLabelName} image={imageUrl(item.image)} />
+      <UniqueItem name={item.itemLabelName} image={imageUrl(item.image, item.originalName)} />
       <ItemRequirements item={item} />
   </Table.Cell>
   <Table.Cell className='specifications-column'>
