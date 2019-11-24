@@ -73,9 +73,6 @@ const UniqueItems = flattenDeep([NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, P
 
 const ObjectTypes = UniqueItems.reduce( (objects, item) => Object.assign({}, objects, {[item.itemType]: item.itemLabel}), {});
 
-window.items = UniqueItems;
-window.objectTypes = ObjectTypes;
-
 export const REQUIREMENT_NAMES = {
     damage: 'Daño',
     defense: 'Defensa',
