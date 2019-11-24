@@ -2,7 +2,7 @@ import React from 'react';
 import {Title, Columns, Column, Table, Subtitle} from 'tenpines-bulma-react';
 import { Sets, imageUrl } from '../../shared/information/data';
 import { requirementName, requirementKeysFor, characterName } from '../../shared/information/data';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import LazyLoad from 'react-lazyload';
 
 const setBonifications = (bonifications) => <Column className='set-bonuses'>
   <Subtitle sizeNumber='6' className='is-bold dark-brown-text'>Bonificaciones Totales</Subtitle>
@@ -37,7 +37,9 @@ const SetTable = ({ setId }) => {
                   <div className='flex-column'>
                     <span className='orange-text'>{item.labelName}</span>
                     <figure className='item-image image' >
-                      <LazyLoadImage className={'item-image'} src={imageUrl(item.image, item.originalName)} />
+                      <LazyLoad once={true} height={200} debounce={false} offset={400} >
+                        <img src={imageUrl(item.image, item.originalName)} alt={item.name} />
+                      </LazyLoad>
                     </figure>
                     <span className='green-text is-bold'>{item.name}</span>
                     <span className='green-text is-bold'>{item.originalName}</span>

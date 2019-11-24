@@ -1,10 +1,12 @@
 import React from  'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import LazyLoad from 'react-lazyload';
 
 const UniqueItem = ({name, image}) => {
     return <div className={'unique-item'}>
             <figure className='item-image image'>
-                <LazyLoadImage className={'item-image'} src={image} />
+                <LazyLoad once={true} height={115} debounce={false} offset={400} >
+                  <img src={image} alt={name} />
+                </LazyLoad>
             </figure>
             <span className={'item-name orange-text is-heavy'}>{name}</span>
     </div>;

@@ -99,6 +99,10 @@ body {
   margin: 1em;
 }
 
+.vertical-margin {
+  margin: 5px 0;
+}
+
 .vertical-bottom-padding {
   &:not(:last-of-type) {
     padding-bottom: 10px;
