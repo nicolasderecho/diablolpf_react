@@ -10,6 +10,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import UniqueItemsPage from './pages/UniqueItemsPage/UniqueItems';
 import TipsPage from './pages/Tips';
 import SetObjects from './pages/Sets/SetObjects';
+import Test from './pages/Test';
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from "history";
 import {buildId} from "./shared/helpers/util";
@@ -46,6 +47,7 @@ function App() {
           <Route exact path={'/items_unicos'} render={() => <UniqueItemsPage /> } />
           <Route exact path={'/tips'} render={() => <TipsPage /> } />
           <Route exact path={'/sets'} render={() => <SetObjects /> } />
+          <Route exact path={'/test'} render={() => <Test /> } />
           <Route render={() => <NotFoundPage />} />
         </Switch>
       </Router>

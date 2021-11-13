@@ -2,8 +2,7 @@ import JsonRunes from '../../data/runes.json';
 import JsonGems from '../../data/gems.json';
 import JsonRunewords from '../../data/runewords.json';
 import JsonCubeRecipes from '../../data/cube_recipies.json';
-import sortBy from 'lodash/sortBy';
-import isNil from 'lodash/isNil';
+import { sortBy, isNil } from 'lodash';
 import flattenDeep from 'lodash.flattendeep'; 
 import { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS, ITEM_IMAGES } from '../../data/items';
 import {buildId} from "../helpers/util";
@@ -62,14 +61,19 @@ const itemLabelFor = (itemLabel, itemType) => {
     return translations[itemType] || itemLabel;
 }
 const UniqueItems = flattenDeep([NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS])
-    .map(item => Object.assign({}, item, {
-        id: item.id || buildId(),
-        itemLabelName: item.itemLabelName || item.itemLabel,
-        extraAttributes: cleanAttributes(item.extraAttributes),
-        isCharacterItem: !!(item.isCharacterItem),
-        itemType: itemTypeFor(item.itemType),
-        itemLabel: itemLabelFor(item.itemLabel, itemTypeFor(item.itemType))
-    }));
+    .map(item => {
+        const imageCodeName = item.originalName.toLowerCase().trim().replace(/\s/g, "_").replace(/\'/g, "")
+        return Object.assign({}, item, {
+            id: item.id || buildId(),
+            itemLabelName: item.itemLabelName || item.itemLabel,
+            extraAttributes: cleanAttributes(item.extraAttributes),
+            isCharacterItem: !!(item.isCharacterItem),
+            itemType: itemTypeFor(item.itemType),
+            itemLabel: itemLabelFor(item.itemLabel, itemTypeFor(item.itemType)),
+            imageCodeName: imageCodeName,
+            imageUrl: `/assets/items/legacy/unique/${imageCodeName}.png`
+        })
+    });
 
 const ObjectTypes = UniqueItems.reduce( (objects, item) => Object.assign({}, objects, {[item.itemType]: item.itemLabel}), {});
 

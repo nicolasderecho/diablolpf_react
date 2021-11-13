@@ -1,0 +1,11 @@
+{
+    "name": "Launch Server",
+    "program": "${workspaceFolder}/scripts/download_unique_items_images.js",
+    "request": "launch",
+    "runtimeVersion": "16.13.0",
+    "skipFiles": [
+      "<node_internals>/**"
+    ],
+    "type": "pwa-node",
+    "smartStep": true
+  }
