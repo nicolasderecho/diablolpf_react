@@ -9,6 +9,8 @@ import {buildId} from "../helpers/util";
 import {D2_MANTIX_IMAGES} from "../../data/images";
 import {GAMEPEDIA_IMAGES} from "../../data/gamepediaImages";
 
+const toImageName = name => name.toLowerCase().trim().replace(/\s/g, "_").replaceAll("'", "")
+
 const normalizedString = string => string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 const isSameName = (firstName, secondName) => !isNil(firstName) && !isNil(secondName) && normalizedString(firstName) === normalizedString(secondName);
 const mantixImages = flattenDeep(Object.values(D2_MANTIX_IMAGES));
@@ -115,7 +117,7 @@ const CHARACTER_NAMES = {
 };
 export const characterName = (character) => CHARACTER_NAMES[character] || character;
 
-const Sets = SETS.map( set => Object.assign({}, set, {id: set.id || buildId() }));
+const Sets = SETS.map( set => Object.assign({}, set, {id: (set.id || buildId()), items: set.items.map(item => Object.assign({}, item, {imageUrl: `/assets/items/legacy/set/${toImageName(item.originalName)}.png`})) }));
 
 export const requirementKeys = () => [ "requiredLevel", "requiredStrong", "requiredDexterity", "damage", "oneHandedamage", "oneHandedDamage", "twoHandedamage", "twoHandedDamage", "defense", "assassinDamage", "kickDamage", "paladinDamage", "paladinBlock", "blockPala", "druNecSorBlock", "blockDruNecSorc", "amaAssaBarBlock", "blockAmaAsaBaba", "throwingDamage", "maximumCapacity", "blockChance", "hitDamage", "beltHoles"];
 

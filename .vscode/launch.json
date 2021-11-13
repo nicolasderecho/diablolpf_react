@@ -1,6 +1,6 @@
 {
-    "name": "Launch Server",
-    "program": "${workspaceFolder}/scripts/download_unique_items_images.js",
+    "name": "Download Item Images",
+    "program": "${workspaceFolder}/scripts/download_item_images.js",
     "request": "launch",
     "runtimeVersion": "16.13.0",
     "skipFiles": [

@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { UniqueItems, imageUrl } from '../shared/information/data.js';
+import { UniqueItems, imageUrl, Sets } from '../shared/information/data.js';
 
 window.uniqueItems = UniqueItems
 window.imageUrl = imageUrl
+window.setsDiablo = Sets 
 
 export const Test = () => {
     return <div>
