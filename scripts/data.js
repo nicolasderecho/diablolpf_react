@@ -74,7 +74,7 @@ const UniqueItems = flattenDeep([NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, P
         itemType: itemTypeFor(item.itemType),
         itemLabel: itemLabelFor(item.itemLabel, itemTypeFor(item.itemType)),
         imageCodeName: toImageName(item.originalName),
-        imageUrl: `/assets/items/legacy/unique/${toImageName(item.originalName)}.png`
+        imageUrl: `/assets/legacy/items/unique/${toImageName(item.originalName)}.png`
     }));
 
 const ObjectTypes = UniqueItems.reduce( (objects, item) => Object.assign({}, objects, {[item.itemType]: item.itemLabel}), {});
@@ -117,7 +117,7 @@ const CHARACTER_NAMES = {
 };
  const characterName = (character) => CHARACTER_NAMES[character] || character;
 
- const Sets = SETS.map( set => Object.assign({}, set, {id: (set.id || buildId()), items: set.items.map(item => Object.assign({}, item, {imageUrl: `/assets/items/legacy/set/${toImageName(item.originalName)}.png`})) }));
+ const Sets = SETS.map( set => Object.assign({}, set, {id: (set.id || buildId()), items: set.items.map(item => Object.assign({}, item, {imageUrl: `/assets/legacy/items/set/${toImageName(item.originalName)}.png`})) }));
 
  const requirementKeys = () => [ "requiredLevel", "requiredStrong", "requiredDexterity", "damage", "oneHandedamage", "oneHandedDamage", "twoHandedamage", "twoHandedDamage", "defense", "assassinDamage", "kickDamage", "paladinDamage", "paladinBlock", "blockPala", "druNecSorBlock", "blockDruNecSorc", "amaAssaBarBlock", "blockAmaAsaBaba", "throwingDamage", "maximumCapacity", "blockChance", "hitDamage", "beltHoles"];
 
