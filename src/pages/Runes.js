@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Box, Columns, Field, Label, Control, Input, Button, Column, Table } from 'tenpines-bulma-react';
 import {isBlank, matchesArrayFilter} from '../shared/helpers/util';
-import {RunesData} from '../shared/information/data';
+import RunesData from '../data/json/runes.json';
 import DiabloTable from '../shared/DiabloTable.js';
 import Rune from '../shared/Rune';
 import CubeRecipe from '../shared/CubeRecipe';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Title, Columns, Column, Table, Subtitle, Image} from 'tenpines-bulma-react';
-import { Sets, imageUrl } from '../../shared/information/data';
-import { requirementName, requirementKeysFor, characterName } from '../../shared/information/data';
+import Sets from '../../data/json/set_items.json';
+import { requirementName, requirementKeysFor, characterName } from '../../shared/helpers/util';
 
 const setBonifications = (bonifications) => <Column className='set-bonuses'>
   <Subtitle sizeNumber='6' className='is-bold dark-brown-text'>Bonificaciones Totales</Subtitle>

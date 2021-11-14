@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { UniqueItems, imageUrl, Sets } from '../shared/information/data.js';
+import UniqueItems from '../data/json/unique_items.json';
+import Sets from '../data/json/set_items.json';
 
 window.uniqueItems = UniqueItems
-window.imageUrl = imageUrl
 window.setsDiablo = Sets 
 
 export const Test = () => {

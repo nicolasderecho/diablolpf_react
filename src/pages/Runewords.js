@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Column, Box, Columns, Field, Label, Control, Button, Table, Tag} from 'tenpines-bulma-react';
-import {Runewords as RunewordsList, RunesData} from '../shared/information/data';
+import RunewordsList from '../data/json/runewords.json';
+import RunesData from '../data/json/runes.json';
 import Rune from '../shared/Rune';
 import DiabloTable from '../shared/DiabloTable.js';
 import {isBlank} from '../shared/helpers/util';

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Box, Columns, Column, Field, Label, Control, Input, Table, Button} from 'tenpines-bulma-react';
 import {matchesArrayFilter} from '../shared/helpers/util';
-import {Gems as GemList} from '../shared/information/data';
+import GemList from '../data/json/game_gems.json';
 import DiabloTable from '../shared/DiabloTable.js';
 import Gem from '../shared/Gem';
 import ReactGA from 'react-ga';

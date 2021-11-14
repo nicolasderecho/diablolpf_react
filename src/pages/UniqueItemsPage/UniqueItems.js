@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Table} from 'tenpines-bulma-react';
 import DiabloTable from '../../shared/DiabloTable.js';
 import Spinner from '../../shared/Spinner';
-import { UniqueItems, imageUrl } from '../../shared/information/data.js';
+import UniqueItems from '../../data/json/unique_items.json';
 import UniqueItem from '../../shared/UniqueItem.js';
 import ItemRequirements from '../../shared/ItemRequirements.js';
 import ItemSpecifications from '../../shared/ItemSpecifications.js';

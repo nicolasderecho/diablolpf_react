@@ -1,5 +1,5 @@
 import React from  'react';
-import { requirementName } from './information/data';
+import { requirementName } from './helpers/util';
 
 const ITEM_CLASSES = {
     normal: 'Normal',

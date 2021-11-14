@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Column, Box, Columns, Field, Label, Control, Input, Button, Table, Help} from 'tenpines-bulma-react';
-import {CubeRecipes} from '../shared/information/data';
+import CubeRecipes from '../data/json/cube_recipes.json';
 import DiabloTable from '../shared/DiabloTable.js';
 import {isBlank, matchesArrayFilter} from '../shared/helpers/util';
 import ReactGA from 'react-ga';

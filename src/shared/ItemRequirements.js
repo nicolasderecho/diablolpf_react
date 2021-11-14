@@ -1,5 +1,5 @@
 import React from  'react';
-import { requirementName, characterName } from './information/data';
+import { requirementName, characterName } from './helpers/util';
 
 const extraRequirements = (extraAttributes) => extraAttributes.filter(attribute => !!attribute.match(/required/));
 

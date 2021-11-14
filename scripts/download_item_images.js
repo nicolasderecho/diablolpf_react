@@ -1,6 +1,6 @@
 const { exec } = require("child_process");
-const UniqueItems = require('./data.js').UniqueItems;
-const Sets = require('./data.js').Sets;
+const UniqueItems = require('./db_generation/data.js').UniqueItems;
+const Sets = require('./db_generation/data.js').Sets;
 
 function downloadItemImage(item) {
     const imageCodeName = item.originalName.toLowerCase().trim().replace(/\s/g, "_").replaceAll("'", "")

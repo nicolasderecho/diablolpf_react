@@ -1,7 +1,8 @@
 import React, {useState, useEffect}  from 'react';
 import {Columns, Column, Box, Field, Control, Label, Tag} from 'tenpines-bulma-react';
 import Spinner from '../../shared/Spinner';
-import { Sets, characterName } from '../../shared/information/data';
+import { characterName } from '../../shared/helpers/util';
+import Sets from '../../data/json/set_items.json';
 import Select from 'react-select';
 import SetTable from './SetTable';
 import ReactGA from 'react-ga';
