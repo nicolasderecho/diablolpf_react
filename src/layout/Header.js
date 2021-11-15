@@ -23,6 +23,7 @@ const Header = (props) => {
                         <Link to={'/palabras_runicas'} onClick={closeMenu}>Palabras Rúnicas</Link>
                         <Link to={'/cubo'} onClick={closeMenu}>Cubo Horádrico</Link>
                         <Link to={'/items_unicos'} onClick={closeMenu}>Items Únicos</Link>
+                        <Link to={'/items_base'} onClick={closeMenu}>Items Base</Link>
                         <Link to={'/sets'} onClick={closeMenu}>Sets</Link>
                         <Link to={'/tips'} onClick={closeMenu}>Tips</Link>
                     </Navbar.Start>

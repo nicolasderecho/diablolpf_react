@@ -4,6 +4,7 @@ const JsonRunewords = require('./runewords.json');
 const JsonCubeRecipes = require('./cube_recipes.json');
 const { sortBy, flattenDeep } = require('lodash');
 const { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS } = require('./items');
+const { BASE_ITEMS } = require("./base_items")
 
 const randomString = () =>  Math.random().toString(36).substr(2, 9);
 const buildId = () => `${randomString()}-${randomString()}-${randomString()}-${randomString()}`;
@@ -11,7 +12,11 @@ const findRuneByCode = (code) => JsonRunes.find((aRune) => aRune.code === code);
 const findGemByCode  = (code) => JsonGems.find((aGem) => aGem.code === code);
 const findItemByCode = (code) => findRuneByCode(code) || findGemByCode(code);
 
-const RunesData = JsonRunes.map( rune => Object.assign({}, rune , {itemsRecipe: rune.upgrade_item_codes.map(findItemByCode)}));
+const RunesData = JsonRunes.map( rune => {
+    const data = Object.assign({}, rune , {itemsRecipe: rune.upgrade_item_codes.map(findItemByCode), imageUrl: `/assets/legacy/runes/${rune.code.toLowerCase()}.png`})
+    delete data.image
+    return data
+});
 const CubeRecipes = JsonCubeRecipes;
 const Gems = JsonGems;
 
@@ -66,6 +71,13 @@ const ObjectTypes = UniqueItems.reduce( (objects, item) => Object.assign({}, obj
 
 const Sets = SETS.map( set => Object.assign({}, set, {id: (set.id || buildId()), items: set.items.map(item => Object.assign({}, item, {imageUrl: `/assets/legacy/items/set/${toImageName(item.originalName)}.png`})) }));
 
+const BaseItems = BASE_ITEMS.map(baseItem => {
+    const attributes = baseItem.attributes.filter(string => !string.match(/tipo de objeto/i))
+    return Object.assign({}, baseItem, { attributes: attributes, imageUrl: `/assets/legacy/items/base/${toImageName(baseItem.originalName)}.png` });
+})
+
+
+
 module.exports = {
     RunesData: RunesData,
     Gems: Gems,
@@ -73,5 +85,6 @@ module.exports = {
     Runewords: Runewords,
     UniqueItems: UniqueItems,
     ObjectTypes: ObjectTypes,
-    Sets: Sets
+    Sets: Sets,
+    BaseItems: BaseItems
 }

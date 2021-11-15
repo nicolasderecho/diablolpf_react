@@ -8,6 +8,7 @@ import Runewords from './pages/Runewords';
 import CubeFormulas from './pages/CubeFormulas';
 import NotFoundPage from './pages/NotFoundPage';
 import UniqueItemsPage from './pages/UniqueItemsPage/UniqueItems';
+import BaseItemsPage from './pages/BaseItemsPage/BaseItems';
 import TipsPage from './pages/Tips';
 import SetObjects from './pages/Sets/SetObjects';
 import Test from './pages/Test';
@@ -45,6 +46,7 @@ function App() {
           <Route exact path={'/palabras_runicas'} render={() => <Runewords /> } />
           <Route exact path={'/cubo'} render={() => <CubeFormulas /> } />
           <Route exact path={'/items_unicos'} render={() => <UniqueItemsPage /> } />
+          <Route exact path={'/items_base'} render={() => <BaseItemsPage /> } />
           <Route exact path={'/tips'} render={() => <TipsPage /> } />
           <Route exact path={'/sets'} render={() => <SetObjects /> } />
           <Route exact path={'/test'} render={() => <Test /> } />

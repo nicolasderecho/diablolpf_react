@@ -1,6 +1,7 @@
 const { exec } = require("child_process");
 const UniqueItems = require('./db_generation/data.js').UniqueItems;
 const Sets = require('./db_generation/data.js').Sets;
+const BaseItems = require('./db_generation/data.js').BaseItems;
 
 function downloadItemImage(item) {
     const imageCodeName = item.originalName.toLowerCase().trim().replace(/\s/g, "_").replaceAll("'", "")
@@ -27,11 +28,13 @@ function downloadItemImage(item) {
 
 //UNCOMMENT THIS TO DOWNLOAD SET ITEM IMAGES FROM D2MANTIX
 
-Sets.forEach(diabloSet => {
-  diabloSet.items.forEach(downloadItemImage)
-})
+// Sets.forEach(diabloSet => {
+//   diabloSet.items.forEach(downloadItemImage)
+// })
 
+//UNCOMMENT THIS TO DOWNLOAD Base ITEM IMAGES FROM D2MANTIX
 
+BaseItems.forEach(downloadItemImage)
 
 //exec(`ls tmp/`, (error, stdout, stderr) => {
     // const images= stdout.split("\n").map(a => a.split(".")[0])

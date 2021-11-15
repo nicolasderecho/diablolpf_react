@@ -1,13 +1,6 @@
 import React from  'react';
-import { requirementName } from './helpers/util';
+import { requirementName, itemClassName } from './helpers/util';
 
-const ITEM_CLASSES = {
-    normal: 'Normal',
-    exceptional: 'Excepcional',
-    elite: 'Elite'
-};
-
-const itemClassName = (itemClass) => ITEM_CLASSES[itemClass] || itemClass;
 const itemExtraAttributes = (extraAttributes) => extraAttributes.filter(attribute => !attribute.match(/required/));
 
 const ItemSpecifications = ({item}) => {

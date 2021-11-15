@@ -46,6 +46,15 @@ const CHARACTER_NAMES = {
     assasin: 'Asesina',
     paladin: 'Paladín'
 };
+
+const ITEM_CLASSES = {
+    normal: 'Normal',
+    exceptional: 'Excepcional',
+    elite: 'Elite'
+};
+
+export const itemClassName = (itemClass) => ITEM_CLASSES[itemClass] || itemClass;
+
 export const characterName = (character) => CHARACTER_NAMES[character] || character;
 
 export const requirementKeys = () => [ "requiredLevel", "requiredStrong", "requiredDexterity", "damage", "oneHandedamage", "oneHandedDamage", "twoHandedamage", "twoHandedDamage", "defense", "assassinDamage", "kickDamage", "paladinDamage", "paladinBlock", "blockPala", "druNecSorBlock", "blockDruNecSorc", "amaAssaBarBlock", "blockAmaAsaBaba", "throwingDamage", "maximumCapacity", "blockChance", "hitDamage", "beltHoles"];
