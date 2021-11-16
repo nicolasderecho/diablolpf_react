@@ -2,7 +2,7 @@ const JsonRunes = require('./runes.json');
 const JsonGems = require('./gems.json');
 const JsonRunewords = require('./runewords.json');
 const JsonCubeRecipes = require('./cube_recipes.json');
-const { sortBy, flattenDeep } = require('lodash');
+const { sortBy, flattenDeep, pickBy, uniq, includes } = require('lodash');
 const { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS } = require('./items');
 const { BASE_ITEMS } = require("./base_items")
 
@@ -67,7 +67,7 @@ const UniqueItems = flattenDeep([NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, P
         imageUrl: `/assets/legacy/items/unique/${toImageName(item.originalName)}.png`
     }));
 
-const ObjectTypes = UniqueItems.reduce( (objects, item) => Object.assign({}, objects, {[item.itemType]: item.itemLabel}), {});
+const ObjectTypes = UniqueItems.reduce( (objects, item) => Object.assign({}, objects, {[item.itemType]: item.itemLabel.toLowerCase() === 'casco' ? 'Yelmo' : item.itemLabel}), {});
 
 const Sets = SETS.map( set => Object.assign({}, set, {id: (set.id || buildId()), items: set.items.map(item => Object.assign({}, item, {imageUrl: `/assets/legacy/items/set/${toImageName(item.originalName)}.png`})) }));
 
@@ -76,7 +76,9 @@ const BaseItems = BASE_ITEMS.map(baseItem => {
     return Object.assign({}, baseItem, { attributes: attributes, imageUrl: `/assets/legacy/items/base/${toImageName(baseItem.originalName)}.png` });
 })
 
+const BASE_ITEM_TYPES = uniq(BaseItems.map(baseItem => baseItem.itemType))
 
+const BaseItemObjectTypes = pickBy(ObjectTypes, (value, key) => includes(BASE_ITEM_TYPES, key.toLocaleLowerCase()) )
 
 module.exports = {
     RunesData: RunesData,
@@ -86,5 +88,6 @@ module.exports = {
     UniqueItems: UniqueItems,
     ObjectTypes: ObjectTypes,
     Sets: Sets,
-    BaseItems: BaseItems
+    BaseItems: BaseItems,
+    BaseItemObjectTypes: BaseItemObjectTypes
 }

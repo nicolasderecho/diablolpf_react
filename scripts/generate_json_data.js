@@ -1,5 +1,5 @@
 const fs = require('fs'); // file system module to perform file operations
-const { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes, Sets, BaseItems } = require('./db_generation/data.js');
+const { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes, Sets, BaseItems, BaseItemObjectTypes } = require('./db_generation/data.js');
 
 async function getProjectRootPath () {
     const { dirname } = require ( 'path' );
@@ -24,6 +24,7 @@ async function getProjectRootPath () {
       { name: "Runewords", filename: "runewords", json: Runewords }, 
       { name: "Unique Items", filename: "unique_items", json: UniqueItems }, 
       { name: "Object Types", filename: "object_types", json: ObjectTypes }, 
+      { name: "Base Object Types", filename: "base_object_types", json: BaseItemObjectTypes }, 
       { name: "Set Items", filename: "set_items", json: Sets },
       { name: "Base Items", filename: "base_items", json: BaseItems }
     ]

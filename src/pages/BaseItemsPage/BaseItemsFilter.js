@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import ObjectTypes from '../../data/json/object_types.json';
+import BaseItemObjectTypes from '../../data/json/base_object_types.json';
 import {Columns, Box, Button, Column, Label, Control, Field} from 'tenpines-bulma-react';
 
 import Select from 'react-select';
@@ -18,8 +18,8 @@ const optionValue = (value, list) => list.find( element => element.value === val
 
 const getKeyByValue = (element, value) => Object.keys(element).find(key => element[key] === value);
 
-const objectTypesValues = Object.values(ObjectTypes).sort();
-const objectTypes = [{value: '', label: 'Cualquiera'}].concat( objectTypesValues.map(label => ({value: getKeyByValue(ObjectTypes, label), label: label})) );
+const objectTypesValues = Object.values(BaseItemObjectTypes).sort();
+const objectTypes = [{value: '', label: 'Cualquiera'}].concat( objectTypesValues.map(label => ({value: getKeyByValue(BaseItemObjectTypes, label), label: label})) );
 const itemTypes  = [{value: '', label: 'Cualquiera'}, {value: 'normal', label: 'Normal'}, {value: 'exceptional', label: 'Excepcional'}, {value: 'elite', label: 'Elite'}];
 const characters = [{value: '', label: 'Cualquiera'}, {value: 'amazon', label: 'Amazona'}, {value: 'assasin', label: 'Asesina'}, {value: 'barbarian', label: 'Bárbaro'},{value: 'druid', label: 'Druída'}, {value: 'sorcerer', label: 'Hechicera'}, {value: 'necromancer', label: 'Nigromante'}, {value: 'paladin', label: 'Paladín'}];
 
