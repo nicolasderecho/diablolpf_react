@@ -56,23 +56,35 @@ const itemLabelFor = (itemLabel, itemType) => {
     return translations[itemType] || itemLabel;
 }
 const UniqueItems = flattenDeep([NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS])
-    .map(item => Object.assign({}, item, {
-        id: item.id || buildId(),
-        itemLabelName: item.itemLabelName || item.itemLabel,
-        extraAttributes: cleanAttributes(item.extraAttributes),
-        isCharacterItem: !!(item.isCharacterItem),
-        itemType: itemTypeFor(item.itemType),
-        itemLabel: itemLabelFor(item.itemLabel, itemTypeFor(item.itemType)),
-        imageCodeName: toImageName(item.originalName),
-        imageUrl: `/assets/legacy/items/unique/${toImageName(item.originalName)}.png`
-    }));
+    .map(item => {
+        delete item.image
+        return Object.assign({}, item, {
+            id: item.id || buildId(),
+            itemLabelName: item.itemLabelName || item.itemLabel,
+            extraAttributes: cleanAttributes(item.extraAttributes),
+            isCharacterItem: !!(item.isCharacterItem),
+            itemType: itemTypeFor(item.itemType),
+            itemLabel: itemLabelFor(item.itemLabel, itemTypeFor(item.itemType)),
+            imageCodeName: toImageName(item.originalName),
+            imageUrl: `/assets/legacy/items/unique/${toImageName(item.originalName)}.png`
+        })
+    });
 
 const ObjectTypes = UniqueItems.reduce( (objects, item) => Object.assign({}, objects, {[item.itemType]: item.itemLabel.toLowerCase() === 'casco' ? 'Yelmo' : item.itemLabel}), {});
 
-const Sets = SETS.map( set => Object.assign({}, set, {id: (set.id || buildId()), items: set.items.map(item => Object.assign({}, item, {imageUrl: `/assets/legacy/items/set/${toImageName(item.originalName)}.png`})) }));
+const Sets = SETS.map( set => {
+    return Object.assign({}, set, {
+        id: (set.id || buildId()), 
+        items: set.items.map(item => {
+            delete item.image 
+            return Object.assign({}, item, {imageUrl: `/assets/legacy/items/set/${toImageName(item.originalName)}.png`})
+        }) 
+    })
+});
 
 const BaseItems = BASE_ITEMS.map(baseItem => {
     const attributes = baseItem.attributes.filter(string => !string.match(/tipo de objeto/i))
+    delete baseItem.image
     return Object.assign({}, baseItem, { attributes: attributes, imageUrl: `/assets/legacy/items/base/${toImageName(baseItem.originalName)}.png` });
 })
 
