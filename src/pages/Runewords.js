@@ -10,7 +10,6 @@ import uniq from 'lodash/uniq';
 import capitalize from 'lodash/capitalize';
 import Select from 'react-select';
 import Spinner from '../shared/Spinner';
-import ReactGA from 'react-ga';
 
 const TABLE_HEADERS = ['Palabra Rúnica', 'Especificaciones'];
 
@@ -62,11 +61,6 @@ const Runewords = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        ReactGA.set({ filter: JSON.stringify({name, originalName, holes, applicableIn, level, runes}) });
-        ReactGA.event({
-          category: 'Runewords',
-          action: 'filtering-runewords'
-        });
         filterRunewords();
     }
 

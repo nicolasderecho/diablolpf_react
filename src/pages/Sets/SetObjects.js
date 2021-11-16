@@ -5,7 +5,6 @@ import { characterName } from '../../shared/helpers/util';
 import Sets from '../../data/json/set_items.json';
 import Select from 'react-select';
 import SetTable from './SetTable';
-import ReactGA from 'react-ga';
 
 const selectTheme= (theme) => ({
   ...theme,
@@ -41,11 +40,7 @@ const SetObjects = () => {
     useEffect(() => { window.setTimeout( () => setDisplayTable(true), 0) }, []);
 
 		const updateSelectedOption = (selectedOption) => {
-			if(selectableOptions[0].value === '') { updateSelectableOptions(selectableOptions.slice(1)); }
-      ReactGA.event({
-        category: 'Diablo Set',
-        action: 'selecting-diablo-set'
-      }); 			
+			if(selectableOptions[0].value === '') { updateSelectableOptions(selectableOptions.slice(1)); } 			
 			updateSelectedSet(selectedOption.value);
 		}
 
