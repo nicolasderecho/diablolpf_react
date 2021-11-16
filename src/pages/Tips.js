@@ -114,7 +114,10 @@ const TipsPage = (props) => {
                         - Trono de la Destrucción<br/>
                         - Camara del Mundo de Piedra
                     </p>
-                </Column>                                                    
+                    <p style={{margin: "30px 0 10px 0"}}>
+                        Podés ver los TC de las demás areas del juego {externalLink("https://www.diablo2latino.com/Tablas-nivel.html", "Aquí")}
+                    </p>
+                </Column>
                 <Column columnSize='full'>
                     <Title className='white-text' spaced>Llaves del pandemonium</Title>
                     <p>
