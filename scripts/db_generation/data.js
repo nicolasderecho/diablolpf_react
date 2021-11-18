@@ -5,6 +5,8 @@ const JsonCubeRecipes = require('./cube_recipes.json');
 const { sortBy, flattenDeep, pickBy, uniq, includes } = require('lodash');
 const { NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS, SETS } = require('./items');
 const { BASE_ITEMS } = require("./base_items")
+const { TC_AREAS } = require("./tc_by_area") //position 0 acto 1, position 39 Acto 2, position 74 Acto 3,position 102 Acto 4, position 108 Acto 5 
+const { UNIQUE_ITEMS } = require("./unique_items")
 
 const randomString = () =>  Math.random().toString(36).substr(2, 9);
 const buildId = () => `${randomString()}-${randomString()}-${randomString()}-${randomString()}`;
@@ -55,9 +57,13 @@ const itemLabelFor = (itemLabel, itemType) => {
     }
     return translations[itemType] || itemLabel;
 }
+
+const parseItemOriginalName = string => string.toLowerCase().replace(/\s+/gi, "").replace(/\á/gi,'a').replace(/\é/gi,'e').replace(/\í/gi,'i').replace(/\ó/gi,'o').replace(/\ú/gi,'u').replace(/\'s/gi,'')
+
 const UniqueItems = flattenDeep([NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, PJ_ITEMS])
     .map(item => {
         delete item.image
+        const uniqueItem = UNIQUE_ITEMS.find(uitem => parseItemOriginalName(uitem.codeName) === parseItemOriginalName(item.originalName) ) || {}        
         return Object.assign({}, item, {
             id: item.id || buildId(),
             itemLabelName: item.itemLabelName || item.itemLabel,
@@ -66,6 +72,7 @@ const UniqueItems = flattenDeep([NORMAL_ITEMS, ELITE_ITEMS, EXCEPTIONAL_ITEMS, P
             itemType: itemTypeFor(item.itemType),
             itemLabel: itemLabelFor(item.itemLabel, itemTypeFor(item.itemType)),
             imageCodeName: toImageName(item.originalName),
+            tcNumber: uniqueItem.tcNumber || item.tcNumber,
             imageUrl: `/assets/legacy/items/unique/${toImageName(item.originalName)}.png`
         })
     });
@@ -92,6 +99,12 @@ const BASE_ITEM_TYPES = uniq(BaseItems.map(baseItem => baseItem.itemType))
 
 const BaseItemObjectTypes = pickBy(ObjectTypes, (value, key) => includes(BASE_ITEM_TYPES, key.toLocaleLowerCase()) )
 
+const ActOneAreas = TC_AREAS.slice(1, 39)
+const ActTwoAreas = TC_AREAS.slice(40, 74)
+const ActThreeAreas = TC_AREAS.slice(75, 102)
+const ActFourAreas = TC_AREAS.slice(103, 108)
+const ActFiveAreas = TC_AREAS.slice(109, 140)
+
 module.exports = {
     RunesData: RunesData,
     Gems: Gems,
@@ -101,5 +114,6 @@ module.exports = {
     ObjectTypes: ObjectTypes,
     Sets: Sets,
     BaseItems: BaseItems,
-    BaseItemObjectTypes: BaseItemObjectTypes
+    BaseItemObjectTypes: BaseItemObjectTypes,
+    ActOneAreas, ActTwoAreas, ActThreeAreas, ActFourAreas, ActFiveAreas
 }

@@ -1,5 +1,5 @@
 const fs = require('fs'); // file system module to perform file operations
-const { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes, Sets, BaseItems, BaseItemObjectTypes } = require('./db_generation/data.js');
+const { RunesData, Gems, CubeRecipes, Runewords, UniqueItems, ObjectTypes, Sets, BaseItems, BaseItemObjectTypes, ActOneAreas, ActTwoAreas, ActThreeAreas, ActFourAreas, ActFiveAreas } = require('./db_generation/data.js');
 
 async function getProjectRootPath () {
     const { dirname } = require ( 'path' );
@@ -26,7 +26,12 @@ async function getProjectRootPath () {
       { name: "Object Types", filename: "object_types", json: ObjectTypes }, 
       { name: "Base Object Types", filename: "base_object_types", json: BaseItemObjectTypes }, 
       { name: "Set Items", filename: "set_items", json: Sets },
-      { name: "Base Items", filename: "base_items", json: BaseItems }
+      { name: "Base Items", filename: "base_items", json: BaseItems },
+      { name: "Act I Areas", filename: "act1", json: ActOneAreas },
+      { name: "Act II Areas", filename: "act2", json: ActTwoAreas },
+      { name: "Act III Areas", filename: "act3", json: ActThreeAreas },
+      { name: "Act IV Areas", filename: "act4", json: ActFourAreas },
+      { name: "Act V Areas", filename: "act5", json: ActFiveAreas },
     ]
     
     console.log(rootPath)

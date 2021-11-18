@@ -42,6 +42,7 @@ const SetTable = ({ setId }) => {
                         ? <span className='gold-text is-heavy'>Solo para {characterName(set.character)}</span>
                         : null
                     }
+                    { !!item.tcNumber && <div className="item-tc-number">TC: {item.tcNumber}</div> }
                   </div>
                 </Column>
               </Columns>

@@ -15,6 +15,7 @@ const ItemRequirements = ({item}) => {
                 { requirementName(attribute) }: { item[attribute] }
             </div> )}
         </div>
+        { !!item.tcNumber && <div className="item-tc-number">TC: {item.tcNumber}</div> }
     </React.Fragment>;
 }
 

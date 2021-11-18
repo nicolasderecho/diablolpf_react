@@ -21,21 +21,25 @@ body {
   color: red;
 }
 .blue-text {
-  color: $diablo_blue;
+  color: $diablo_blue !important;
 }
 .gold-text {
   color: $diablo_gold;
 }
 .orange-text {
-  color: $diablo_orange;
+  color: $diablo_orange !important;
 }  
+
+.font-bold {
+  font-weight: bold;
+}
 
 .dark-blue-text {
   color: $diablo_dark_blue;
 }
 
 .yellow-text {
-  color: $diablo_yellow;
+  color: $diablo_yellow !important;
 }
 
 .green-text {
@@ -106,6 +110,36 @@ body {
 .vertical-bottom-padding {
   &:not(:last-of-type) {
     padding-bottom: 10px;
+  }
+}
+
+
+.collapsible-component {
+  
+  margin-bottom: 15px;
+
+  .collapsible-trigger {
+    display: flex;
+    font-size: 1.25rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #333;
+
+    font-weight: bold;
+    cursor: pointer;
+    color: $diablo_orange;
+  }
+
+  .collapsible-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.15s ease-out;
+
+    &.open {
+     max-height: 2500px; 
+     animation: max-height 0.5s ease-out;
+    }
   }
 }
 

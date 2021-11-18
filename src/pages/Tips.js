@@ -1,5 +1,11 @@
 import React from 'react';
 import {Title, Columns, Column, Container, Subtitle} from 'tenpines-bulma-react';
+import ActAreas from '../shared/ActAreas';
+import ActOne from '../data/json/act1.json'
+import ActTwo from '../data/json/act2.json'
+import ActThree from '../data/json/act3.json'
+import ActFour from '../data/json/act4.json'
+import ActFive from '../data/json/act5.json'
 
 const externalLink = (url, title, options = {}) => {
 	const target = options.target || '_blank';
@@ -24,6 +30,52 @@ const TipsPage = (props) => {
                     <p>Es un modificador que sirve para recuperar cantidades de la preciada materia azul cada vez que eres dañado. Contrariamente a la creencia popular, NO reduce de ninguna manera los daños recibidos, sino que el porcentaje poseído se aplica sobre la cifra obtenida para calcular cuánto maná se recupera. De esta manera, si tenemos 50% de daño infligido repercute en el maná y nos llevamos 100 puntos de daño, perderíamos 100 puntos de vida (supongamos que no tenemos resistencias ni daños reducidos de ninguna clase) y, en caso de no tener nuestra orbe de maná completa, recuperaríamos de golpe 50 puntos de materia azul. Si la cantidad bruta de maná recuperado excede el total que podemos llegar a tener los puntos restantes se perderán.</p>
                     <br/>
                     <p>Daño infligido repercute en el maná sólamente se aplica cuando se reciben daños de tipo físico, sean hechos en combate cuerpo a cuerpo o a distancia. El modificador no será tenido en cuenta si nos atacan con magia, elementales, o veneno.</p>
+                </Column>
+                <Column columnSize='full'>               
+                    <Subtitle as={'h3'} className='orange-text'> Azote Mortal</Subtitle>
+                    <p>Es la posibilidad de conseguir doble daño. Este bono se aplica después de aplicar el resto de habilidades y otros modificadores que influyen en el calculo del daño. Se suma Azote Mortal y Azote Crítico y nunca afectará más de un 100%</p>
+                </Column>
+                <Column columnSize='full'>               
+                    <Subtitle as={'h3'} className='orange-text'> Heridas Abiertas</Subtitle>
+                    <p>Posibilidad de provocar que un monstruo empiece a sangrar de manera incontrolada. Si un monstruo o un jugador está bajo este efecto, irá perdiendo vida con el tiempo. Se suma todos los bonos de este modificador que tengamos en el equipo.</p>
+                    <br/>
+                    <p>Tiene una duracion de 200 frames, o lo que es lo mismo, 8 segundos.</p>
+                </Column>
+                <Column columnSize='full'>               
+                    <Subtitle as={'h3'} className='orange-text'> Golpe Triturador</Subtitle>
+                    <p>Posibilidad de reducir una fraccion de la vida de un objetivo en un solo golpe. (ej: 1/4 de la vida del enemigo de un golpe)</p>
+                </Column>
+                <Column columnSize='full'>               
+                    <Subtitle as={'h3'} className='orange-text'> El Impacto Hace que el Monstruo Huya</Subtitle>
+                    <p>Tiene los mismos efectos que la habilidad Aullido del Bárbaro o Terror del Nigromante y como su nombre indica, es la posibilidad de hacer que un monstruo huya aterrorizado al golpearlo.</p>
+                </Column>
+                <Column columnSize='full'>               
+                    <Subtitle as={'h3'} className='orange-text'> Defensa contra Misil</Subtitle>
+                    <p>Reduce el % de posibilidades de ser alcanzado por los misiles enemigos, actúa sobre el factor de defensa aumentando la defensa del personaje.</p>
+                </Column>
+                <Column columnSize='full'>               
+                    <Subtitle as={'h3'} className='orange-text'> El Impacto Ciega al Objetivo</Subtitle>
+                    <p>Reduce el radio de vision tal como lo hace la maldicion Vision Borrosa del Nigromante.</p>
+                </Column>
+                <Column columnSize='full'>               
+                    <Subtitle as={'h3'} className='orange-text'> Ralentiza al Objetivo</Subtitle>
+                    <p>Reduce la velocidad de movimiento y ataque de los monstruos en el % especificado. Aunque parezca que esto congele a los objetivos al aparecer de color azul cuando están bajo los efectos de este modificador, no se trata de un ataque de frío.</p>
+                </Column>
+                <Column columnSize='full'>               
+                    <Subtitle as={'h3'} className='orange-text'> Matar Monstruos</Subtitle>
+                    <p>No se podrá realizar ninguna accion sobre los cuerpos de los monstruos caidos. Habilidades que no se podrán hacer son: Invocar del nigromante, Buscar objetos del Barbaro, Redencion del paladín.</p>
+                </Column>
+                <Column columnSize='full'>               
+                    <Subtitle as={'h3'} className='orange-text'> Ignorar Defensa del Objetivo</Subtitle>
+                    <p>Esta habilidad no funciona en únicos, mercenarios, super-únicos, otros jugadores y jefes de final de acto.</p>
+                    <br/>
+                    <p>Este modificador lo que hace es dejar la defensa en 0.</p>
+                </Column>
+                <Column columnSize='full'>               
+                    <Subtitle as={'h3'} className='orange-text'> Absorción</Subtitle>
+                    <p>No confundir con absorcion de daño, ni con absorcion de daño de magia. Son modificadores distintos y se comportan de manera distinta.</p>
+                    <br/>
+                    <p>Absorcion (o absorber), como su nombre indica, absorbe el daño de ataque elemental del tipo que el objeto indique, y convierte el daño recibido de modo que cura al personaje. Esto es muy útil contra determinados ataques elementales muy peligrosos. Su funcionamiento es el siguiente: Si por ejemplo, se utiliza un objeto con un 5% de absorcion de fuego, el 5% del daño de fuego recibido que normalmente dañaría al personaje, en este caso le curaría. Esto no significa que no reciba daño, sino que parte del que recibe se convierte en vida automáticamente. Un 5% de absorcion equivale a un 10% aproximadamente de resistencia elemental. Además este modificador no está limitado, o sea que se puede superar el máximo de resistencia elemental con este tipo de objetos, yendo más allá del 75% de resistencias elementales (el máximo alcanzable sin objetos de este tipo).</p>
                 </Column>
                 <Column columnSize='full'>
                     <Title className='white-text' spaced>Clases de los objetos</Title>
@@ -75,48 +127,21 @@ const TipsPage = (props) => {
                 </Column>
                 <Column columnSize='full'>
                     <Title className='white-text' spaced>¿Cuales son las Areas 85 del juego?</Title>
-                </Column>                                                              
-                <Column columnSize='full'>
-                    <Subtitle as={'h3'} className='orange-text'>Acto 1</Subtitle>
-                    <p>
-                        - Foso niveles 1 y 2 ( Se accede desde Tierras Altas de Tamoe)<br/>
-                        - Mausoleo (Se accede desde el cementerio)
-                    </p>
-                </Column>   
-                <Column columnSize='full'>
-                    <Subtitle as={'h3'} className='orange-text'>Acto 2</Subtitle>
-                    <p>
-                        - Cubil de los gusanos nivel 3 (Se accede desde el Oasis Lejano)<br/>
-                        - Túneles antiguos (Se accede desde Ciudad Perdida)
-                    </p>
-                </Column>      
-                <Column columnSize='full'>
-                    <Subtitle as={'h3'} className='orange-text'>Acto 3</Subtitle>
-                    <p>
-                        - Cloacas nivel 2<br/>
-                        - Templo olvidado (Se accede desde Parte alta de Kurast)<br/>
-                        - El santuario en ruinas (Se accede desde Calzada de Kurast)<br/>
-                        - Relicario abandonado (Se accede desde Calzada de Kurast)
-                    </p>
-                </Column>   
-                <Column columnSize='full'>
-                    <Subtitle as={'h3'} className='orange-text'>Acto 4</Subtitle>
-                    <p>
-                        - Río de llamas<br/>
-                        - Santuario del caos
-                    </p>
-                </Column>    
-                <Column columnSize='full'>
-                    <Subtitle as={'h3'} className='orange-text'>Acto 5</Subtitle>
-                    <p>
-                        - Cima del Monte arreat<br/>
-                        - Torres del Homenaje, todos lo niveles<br/>
-                        - Trono de la Destrucción<br/>
-                        - Camara del Mundo de Piedra
-                    </p>
-                    <p style={{margin: "30px 0 10px 0"}}>
-                        Podés ver los TC de las demás areas del juego {externalLink("https://www.diablo2latino.com/Tablas-nivel.html", "Aquí")}
-                    </p>
+                </Column>
+                <Column columnSize="full">
+                    <ActAreas actData={ActOne} title="Acto I" />
+                </Column>
+                <Column columnSize="full">
+                    <ActAreas actData={ActTwo} title="Acto II" />
+                </Column>
+                <Column columnSize="full">
+                    <ActAreas actData={ActThree} title="Acto III" />
+                </Column>
+                <Column columnSize="full">
+                    <ActAreas actData={ActFour} title="Acto IV" />
+                </Column>
+                <Column columnSize="full">
+                    <ActAreas actData={ActFive} title="Acto V" />
                 </Column>
                 <Column columnSize='full'>
                     <Title className='white-text' spaced>Llaves del pandemonium</Title>
@@ -165,6 +190,7 @@ const TipsPage = (props) => {
 												<div className='vertical-bottom-padding'>{externalLink('https://diablo.gamepedia.com/Diablo_II_Wiki', 'Diablo II Gamepedia')}</div>
 												<div className='vertical-bottom-padding'>{externalLink('https://www.diablo2latino.com/', 'Diablo II Latino')}</div>
 												<div className='vertical-bottom-padding'>{externalLink('http://www.d2mantix.com/', 'Diablo II Mantix')}</div>
+                                                <div className='vertical-bottom-padding'>{externalLink('https://diablo2.io/', 'Diablo 2 IO')}</div>
 												
 												
 										</div>
