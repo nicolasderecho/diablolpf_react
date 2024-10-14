@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Column, Box, Columns, Field, Label, Control, Button, Table, Tag} from 'tenpines-bulma-react';
-import RunewordsList from '../data/json/runewords.json';
+import RawRunewordsList from '../data/json/runewords.json';
 import RunesData from '../data/json/runes.json';
 import Rune from '../shared/Rune';
 import DiabloTable from '../shared/DiabloTable.js';
@@ -11,6 +11,7 @@ import capitalize from 'lodash/capitalize';
 import Select from 'react-select';
 import Spinner from '../shared/Spinner';
 
+const RunewordsList = RawRunewordsList.map(runeword => ({...runeword, runes: runeword.runeCodes.map(code => RunesData.find(d => d.code === code))}))
 const TABLE_HEADERS = ['Palabra Rúnica', 'Especificaciones'];
 
 const names = uniq(RunewordsList.map( runeword => runeword.name)).sort();
@@ -72,7 +73,7 @@ const Runewords = () => {
                 <Column className={'runeword-stats'} touchColumnSize={'full'} desktopColumnSize={'full'} widescreenColumnSize={'half'} >
                     <div className={'runeword-name-label'}>
                         <div className={'runeword-name'}><b>Nombre: </b>{runeword.name}</div>
-                        { runeword.unlockable ? <Tag className={'unlockable'} color={'link'} size={'normal'} rounded>Desbloqueable</Tag> : null }
+                        { runeword.unlockable ? <Tag className={'unlockable'} color={'link'} size={'normal'} rounded>Nueva en D2R</Tag> : null }
                     </div>
                     <div><b>Nombre original: </b>{runeword.code}</div>
                     <div><b>Nivel: </b>{runeword.level}</div>
