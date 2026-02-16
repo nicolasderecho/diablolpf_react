@@ -3,65 +3,13 @@ table.diablo-table {
 
   tbody td.diablo-table-item.formula {
     width: 20%;
-
-    .formula-container {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-    }
   }
-  
+
   tbody td.diablo-table-item.runeword-specs {
     text-align: left;
   }
 
-  thead th.diablo-table-item, tbody td.diablo-table-item {
-    color: $white;
-    text-align: center;
+  .diablo-table-item figure.image:not(.item-image) {
+    margin: 0 auto 0.5em;
   }
-
-}
-  
-.diablo-table, .table.is-striped.diablo-table tbody tr:not(.is-selected):nth-child(even) {
-  background-color: $black;
-  color: $white;
-}
-
-.diablo-table, .table.is-striped.diablo-table.unique-items-table tbody tr:not(.is-selected):nth-child(even) {
-  background-color: black;
-  color: $white;
-}
-
-.diablo-table tr:hover, .table.is-striped.diablo-table tbody tr:not(.is-selected):nth-child(even):hover {
-  background-color: green;
-  .brown-text, .dark-brown-text, .gold-text {
-    color: white;
-  }
-
-  .blue-text {
-    color: #84abfb;
-  }
-
-  .green-text {
-    color: $diablo_yellow;
-  }
-
-  .orange-text {
-    font-weight: 500;
-  }
-}
-
-.diablo-filter-box {
-  background-color: green;
-  border: 1px solid $white;
-  color: $white;
-  margin: 1em;
-
-  label {
-    color: $white;
-  }
-}
-
-.diablo-table-item figure.image:not(.item-image) {
-  margin: 0 auto 0.5em;
 }

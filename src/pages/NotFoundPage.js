@@ -1,16 +1,10 @@
 import React from 'react';
-import {Title, Content, Columns, Column} from 'tenpines-bulma-react';
+import PageContainer from '../components/ui/PageContainer';
 
-const NotFoundPage = (props) => {
-    return <div className={'page-container'}>
-        <Columns>
-            <Column>
-                <Content>
-                    <Title className={'not-found-message'}>Página No encontrada</Title>
-                </Content>            
-            </Column>
-        </Columns>
-    </div>;
-}
+const NotFoundPage = () => (
+  <PageContainer className="flex justify-center">
+    <h1 className="text-white text-2xl font-semibold text-center mt-12">Página No encontrada</h1>
+  </PageContainer>
+);
 
 export default NotFoundPage;

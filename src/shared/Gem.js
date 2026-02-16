@@ -1,15 +1,22 @@
-import React from  'react';
-import {Image} from 'tenpines-bulma-react';
+import React from 'react';
 
 const titleFor = (code) => code;
 
-const Gem = ({code, name}) => {
-    const [gemType, gemStatus] = code.split("-")
-
-    return <React.Fragment>
-        <Image is={'32x32'} src={`/assets/legacy/game_gems/${gemStatus.toLowerCase()}_${gemType.toLowerCase()}.png`} alt={name} title={titleFor(code)} className={'gem-figure'}/>
-        <div className={'gem-name'}>{ name }</div>
-    </React.Fragment>;
-}
+const Gem = ({ code, name }) => {
+  const [gemType, gemStatus] = code.split('-');
+  return (
+    <span className="inline-flex flex-col items-center gap-1">
+      <img
+        src={`/assets/legacy/game_gems/${gemStatus.toLowerCase()}_${gemType.toLowerCase()}.png`}
+        alt={name}
+        title={titleFor(code)}
+        className="w-8 h-8 gem-figure"
+        width={32}
+        height={32}
+      />
+      <span className="gem-name">{name}</span>
+    </span>
+  );
+};
 
 export default Gem;

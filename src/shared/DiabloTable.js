@@ -1,27 +1,35 @@
 import React from 'react';
-import {Table, Title} from 'tenpines-bulma-react';
 import EmptyResults from './EmptyResults';
 
-const DiabloTable = ({items, headers, renderRow, className}) => {
-    if(items.length === 0 ) { return <EmptyResults /> }
-    const classes = `diablo-table ${className}`.trim();
-    return <React.Fragment>
-        <div className='title-wrapper'>
-            <Title as='span' className='white-text'>{items.length} { items.length > 1 ? 'Resultados' : 'Resultado' } </Title>
-        </div>
-        <div className={'table-container'} style={{padding: '1em'}}>
-            <Table bordered striped className={classes}>
-                <Table.Head>
-                    <Table.Row>
-                        { headers.map( (header, key) => <Table.CellHeader key={key} className={'diablo-table-item'}>{header}</Table.CellHeader>) }
-                    </Table.Row>
-                </Table.Head>
-                <Table.Body>
-                    { items.map(renderRow) }
-                </Table.Body>
-            </Table>
-        </div>
-    </React.Fragment>
+const DiabloTable = ({ items, headers, renderRow, className }) => {
+  if (items.length === 0) return <EmptyResults />;
+  const tableClasses = `diablo-table w-full border border-gray-600 ${(className || '').trim()}`.trim();
+  return (
+    <>
+      <div className="m-4">
+        <span className="text-white text-xl font-semibold">
+          {items.length} {items.length > 1 ? 'Resultados' : 'Resultado'}
+        </span>
+      </div>
+      <div className="px-2 md:px-4 overflow-x-auto min-w-0" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <table className={`${tableClasses} min-w-[640px]`}>
+          <thead>
+            <tr className="bg-gray-900 text-white">
+              {headers.map((header, key) => (
+                <th
+                  key={key}
+                  className="diablo-table-item table-cell text-center"
+                >
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>{items.map(renderRow)}</tbody>
+        </table>
+      </div>
+    </>
+  );
 };
 
 export default DiabloTable;

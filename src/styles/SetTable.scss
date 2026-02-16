@@ -1,6 +1,8 @@
-.set-option {
-  align-items: center;
-  .option-character {
-    margin-left: 1em;
-  }
+table td.bonuses-container {
+  padding: 0.75em 1.5em;
+}
+
+.set-bonuses {
+  display: flex;
+  flex-direction: column;
 }
