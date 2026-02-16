@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .table-cell {
+    @apply border border-gray-600 p-2;
+  }
+
+  /* Improve blue text readability when table row is hovered (green background) */
+  tr:hover .text-diablo-blue {
+    @apply text-cyan-200;
+  }
+}

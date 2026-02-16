@@ -1,16 +1,7 @@
-table td.bonuses-container {
-  padding: 0.75em 1.5em;
-}
+.set-option {
+  align-items: center;
 
-.set-select-label {
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 3em;
-  color: white;
-}
-
-.set-bonuses {
-  display: flex;
-  flex-direction: column;
+  .option-character {
+    margin-left: 1em;
+  }
 }

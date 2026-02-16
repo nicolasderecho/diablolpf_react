@@ -1,11 +1,17 @@
-import React from  'react';
-import {Image} from 'tenpines-bulma-react';
+import React from 'react';
 
-const Rune = ({code, name}) => {
-    return <React.Fragment>
-        <Image is={'32x32'} src={`/assets/legacy/runes/${code.toLowerCase()}.png`} alt={name} title={name} />
-        <span>{ name }</span>
-    </React.Fragment>;
-}
+const Rune = ({ code, name }) => (
+  <span className="inline-flex items-center gap-2">
+    <img
+      src={`/assets/legacy/runes/${code.toLowerCase()}.png`}
+      alt={name}
+      title={name}
+      className="w-8 h-8"
+      width={32}
+      height={32}
+    />
+    <span>{name}</span>
+  </span>
+);
 
 export default Rune;
