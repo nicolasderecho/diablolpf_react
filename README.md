@@ -12,4 +12,4 @@ node scripts/generate_json_data.js
 ```
 
 # Docs
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project uses [Vite](https://vite.dev/) with React and TypeScript.
