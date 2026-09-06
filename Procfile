@@ -1,1 +1,1 @@
-web ./node_modules/.bin/serve -s build
+web ./node_modules/.bin/serve -s dist

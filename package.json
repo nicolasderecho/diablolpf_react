@@ -9,46 +9,32 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^6.30.1",
-    "react-scripts": "^5.0.1",
     "react-select": "^5.10.2",
     "sass": "^1.89.2",
-    "serve": "^11.2.0",
+    "serve": "^14.2.6",
     "tailwind-merge": "^3.4.1"
   },
   "scripts": {
-    "prod-start": "./node_modules/.bin/serve -s build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "prod-start": "./node_modules/.bin/serve -s dist",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite",
     "heroku-postbuild": "npm run build"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.24",
     "@types/node": "^18.19.130",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.24",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.19",
-    "typescript": "^4.9.5"
+    "typescript": "^5.6.3",
+    "vite": "^6.0.3"
   }
 }
