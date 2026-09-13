@@ -68,24 +68,27 @@ const Gems = () => {
         <form onSubmit={onSubmit}>
           <div className="flex flex-wrap gap-4">
             <div className="w-full md:flex-[2] md:min-w-[120px]">
-              <FilterLabel>Armas Contienen</FilterLabel>
+              <FilterLabel htmlFor="gems-weapon">Armas Contienen</FilterLabel>
               <FilterInput
+                id="gems-weapon"
                 placeholder="Ej: Vida robada por impacto"
                 value={weapon}
                 onChange={(e) => setWeapon(e.target.value)}
               />
             </div>
             <div className="w-full md:flex-[4] md:min-w-[150px]">
-              <FilterLabel>Armaduras/Yelmos contienen</FilterLabel>
+              <FilterLabel htmlFor="gems-helm">Armaduras/Yelmos contienen</FilterLabel>
               <FilterInput
+                id="gems-helm"
                 placeholder="Ej: El atacante recibe el daño de"
                 value={helm}
                 onChange={(e) => setHelm(e.target.value)}
               />
             </div>
             <div className="w-full md:flex-[4] md:min-w-[150px]">
-              <FilterLabel>Escudos contienen</FilterLabel>
+              <FilterLabel htmlFor="gems-shield">Escudos contienen</FilterLabel>
               <FilterInput
+                id="gems-shield"
                 placeholder="Ej: El atacante recibe el daño de"
                 value={shield}
                 onChange={(e) => setShield(e.target.value)}

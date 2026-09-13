@@ -155,8 +155,9 @@ const Runewords = () => {
         <form onSubmit={onSubmit}>
           <div className="flex flex-wrap gap-4">
             <div className="w-full md:flex-[2] md:min-w-[120px]">
-              <FilterLabel>Nombre</FilterLabel>
+              <FilterLabel htmlFor="runewords-name">Nombre</FilterLabel>
               <Select<SelectOption>
+                inputId="runewords-name"
                 theme={selectTheme}
                 styles={selectStyles}
                 placeholder="Ej: Espiritu"
@@ -168,8 +169,9 @@ const Runewords = () => {
               />
             </div>
             <div className="w-full md:flex-[4] md:min-w-[120px]">
-              <FilterLabel>Nombre original</FilterLabel>
+              <FilterLabel htmlFor="runewords-original-name">Nombre original</FilterLabel>
               <Select<SelectOption>
+                inputId="runewords-original-name"
                 theme={selectTheme}
                 styles={selectStyles}
                 placeholder="Ej: Spirit"
@@ -181,8 +183,9 @@ const Runewords = () => {
               />
             </div>
             <div className="w-full md:flex-[4] md:min-w-[120px]">
-              <FilterLabel>Nivel</FilterLabel>
+              <FilterLabel htmlFor="runewords-level">Nivel</FilterLabel>
               <Select<SelectOption<string | number>>
+                inputId="runewords-level"
                 theme={selectTheme}
                 styles={selectStyles}
                 placeholder="Ej: 11"
@@ -194,8 +197,9 @@ const Runewords = () => {
               />
             </div>
             <div className="w-full md:flex-[4] md:min-w-[120px]">
-              <FilterLabel>Engarces</FilterLabel>
+              <FilterLabel htmlFor="runewords-holes">Engarces</FilterLabel>
               <Select<SelectOption<string | number>>
+                inputId="runewords-holes"
                 theme={selectTheme}
                 styles={selectStyles}
                 placeholder="Ej: Cualquiera"
@@ -209,8 +213,9 @@ const Runewords = () => {
           </div>
           <div className="flex flex-wrap gap-4 mt-4">
             <div className="w-full md:flex-[4] md:min-w-[150px]">
-              <FilterLabel>Aplicable En</FilterLabel>
+              <FilterLabel htmlFor="runewords-applicable-in">Aplicable En</FilterLabel>
               <Select<SelectOption, true>
+                inputId="runewords-applicable-in"
                 isMulti
                 theme={selectTheme}
                 styles={selectStyles}
@@ -223,8 +228,9 @@ const Runewords = () => {
               />
             </div>
             <div className="w-full md:flex-[4] md:min-w-[150px]">
-              <FilterLabel>Runas que contiene</FilterLabel>
+              <FilterLabel htmlFor="runewords-runes">Runas que contiene</FilterLabel>
               <Select<SelectOption, true>
+                inputId="runewords-runes"
                 isMulti
                 theme={selectTheme}
                 styles={selectStyles}

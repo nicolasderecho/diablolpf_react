@@ -57,3 +57,4 @@ This is a client-only, data-driven SPA — there is no backend or API. All conte
 - Then, begin working on the todo items, marking them as complete as you go.
 - Please every step of the way just give me a high level explanation of what changes you made
 - Make every task and code change you do as simple as possible. We want to avoid making any massive or complex changes. Every change should impact as little code as possible. Everything is about simplicity.
+- Never run `git commit` (or otherwise create commits) for any reason, even if asked to "commit" as part of a larger task — leave changes staged/unstaged so I can review the diff first. Commits are made solely by me.

@@ -72,32 +72,36 @@ const Runes = () => {
         <form onSubmit={onSubmit}>
           <div className="flex flex-wrap gap-4">
             <div className="w-full md:flex-1 md:min-w-[120px]">
-              <FilterLabel>Nombre</FilterLabel>
+              <FilterLabel htmlFor="runes-name">Nombre</FilterLabel>
               <FilterInput
+                id="runes-name"
                 placeholder="Ej: Sur"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="w-full md:flex-1 md:min-w-[120px]">
-              <FilterLabel>Nivel</FilterLabel>
+              <FilterLabel htmlFor="runes-level">Nivel</FilterLabel>
               <FilterInput
+                id="runes-level"
                 placeholder="Ej: 11"
                 value={level}
                 onChange={(e) => setLevel(e.target.value)}
               />
             </div>
             <div className="w-full md:flex-[2] md:min-w-[150px]">
-              <FilterLabel>Armas Contienen</FilterLabel>
+              <FilterLabel htmlFor="runes-weapon">Armas Contienen</FilterLabel>
               <FilterInput
+                id="runes-weapon"
                 placeholder="Ej: Vida robada por impacto"
                 value={weapon}
                 onChange={(e) => setWeapon(e.target.value)}
               />
             </div>
             <div className="w-full md:flex-[4] md:min-w-[150px]">
-              <FilterLabel>Armaduras/Yelmos/Escudos contienen</FilterLabel>
+              <FilterLabel htmlFor="runes-shield">Armaduras/Yelmos/Escudos contienen</FilterLabel>
               <FilterInput
+                id="runes-shield"
                 placeholder="Ej: El atacante recibe el daño de"
                 value={shield}
                 onChange={(e) => setShield(e.target.value)}
