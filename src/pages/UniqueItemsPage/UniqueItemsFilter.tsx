@@ -54,8 +54,9 @@ const UniqueItemsFilter = ({ onSubmit = () => undefined }: UniqueItemsFilterProp
       <form onSubmit={submitForm}>
         <div className="flex flex-wrap gap-4">
           <div className="w-full md:flex-[2] md:min-w-[120px]">
-            <FilterLabel>Tipo de Item</FilterLabel>
+            <FilterLabel htmlFor="unique-items-item-type">Tipo de Item</FilterLabel>
             <Select<SelectOption>
+              inputId="unique-items-item-type"
               theme={selectTheme}
               isSearchable={false}
               styles={selectStyles}
@@ -67,8 +68,9 @@ const UniqueItemsFilter = ({ onSubmit = () => undefined }: UniqueItemsFilterProp
             />
           </div>
           <div className="w-full md:flex-[2] md:min-w-[120px]">
-            <FilterLabel>Personaje</FilterLabel>
+            <FilterLabel htmlFor="unique-items-character">Personaje</FilterLabel>
             <Select<SelectOption>
+              inputId="unique-items-character"
               theme={selectTheme}
               isSearchable={false}
               styles={selectStyles}
@@ -80,8 +82,9 @@ const UniqueItemsFilter = ({ onSubmit = () => undefined }: UniqueItemsFilterProp
             />
           </div>
           <div className="w-full md:flex-[2] md:min-w-[120px]">
-            <FilterLabel>Tipo de Objeto</FilterLabel>
+            <FilterLabel htmlFor="unique-items-object-type">Tipo de Objeto</FilterLabel>
             <Select<SelectOption>
+              inputId="unique-items-object-type"
               theme={selectTheme}
               isSearchable={false}
               styles={selectStyles}
